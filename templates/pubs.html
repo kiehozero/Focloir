@@ -2,23 +2,24 @@
 
     {% block content %}
 
-        <h4>Insert title here</h4>
+        <h4>Select a pub to add or view reviews</h4>
             
         <div class="row">
 
-            {% for pint in pints %}
-                <div class="col s12 m3">
+            {% for pub in pubs %}
+                <div class="col s6 m3">
                 <div class="card">
                     <div class="card-image">
                     <img src="#">
-                    <span class="card-title">{{ pint.dname }}</span>
+                    <span class="card-title">{{ pub.pname }}</span>
                     <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
                     </div>
-                    <div class="card-content">  
+                    <div class="card-content">
                     <p>
-                        {{ pint.dtype}}
+                        {{ pub.loc}}, {{ pub.city }}
                         <br>
-                        {{ pint.origin }}
+                        {{ pub.country }}
+                        <br>
                     </p>
                     </div>
                 </div>

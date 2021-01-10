@@ -19,10 +19,31 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/pubs")
+def pubs():
+    pubs = mongo.db.pubs.find()
+    return render_template("pubs.html", pubs=pubs)
+
+
 @app.route("/pints")
 def pints():
     pints = mongo.db.pints.find()
     return render_template("pints.html", pints=pints)
+
+
+@app.route("/add_review")
+def add_review():
+    return render_template("add_review.html")
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
 # Make sure to change the debug true statement below
