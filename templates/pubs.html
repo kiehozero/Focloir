@@ -2,27 +2,44 @@
 
     {% block content %}
 
-        <h4>Select a pub to add or view reviews</h4>
-            
+        <div class="row center-align">
+            <h4>Select a pub to add or view reviews</h4>
+        </div>
+
         <div class="row">
+
+            <div class="col s6 m3">
+                    <div class="card">
+                        <div class="card-image">
+                        <img src="#">
+                        <span class="card-title">Create new pub</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+                        </div>
+                        <div class="card-content">
+                        <p>
+                            Click the add button to create a pub and submit a review
+                        </p>
+                        </div>
+                    </div>
+                </div>
 
             {% for pub in pubs %}
                 <div class="col s6 m3">
-                <div class="card">
-                    <div class="card-image">
-                    <img src="#">
-                    <span class="card-title">{{ pub.pname }}</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+                    <div class="card">
+                        <div class="card-image">
+                        <img src="#">
+                        <span class="card-title">{{ pub.pname }}</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+                        </div>
+                        <div class="card-content">
+                        <p>
+                            {{ pub.loc}}, {{ pub.city }}
+                            <br>
+                            {{ pub.country }}
+                            <br>
+                        </p>
+                        </div>
                     </div>
-                    <div class="card-content">
-                    <p>
-                        {{ pub.loc}}, {{ pub.city }}
-                        <br>
-                        {{ pub.country }}
-                        <br>
-                    </p>
-                    </div>
-                </div>
                 </div>
             {% endfor %}
 
