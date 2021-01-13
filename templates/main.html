@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pintbaby | home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+        type="text/css">
+
+    <script
+        src="https://kit.fontawesome.com/faa153a592.js"
+        crossorigin="anonymous">
+    </script>
 
     {% block styles %}
     {% endblock %}
@@ -19,10 +30,11 @@
         <!-- Desktop header-->
 
         <nav>
-            <div class="nav-wrapper brown darken-2">
+            <div class="nav-wrapper">
             <a href="#" class="brand-logo right">pintbaby</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="left hide-on-med-and-down">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-caret-down"></i></a>
+            <!-- Change icon above to fa-caret-up when open -->
+            <ul class="left hide-on-med-and-down fs-italic">
                 <li><a href="{{ url_for('pints') }}">Pints</a></li>
                 <li><a href="{{ url_for('pubs') }}">Pubs</a></li>
                 <li><a href="{{ url_for('add_review') }}">Add a Review</a></li>
@@ -61,5 +73,6 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
+    
 </body>
 </html>
