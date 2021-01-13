@@ -15,7 +15,9 @@
                         <div class="card-image">
                         <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
                         <span class="card-title">Add review</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light">
+                        <a 
+                            class="btn-floating halfway-fab waves-effect waves-light"
+                            href="{{ url_for('add_review') }}">
                             <i class="fas fa-pen-nib"></i>
                         </a>
                         </div>
