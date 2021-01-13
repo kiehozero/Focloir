@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,900;1,700&family=Tenor+Sans&display=swap');
+
+/* color picker:
+light brown: #4A463A
+dark brown: #443E32
+cream: #CBBF85
+red: #885043
+old gold: #EEA410 */
+
+body {
+    font-family: 'Fraunces', serif;
+}
+
+.tenor-sans {
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+.fs-italic {
+    font-style: italic;
+}
+
+/* Navigation */
+
+
+.nav-wrapper {
+    /* overwrites default Materialize colouring */
+    background-image: linear-gradient(to left, #cbbf85, #4a463a);
+}
+
+.brand-logo {
+    font-weight: 900;
+}
+
+/* Results */
+
+.btn-floating {
+    /* overwrites default Materialize colouring */
+    background-color: #885043;
+}
+
+.btn-floating:hover {
+    /* overwrites default Materialize colouring */
+    background-color: #eea410;
+}
