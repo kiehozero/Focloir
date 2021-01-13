@@ -5,8 +5,11 @@
 /* Comments above tells JSHint what version of JS is being used, and secondly overrides JSHint's assumption that the 
 $ symbol is an undefined variable */
 
+/* Materialize jQuery intialisation */
+
 $(document).ready(function(){
     $('.sidenav').sidenav();
+    $('.carousel').carousel();
 });
 
 /* Navigation */
