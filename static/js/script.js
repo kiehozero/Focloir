@@ -9,8 +9,41 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
 });
 
-/* add hover here to convert menu options to font awesome icons on hover */
+/* Navigation */
+/* Need to ensure that button width stays the same when icon changes */
 
-$("#pintButton").mouseeenter(function(){
-  $(this).html("Hello <b>world</b>!");
+$("#pintButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-beer'></i>");
+});
+$("#pintButton").mouseleave(function(){
+  $(this).html("Pints");
+});
+
+$("#pubButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-store-alt'></i>");
+});
+$("#pubButton").mouseleave(function(){
+  $(this).html("Pubs");
+});
+
+$("#addButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-pen-nib'></i>");
+});
+$("#addButton").mouseleave(function(){
+  $(this).html("Add a review");
+});
+
+$("#regButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-id-badge'></i>");
+});
+$("#regButton").mouseleave(function(){
+  $(this).html("Register");
+});
+
+
+$("#logButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-sign-in-alt'></i>");
+});
+$("#logButton").mouseleave(function(){
+  $(this).html("Log In");
 });
