@@ -31,15 +31,16 @@
 
         <nav>
             <div class="nav-wrapper">
-            <a href="#" class="brand-logo right">pintbaby</a>
+            <a href="{{ url_for('index') }}" class="brand-logo right">pintbaby</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-caret-down"></i></a>
             <!-- Change icon above to fa-caret-up when open -->
             <ul class="left hide-on-med-and-down fs-italic">
-                <li><a href="{{ url_for('pints') }}">Pints</a></li>
-                <li><a href="{{ url_for('pubs') }}">Pubs</a></li>
-                <li><a href="{{ url_for('add_review') }}">Add a Review</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('login') }}">Log-In</a></li>
+                <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
+                <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
+                <!-- Make a drop down here that returns every country in the pubs collection-->
+                <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
+                <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>
+                <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
             </ul>
             </div>
         </nav>
@@ -73,6 +74,6 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
-    
+
 </body>
 </html>

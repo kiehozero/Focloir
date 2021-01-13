@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,900;1,700&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,900;1,700&family=Spectral:wght@400;500&display=swap');
 
 /* color picker:
 light brown: #4A463A
@@ -11,8 +11,9 @@ body {
     font-family: 'Fraunces', serif;
 }
 
-.tenor-sans {
-    font-family: 'Tenor Sans', sans-serif;
+.spectral {
+    font-family: 'Spectral', sans-serif;
+    font-weight: 400;
 }
 
 .fs-italic {
@@ -27,7 +28,8 @@ body {
     background-image: linear-gradient(to left, #cbbf85, #4a463a);
 }
 
-.brand-logo {
+nav .brand-logo {
+    color: #443e32;
     font-weight: 900;
 }
 
