@@ -1,27 +1,17 @@
 {% extends "main.html" %}
 
     {% block content %}
-            
-        <div>
-            <h2>Welcome to pintbaby, where the quest to find the perfect pint is never-ending!</h2>
+
+        <div class="parallax-container">
+            <div class="parallax"><img src="{{ url_for('static', filename='images/against-grain-unsat.png') }}"></div>
         </div>
 
-        <div class="carousel">
-            <a class="carousel-item" href="{{ url_for('add_review') }}">
-                <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-            </a>
-            <a class="carousel-item" href="{{ url_for('pints') }}">
-                <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-            </a>
-            <a class="carousel-item" href="{{ url_for('pubs') }}">
-                <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-            </a>
-            <a class="carousel-item" href="{{ url_for('login') }}">
-                <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-            </a>
-            <a class="carousel-item" href="{{ url_for('register') }}">
-                <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-            </a>
+        <div>
+            <h2 class="center-align">Welcome to pintbaby, where the quest to find the perfect pint is never-ending!</h2>
+        </div>
+
+        <div class="parallax-container">
+            <div class="parallax"><img src="{{ url_for('static', filename='images/ennis-fawls.png') }}"></div>
         </div>
 
     {% endblock %}
