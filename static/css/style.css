@@ -4,7 +4,7 @@ body {
     font-family: 'Fraunces', serif;
 }
 
-/* fonts */
+/* Fonts */
 
 .spectral {
     font-family: 'Spectral', sans-serif;
@@ -15,7 +15,7 @@ body {
     font-style: italic;
 }
 
-/* Pallete */
+/* Palette */
 
 .l-brown {
     color: #4A463A;
@@ -44,7 +44,8 @@ body {
 
 /* Navigation */
 
-.nav-wrapper {
+.nav-wrapper,
+.page-footer {
     /* overwrites default Materialize colouring */
     background-image: linear-gradient(to left, #EEA410, #3b382e);
 }
@@ -97,3 +98,13 @@ nav .brand-logo:hover {
     /* overwrites default Materialize colouring */
     background-color: #eea410;
 }
+
+/* Footer */
+
+.foot-social a {
+    /* not rendering as planned */
+    color: #3b382e;
+    font-size: 36px;
+    word-spacing: 50px;
+}
+
