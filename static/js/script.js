@@ -9,7 +9,7 @@ $ symbol is an undefined variable */
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
-    $('.carousel').carousel();
+    $('.parallax').parallax();
 });
 
 /* Navigation */
