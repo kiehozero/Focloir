@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,900;1,700&family=Spectral:wght@400;500&display=swap');
 
-/* color picker:
-light brown: #4A463A
-dark brown: #443E32
-cream: #CBBF85
-red: #885043
-old gold: #EEA410 */
-
 body {
     font-family: 'Fraunces', serif;
 }
+
+/* fonts */
 
 .spectral {
     font-family: 'Spectral', sans-serif;
@@ -20,17 +15,48 @@ body {
     font-style: italic;
 }
 
-/* Navigation */
+/* Pallete */
 
+.l-brown {
+    color: #4A463A;
+}
+
+.m-brown {
+    color: #443E32;
+}
+
+.d-brown {
+    color: #3B382E;
+}
+
+.cream {
+    color: #CBBF85;
+}
+
+.red {
+    color: #885043;
+}
+
+.old-gold {
+    color: #EEA410; 
+}
+
+
+/* Navigation */
 
 .nav-wrapper {
     /* overwrites default Materialize colouring */
-    background-image: linear-gradient(to left, #cbbf85, #4a463a);
+    background-image: linear-gradient(to left, #EEA410, #3b382e);
 }
 
 nav .brand-logo {
-    color: #443e32;
+    color: #3b382e;
     font-weight: 900;
+}
+
+nav .brand-logo:hover {
+    background-color: #3b382e;
+    color: #EEA410
 }
 
 /* Results */
