@@ -59,6 +59,33 @@ nav .brand-logo:hover {
     color: #EEA410
 }
 
+#pintButton,
+#pubButton,
+#addButton,
+#regButton,
+#logButton {
+    text-align: center;
+    width: 150px;
+}
+
+/* Mobile Sidenav */
+
+.sidenav {
+    background-color: #eea410;
+    color: #3b382e;
+}
+
+.sidenav li > a {
+    /* overwrites default Materialize settings */
+    color: #3b382e;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mob-social {
+    font-size: 24px;
+}
+
 /* Results */
 
 .btn-floating {
