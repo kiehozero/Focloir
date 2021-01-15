@@ -18,19 +18,19 @@ body {
 /* Palette */
 
 .l-brown {
-    color: #4A463A;
+    color: #4a463a;
 }
 
 .m-brown {
-    color: #443E32;
+    color: #443e32;
 }
 
 .d-brown {
-    color: #3B382E;
+    color: #3b382e;
 }
 
 .cream {
-    color: #CBBF85;
+    color: #cbbf85;
 }
 
 .fade-red {
@@ -38,7 +38,7 @@ body {
 }
 
 .old-gold {
-    color: #CFB53B;
+    color: #cfb53b;
 }
 
 
@@ -47,7 +47,7 @@ body {
 .nav-wrapper,
 .page-footer {
     /* overwrites default Materialize colouring */
-    background-image: linear-gradient(to left, #CFB53B, #3b382e);
+    background-image: linear-gradient(to left, #cfb53b, #3b382e);
 }
 
 nav .brand-logo {
@@ -57,7 +57,7 @@ nav .brand-logo {
 
 nav .brand-logo:hover {
     background-color: #3b382e;
-    color: #CFB53B
+    color: #cfb53b
 }
 
 #pintButton,
@@ -72,7 +72,7 @@ nav .brand-logo:hover {
 /* Mobile Sidenav */
 
 .sidenav {
-    background-color: #CFB53B;
+    background-color: #cfb53b;
     color: #3b382e;
 }
 
@@ -97,7 +97,7 @@ nav .brand-logo:hover {
 
 .btn-floating:hover {
     /* overwrites default Materialize colouring */
-    background-color: #CFB53B;
+    background-color: #cfb53b;
 }
 
 /* Footer */
@@ -108,4 +108,3 @@ nav .brand-logo:hover {
     font-size: 36px;
     word-spacing: 50px;
 }
-
