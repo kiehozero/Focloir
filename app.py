@@ -55,6 +55,16 @@ def contact_us():
     return render_template("contact_us.html")
 
 
+@app.route("/logout")
+def logout():
+    return render_template("logout.html")
+
+
+@app.route("/my_reviews")
+def my_reviews():
+    return render_template("my_reviews.html")
+
+
 # Make sure to change the debug true statement below
 # to debug false before project is submitted
 if __name__ == "__main__":

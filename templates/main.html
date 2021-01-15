@@ -49,11 +49,17 @@
         <!-- Mobile vertical collapse options -->
 
         <ul class="sidenav center-align" id="mobile-demo">
+            <br>
+            <!-- display user profile link here only if logged in -->
             <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
             <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
+            <!-- display only if logged in -->
+            <li><a href="{{ url_for('my_reviews') }}" class="mob-heading">My Reviews</a></li>
+            <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
+            <!-- display only if logged out -->
+            <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
             <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
-            <li><a href="{{ url_for('login') }}" class="mob-heading">Log-In</a></li>
             <br>
             <li><a href="{{ url_for('index') }}" class="mob-heading">Home</a></li>
             <br>
