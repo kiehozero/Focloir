@@ -33,7 +33,7 @@
             <nav>
                 <div class="nav-wrapper">
                 <a href="{{ url_for('index') }}" class="brand-logo right">pintbaby</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-chevron-circle-down"></i></a>
+                <a href="#" data-target="mobile-snav" class="sidenav-trigger"><i class="fas fa-chevron-circle-down"></i></a>
                 <ul class="left hide-on-med-and-down fs-italic">
                     <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
@@ -46,9 +46,10 @@
             </nav>
         </div>
 
-        <!-- Mobile vertical collapse options -->
+        <!-- Mobile side navigation bar -->
 
-        <ul class="sidenav center-align" id="mobile-demo">
+        <ul class="sidenav center-align" id="mobile-snav">
+            <br>
             <br>
             <!-- display user profile link here only if logged in -->
             <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
