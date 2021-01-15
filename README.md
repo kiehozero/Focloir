@@ -12,17 +12,28 @@ Welcome to my interactive front-end development milestone project. For this proj
 - A [Balsamiq](https://www.balsamiq.com/) wireframe for this project is included in the repository, with 
 [desktop/tablet](planning/wireframes/#.pdf) and [mobile](planning/wireframes/#.pdf) versions.
 
-I used the following hex colours, selecting using [Pixlr](https://www.pixlr.com/):
+I used the following hex colours, selected using [Pixlr](https://www.pixlr.com/). Most of the colours were originally 
+based on photographs contained with the [Snug Project](https://thesnugproject.com/) calendar, and then tweaked to best 
+suit a website:
 
- - 
- - 
- - 
- - 
- - 
+ - #4A463A and #443E32 are medium browns >>>;
+ - #3B382E is a dark brown used as a replacement for any blacks used in stylised text against coloured backgrounds to 
+ give a slightly warmer feel;
+ - #CBBF85 is a cream >>>;
+ - #885043 is a deep, faded red >>>;
+ - #CFB53B is a officially called [old gold](https://en.wikipedia.org/wiki/Old_gold), and I have been wanting to use this
+ for some time as it is that used in the home jerseys of [Wolverhampton Wanderers FC](https://www.wolves.co.uk/).
 
-- Fonts - Titillium provided a font that gave me both an upper and lower case view that I liked. Looking at fonts is generally a 
-pretty boring task but an important one nonetheless, Titillium provides upper case that allows for the creation of a good logo, 
-and a lower case that could be used across the site without looking tired or cliche.
+- Fonts
+    - [Spectral](https://fonts.google.com/specimen/Spectral) is a serif font with plenty of space and clarity. I wanted 
+    to utilise serifs mainly for the vintage, old-fashioned feel they give, like the best Irish pubs. This font is used 
+    for the majority of text within the project outside of headings.  
+    - After listening to plenty of [Pet Sounds](https://en.wikipedia.org/wiki/Pet_Sounds) during the early stages of the
+    project, I wanted to use the iconic [Cooper Black](https://en.wikipedia.org/wiki/Cooper_Black) that features on that 
+    record. It is a proprietary font, so [Fraunces](https://fonts.google.com/specimen/Fraunces) was a great replacement. 
+    Again, it is definitely a vintage font, in keeping with the idea that so many great pubs and bars in the world have a 
+    time-worn, lived-in, nostalgic feel.
+
 - The icons I used within this project are all sources from [Font Awesome](https://fontawesome.com/)'s free package.
 
 ### User Stories
@@ -31,13 +42,13 @@ Testing for each of the below user stories is included within the [testing log](
 
 As a user I want to...
 
-  1. ... find somewhere to stay overnight before the match;
-  2. ... find a place to get a drink;
-  3. ... find a restaurant to eat in after the match;
-  4. ... find a place to get a coffee;
-  5. ... find something else to do;
-  6. ... find a specific place that I was recommended.
-  7. ... recommend a club or league for addition to the site.
+  1. ... find a rating for a pub I have not visited before;
+  2. ... rate a pub that I have just visited;
+  3. ... find the best-rated pub in a city I am visiting;
+  4. ... >>>;
+  5. ... >>>;
+  6. ... >>>;
+  7. ... >>>.
 
 
 ## Features

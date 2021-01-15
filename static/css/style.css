@@ -38,7 +38,8 @@ body {
 }
 
 .old-gold {
-    color: #EEA410; 
+    color: #EEA410;
+    color: #CFB53B
 }
 
 
@@ -47,7 +48,7 @@ body {
 .nav-wrapper,
 .page-footer {
     /* overwrites default Materialize colouring */
-    background-image: linear-gradient(to left, #EEA410, #3b382e);
+    background-image: linear-gradient(to left, #CFB53B, #3b382e);
 }
 
 nav .brand-logo {
@@ -57,7 +58,7 @@ nav .brand-logo {
 
 nav .brand-logo:hover {
     background-color: #3b382e;
-    color: #EEA410
+    color: #CFB53B
 }
 
 #pintButton,
@@ -72,7 +73,7 @@ nav .brand-logo:hover {
 /* Mobile Sidenav */
 
 .sidenav {
-    background-color: #eea410;
+    background-color: #CFB53B;
     color: #3b382e;
 }
 
@@ -96,7 +97,7 @@ nav .brand-logo:hover {
 
 .btn-floating:hover {
     /* overwrites default Materialize colouring */
-    background-color: #eea410;
+    background-color: #CFB53B;
 }
 
 /* Footer */
