@@ -50,6 +50,11 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/contact_us")
+def contact_us():
+    return render_template("contact_us.html")
+
+
 # Make sure to change the debug true statement below
 # to debug false before project is submitted
 if __name__ == "__main__":
