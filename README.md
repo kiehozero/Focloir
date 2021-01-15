@@ -1,12 +1,8 @@
-<img src="#">
+<img src="static/images/text-logo.PNG">
 
 Welcome to my interactive front-end development milestone project. For this project I chose to create 
-[foclóir](#), a website that 
-harnesses Google's Place API to provide football fans with the best pubs, clubs and hotels close to the opponent's stadium.
+[pintbaby](https://www.pintbaby.herokuapp.com/), a website that allows users to add and review pubs around the world.
 
-The idea behind this project is that the most dedicated sports fans already know their hometown inside out, but they can spend up to 
-half of their time following their team away from home. AwayDay gives fans the best hotels, restaurants, pubs and cafes within a 
-couple of clicks, taking the hassle out of organising away trips.
 
 
 ## User Experience
@@ -14,20 +10,20 @@ couple of clicks, taking the hassle out of organising away trips.
 ### Styling
 
 - A [Balsamiq](https://www.balsamiq.com/) wireframe for this project is included in the repository, with 
-[desktop/tablet](wireframes/fcdesktab.pdf) and [mobile](wireframes/fcmobile.pdf) versions.
+[desktop/tablet](planning/wireframes/#.pdf) and [mobile](planning/wireframes/#.pdf) versions.
 
 I used the following hex colours, selecting using [Pixlr](https://www.pixlr.com/):
 
- - #05e680 is a light green that is the primary colour of the site. I used the satellite setting of the Google Maps API, so 
- I wanted something that provided a good contrast to this, as well as evoking a sports field. When I was sourcing club and league 
- logos I visited the [English Premier League](https://www.premierleague.com/) and found something very close to this colour, then 
- experimented with changing one or two digits in the hex colour code.
- - #8a2be2 is a violet that acts as a secondary colour, seen predominantly when hovering on links or items that customise the map. 
+ - 
+ - 
+ - 
+ - 
+ - 
 
 - Fonts - Titillium provided a font that gave me both an upper and lower case view that I liked. Looking at fonts is generally a 
 pretty boring task but an important one nonetheless, Titillium provides upper case that allows for the creation of a good logo, 
 and a lower case that could be used across the site without looking tired or cliche.
-- The icons I used for the search refine buttons are taken from [Font Awesome](https://fontawesome.com/)'s free package.
+- The icons I used within this project are all sources from [Font Awesome](https://fontawesome.com/)'s free package.
 
 ### User Stories
 
