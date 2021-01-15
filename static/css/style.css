@@ -38,8 +38,7 @@ body {
 }
 
 .old-gold {
-    color: #EEA410;
-    color: #CFB53B
+    color: #CFB53B;
 }
 
 
@@ -77,15 +76,16 @@ nav .brand-logo:hover {
     color: #3b382e;
 }
 
-.sidenav li > a {
+.sidenav li > a,
+.sidenav div > a {
     /* overwrites default Materialize settings */
     color: #3b382e;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
 }
 
 .mob-social {
-    font-size: 24px;
+    letter-spacing: 20px;
 }
 
 /* Results */
