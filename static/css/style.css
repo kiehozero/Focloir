@@ -88,6 +88,17 @@ nav .brand-logo:hover {
     letter-spacing: 20px;
 }
 
+/* Buttons */
+
+.btn-large {
+    /* overwrites default Materialize colouring */
+    background-color: #3b382e;
+    border-radius: 5px;
+    color: #cfb53b;
+    font-weight: 600;
+    box-shadow: none;
+}
+
 /* Results */
 
 .btn-floating {
@@ -98,6 +109,12 @@ nav .brand-logo:hover {
 .btn-floating:hover {
     /* overwrites default Materialize colouring */
     background-color: #cfb53b;
+}
+
+/* Registration form - maybe move each page's unique CSS onto a separate sheet? */
+
+.reg-icon {
+    color: #3b382e;
 }
 
 /* Footer */
