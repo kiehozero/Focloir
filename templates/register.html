@@ -1,11 +1,14 @@
 {% extends "main.html" %}
 
+    <!-- Combine log in and register pages to one, use -->
+    <!-- Use the character counter from the MAterialize website on each form entry-->
+
     {% block content %}       
         
         <div class="row">
             <!-- This is the standard horizontal card template from the Materialize website-->
             <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-                <h4 class="center-align">Register to begin adding reviews</h4>
+                <h4 class="center-align">Register or sign in to begin adding reviews</h4>
 
                 <div class="card horizontal">
                     
@@ -15,7 +18,7 @@
                             <div class="input-field col s10 m8 offset-s1 offset-m2">
                                 <!-- Not sure about this icon -->
                                 <i class="fas fa-key prefix reg-icon"></i>
-                                <input id="username" name="username" type="password" minlength="5" 
+                                <input id="username" name="username" type="text" minlength="5" 
                                     maxlength="16" class="validate" required>
                                 <label for="username">Username</label>
                             </div>

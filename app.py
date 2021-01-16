@@ -24,36 +24,19 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/pubs")
-def pubs():
-    pubs = mongo.db.pubs.find()
-    return render_template("pubs.html", pubs=pubs)
-
-
-@app.route("/pints")
-def pints():
-    pints = mongo.db.pints.find()
-    return render_template("pints.html", pints=pints)
-
-
 @app.route("/add_review")
 def add_review():
     return render_template("add_review.html")
 
 
-@app.route("/register")
-def register():
-    return render_template("register.html", methods=["GET", "POST"])
+@app.route("/contact_us")
+def contact_us():
+    return render_template("contact_us.html")
 
 
 @app.route("/login")
 def login():
     return render_template("login.html")
-
-
-@app.route("/contact_us")
-def contact_us():
-    return render_template("contact_us.html")
 
 
 @app.route("/logout")
@@ -64,6 +47,45 @@ def logout():
 @app.route("/my_reviews")
 def my_reviews():
     return render_template("my_reviews.html")
+
+
+@app.route("/pints")
+def pints():
+    pints = mongo.db.pints.find()
+    return render_template("pints.html", pints=pints)
+
+
+@app.route("/pubs")
+def pubs():
+    pubs = mongo.db.pubs.find()
+    return render_template("pubs.html", pubs=pubs)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # username validate
+        is_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        
+        if is_user:
+            flash("Username taken!")
+            return redirect(url_for('register'))
+
+        reg_user = {
+            "username": request.form.get("username").lower(),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+
+        mongo.db.users.insert_one(reg_user)
+
+        session["active_user"] = request.form.get("username").lower()
+        flash("You are now a pintbaby!")
+
+    return render_template("register.html")
 
 
 # Make sure to change the debug true statement below
