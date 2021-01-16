@@ -4,50 +4,67 @@
         
         <div class="row">
             <!-- This is the standard horizontal card template from the Materialize website-->
-            <form class="col s12 m8 offset-m2">
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
                 <h4 class="center-align">Register to begin adding reviews</h4>
+
                 <div class="card horizontal">
-                    <div class="card-stacked">
+                    
+                    <div class="row">
+                        <br>
                         <div class="row">
-                            <br>
+                            <div class="input-field col s10 m8 offset-s1 offset-m2">
+                                <!-- Not sure about this icon -->
+                                <i class="fas fa-key prefix reg-icon"></i>
+                                <input id="username" name="username" type="password" minlength="5" 
+                                    maxlength="16" class="validate" required>
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="input-field col s10 m4 offset-s1 offset-m2">
                                 <i class="far fa-id-badge prefix reg-icon"></i>
-                                <input id="first_name" minlength="3" 
-                                       maxlength="20" type="text" class="validate" required>
+                                <input id="first_name" name="first_name" minlength="3" 
+                                    maxlength="20" type="text" class="validate" required>
                                 <label for="first_name">First Name</label>
                             </div>
-                            <div class="input-field col s10 offset-s1 m4">
-                                <!-- <i class="far fa-id-badge prefix reg-icon"></i> -->
-                                <!-- Make icon visible only on small screens -->
-                                <input id="last_name" minlength="3" 
-                                       maxlength="20" type="text" class="validate" required>
+
+                            <div class="input-field col s10 m4 offset-s1">
+                                <i class="fas fa-id-badge prefix reg-icon"></i>
+                                <!-- Make icon visible only on small screens? -->
+                                <input id="last_name" name="last_name" minlength="3" 
+                                    maxlength="20" type="text" class="validate" required>
                                 <label for="last_name">Last Name</label>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="input-field col s10 m8 offset-s1 offset-m2">
                                 <i class="fas fa-at prefix reg-icon"></i>
-                                <input id="email" type="email" class="validate" required>
+                                <input id="email" name="email" type="email" class="validate" required>
                                 <label for="email">Email</label>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="input-field col s10 m8 offset-s1 offset-m2">
                                 <i class="fas fa-lock prefix reg-icon"></i>
-                                <input id="password" type="password" minlength="8" 
-                                       maxlength="20" class="validate" required>
+                                <input id="password" name="password" type="password" minlength="8" 
+                                    maxlength="20" class="validate" required>
                                 <label for="password">Password</label>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-light pb-button" type="submit" name="action">
                                     <!-- Change font-->
-                                    Submit
+                                    Become a pintbaby!
                                     <i class="far fa-check-square"></i>
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </form>
