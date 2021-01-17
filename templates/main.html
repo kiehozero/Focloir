@@ -13,11 +13,11 @@
         href="{{ url_for('static', filename='css/style.css') }}"
         type="text/css">
 
-    <!-- Favicon information -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon information, items are in a file rather than root due to Jinja exception -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{url_for('static', filename='favicons/site.webmanifest') }}">
 
     <script
         src="https://kit.fontawesome.com/faa153a592.js"
