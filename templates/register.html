@@ -27,8 +27,8 @@
                             <div class="input-field col s10 offset-s1">
                                 <!-- Not sure about this icon -->
                                 <i class="fas fa-key prefix reg-icon"></i>
-                                <input id="username" name="username" type="text" minlength="5" 
-                                    maxlength="16" class="validate" required>
+                                <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,16}$" 
+                                title="Must be between 5 and 16 characters" class="validate" required>
                                 <label for="username">Username</label>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-lock prefix reg-icon"></i>
-                                <input id="password" name="password" type="password" minlength="8" 
-                                    maxlength="20" class="validate" required>
+                                <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{8,16}$" 
+                                    title="Must be between 8 and 16 characters" class="validate" required>
                                 <label for="password">Password</label>
                             </div>
                         </div>
