@@ -74,7 +74,8 @@ def my_reviews(username):
     # only returns username from MongoDB users collection
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+    # reviews = mongo.db.reviews.find({"created_by": session["user"]})
+
     # if statement ensures that you can't add any username to the 
     # profile url string to access their profile page
     if session["user"]:
