@@ -67,7 +67,7 @@ def logout():
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
 def my_reviews(username):
     # only returns username from MongoDB users collection
-    reviews = mongo.db.users.find_one(
+    username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     return render_template("my_reviews.html", username=username)
 
