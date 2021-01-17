@@ -6,6 +6,11 @@
             <h4>{{ username }}'s profile</h4>
         </div>
 
+        <div class="row center-align">
+            <div class="button btn-large">Edit My Profile</div>
+            <div class="button btn-large">Log Out</div>
+        </div>
+
         <div class="row">
 
             <div class="col s6 m3">
@@ -27,12 +32,13 @@
                     </div>
                 </div>
 
-            {% for pub in pubs %}
+            {% for review in reviews %}
+                {% if review.created_by == username %}
                 <div class="col s6 m3">
                     <div class="card">
                         <div class="card-image">
                         <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-                        <span class="card-title">{{ pub.pname }}</span>
+                        <span class="card-title">{{ review.pname }}</span>
                         <a
                             class="btn-floating halfway-fab waves-effect waves-light"
                             href="{{ url_for('add_review') }}">
@@ -41,14 +47,21 @@
                         </div>
                         <div class="card-content spectral">
                         <p>
-                            {{ pub.city }}
+                            {{ review.rating }}
                             <br>
-                            {{ pub.country }}
+                            {{ review.price }}
                             <br>
+                            <button>Edit this review</button>
+                            <button>Delete this review</button>
+                        </p>
+
+                        <p>
+                            {{ review.review }}
                         </p>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             {% endfor %}
 
         </div>
