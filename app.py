@@ -45,6 +45,7 @@ def login():
                 is_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for('my_reviews', username=session["user"]))
 
             else:
                 flash("Username and password combination is incorrect")
@@ -63,9 +64,12 @@ def logout():
     return render_template("logout.html")
 
 
-@app.route("/my_reviews")
-def my_reviews():
-    return render_template("my_reviews.html")
+@app.route("/my_reviews/<username>", methods=["GET", "POST"])
+def my_reviews(username):
+    # only returns username from MongoDB users collection
+    reviews = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("my_reviews.html", username=username)
 
 
 @app.route("/pints")
@@ -103,8 +107,8 @@ def register():
         mongo.db.users.insert_one(reg_user)
 
         session["user"] = request.form.get("username").lower()
-        # successful log-in re-directs to log-in page
-        return redirect(url_for('login'))
+        # successful log-in re-directs to their new blank profile page
+        return redirect(url_for('profile', username=session["user"]))
 
     return render_template("register.html")
 

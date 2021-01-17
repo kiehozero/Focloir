@@ -64,7 +64,8 @@ nav .brand-logo:hover {
 #pubButton,
 #addButton,
 #regButton,
-#logButton {
+#logButton,
+#myrButton {
     text-align: center;
     width: 150px;
 }
@@ -128,5 +129,5 @@ nav .brand-logo:hover {
     /* not rendering as planned */
     color: #3b382e;
     font-size: 36px;
-    word-spacing: 50px;
+    letter-spacing: 50px;
 }

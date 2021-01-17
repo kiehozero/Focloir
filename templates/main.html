@@ -47,6 +47,7 @@
                     <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
                     <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>
                     <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
+                    <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Reviews</a></li>
                 </ul>
                 </div>
             </nav>
@@ -62,7 +63,7 @@
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
             <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
             <!-- display only if logged in -->
-            <li><a href="{{ url_for('my_reviews') }}" class="mob-heading">My Reviews</a></li>
+            <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
             <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
             <!-- display only if logged out -->
             <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>

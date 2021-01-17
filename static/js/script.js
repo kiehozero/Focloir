@@ -43,6 +43,12 @@ $("#regButton").mouseleave(function(){
   $(this).html("Register");
 });
 
+$("#myrButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-newspaper'></i>");
+});
+$("#myrButton").mouseleave(function(){
+  $(this).html("My Reviews");
+});
 
 $("#logButton").mouseenter(function(){
   $(this).html("<i class='fas fa-sign-in-alt'></i>");
