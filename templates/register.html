@@ -1,21 +1,30 @@
 {% extends "main.html" %}
 
-    <!-- Combine log in and register pages to one, use -->
+    <!-- Combine log in and register pages to one, use Materialize switch? -->
     <!-- Use the character counter from the MAterialize website on each form entry-->
 
     {% block content %}       
         
-        <div class="row">
+        <div class="row container">
+
             <!-- This is the standard horizontal card template from the Materialize website-->
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-                <h4 class="center-align">Register or sign in to begin adding reviews</h4>
+            <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('register') }}">
+                <h4 class="center-align">Registration</h4>
+
+                <div class="center-align">
+                    <a class="d-brown" href="{{ url_for('login') }}">Already a Pintbaby? Log in here!</a>
+                </div>
 
                 <div class="card horizontal">
+                    <!-- no content here -->
+                </div>
+
+                <div class="card-stacked">
                     
                     <div class="row">
                         <br>
                         <div class="row">
-                            <div class="input-field col s10 m8 offset-s1 offset-m2">
+                            <div class="input-field col s10 offset-s1">
                                 <!-- Not sure about this icon -->
                                 <i class="fas fa-key prefix reg-icon"></i>
                                 <input id="username" name="username" type="text" minlength="5" 
@@ -25,14 +34,14 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s10 m4 offset-s1 offset-m2">
+                            <div class="input-field col s10 m5 offset-s1 offset-m1">
                                 <i class="far fa-id-badge prefix reg-icon"></i>
                                 <input id="first_name" name="first_name" minlength="3" 
                                     maxlength="20" type="text" class="validate" required>
                                 <label for="first_name">First Name</label>
                             </div>
 
-                            <div class="input-field col s10 m4 offset-s1">
+                            <div class="input-field col s10 m5 offset-s1">
                                 <i class="fas fa-id-badge prefix reg-icon"></i>
                                 <!-- Make icon visible only on small screens? -->
                                 <input id="last_name" name="last_name" minlength="3" 
@@ -42,7 +51,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s10 m8 offset-s1 offset-m2">
+                            <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-at prefix reg-icon"></i>
                                 <input id="email" name="email" type="email" class="validate" required>
                                 <label for="email">Email</label>
@@ -50,7 +59,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s10 m8 offset-s1 offset-m2">
+                            <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-lock prefix reg-icon"></i>
                                 <input id="password" name="password" type="password" minlength="8" 
                                     maxlength="20" class="validate" required>
@@ -60,7 +69,7 @@
 
                         <div class="row">
                             <div class="card-action center-align">
-                                <button class="btn-large waves-effect waves-light pb-button" type="submit" name="action">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
                                     <!-- Change font-->
                                     Become a pintbaby!
                                     <i class="far fa-check-square"></i>

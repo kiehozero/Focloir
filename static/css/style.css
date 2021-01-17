@@ -99,6 +99,11 @@ nav .brand-logo:hover {
     box-shadow: none;
 }
 
+.btn-large:hover {
+    background-color: #cfb53b;
+    color: #3b382e;
+}
+
 /* Results */
 
 .btn-floating {
