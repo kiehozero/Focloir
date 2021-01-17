@@ -34,8 +34,27 @@ def contact_us():
     return render_template("contact_us.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        is_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if is_user:
+            if check_password_hash(
+                is_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
+
+            else:
+                flash("Username and password combination is incorrect")
+                return redirect(url_for('login'))
+
+        else:
+            flash("Username and password combination is incorrect")
+            return redirect(url_for('login'))
+
+    # this is the else statement for the request method, so if the request is GET
     return render_template("login.html")
 
 
@@ -67,9 +86,10 @@ def register():
         # username validate
         is_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if is_user:
             flash("Username taken!")
+            # add a div to display this flash
             return redirect(url_for('register'))
 
         reg_user = {
@@ -82,7 +102,7 @@ def register():
 
         mongo.db.users.insert_one(reg_user)
 
-        session["active_user"] = request.form.get("username").lower()
+        session["user"] = request.form.get("username").lower()
         # successful log-in re-directs to log-in page
         return redirect(url_for('login'))
 
