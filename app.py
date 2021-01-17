@@ -49,10 +49,12 @@ def login():
 
             else:
                 flash("Username and password combination is incorrect")
+                # need a modal to display
                 return redirect(url_for('login'))
 
         else:
             flash("Username and password combination is incorrect")
+            # need a modal to display
             return redirect(url_for('login'))
 
     # this is the else statement for the request method, so if the request is GET
@@ -61,7 +63,10 @@ def login():
 
 @app.route("/logout")
 def logout():
-    return render_template("logout.html")
+    flash("You have been logged out")
+    session.pop("user")
+    # needs a modal to display this on the page
+    return redirect(url_for('login'))
 
 
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
@@ -69,7 +74,13 @@ def my_reviews(username):
     # only returns username from MongoDB users collection
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("my_reviews.html", username=username)
+    
+    # if statement ensures that you can't add any username to the 
+    # profile url string to access their profile page
+    if session["user"]:
+        return render_template("my_reviews.html", username=username)
+
+    return redirect(url_for('login'))
 
 
 @app.route("/pints")

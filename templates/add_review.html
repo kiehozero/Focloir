@@ -1,17 +1,25 @@
 {% extends "main.html" %}
 
     {% block content %}
+        
+        {% if session.user %}
+            <h4>Review a pub</h4>
+                
+            <div>
+                <form>
+                    content content content
+                    Select a pub or enter new one (needs autocomplete?)
+                    Select drink
+                    Rate
+                </form>
+            </div>
 
-        <h4>Review a pub</h4>
-            
-        <div>
-            <form>
-                content content content
-                Select a pub or enter new one (needs autocomplete?)
-                Select drink
-                Rate
-            </form>
+        {% else %}
 
-        </div>
+            <div class="center-align">
+                <a class="d-brown" href="{{ url_for('register') }}">New to Pintbaby? Register here!</a>
+            </div>
+
+        {% endif %}
 
     {% endblock %}

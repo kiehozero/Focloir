@@ -45,9 +45,13 @@
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
                     <!-- Make a drop down here that returns every country in the pubs collection-->
                     <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
-                    <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>
-                    <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
-                    <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Reviews</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Reviews</a></li>
+                        <li><a href="{{ url_for('logout') }}" id="#">Log-Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
+                        <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>
+                    {% endif %}
                 </ul>
                 </div>
             </nav>
@@ -58,16 +62,17 @@
         <ul class="sidenav center-align" id="mobile-snav">
             <br>
             <br>
-            <!-- display user profile link here only if logged in -->
             <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
             <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
-            <!-- display only if logged in -->
-            <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
-            <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
+                <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
+            {% else %}
             <!-- display only if logged out -->
-            <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
-            <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
+                <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
+                <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
+            {% endif %}
             <br>
             <li><a href="{{ url_for('index') }}" class="mob-heading">Home</a></li>
             <br>
