@@ -2,7 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from werkzeug.security import generate_password_hash, check_password_hash 
+from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
@@ -42,10 +42,13 @@ def login():
 
         if is_user:
             if check_password_hash(
-                is_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
+                is_user["password"], request.form.get(
+                    "password")):
+                    session["user"] = request.form.get(
+                        "username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for('my_reviews', username=session["user"]))
+                    return redirect(url_for(
+                        'my_reviews', username=session["user"]))
 
             else:
                 flash("Username and password combination is incorrect")
@@ -57,7 +60,7 @@ def login():
             # need a modal to display
             return redirect(url_for('login'))
 
-    # this is the else statement for the request method, so if the request is GET
+    # this is the else statement for the request method, so the GET request
     return render_template("login.html")
 
 
@@ -76,7 +79,7 @@ def my_reviews(username):
         {"username": session["user"]})["username"]
     # reviews = mongo.db.reviews.find({"created_by": session["user"]})
 
-    # if statement ensures that you can't add any username to the 
+    # if statement ensures that you can't add any username to the
     # profile url string to access their profile page
     if session["user"]:
         return render_template("my_reviews.html", username=username)
