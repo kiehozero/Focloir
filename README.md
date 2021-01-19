@@ -44,10 +44,13 @@ As a user I want to...
   1. ... read about a pub I have not visited before;
   2. ... rate a pub that I have just visited;
   3. ... find the best-rated pub in a city I am visiting;
-  4. ... >>>;
-  5. ... >>>;
-  6. ... >>>;
-  7. ... >>>.
+  4. ... see my review history
+  5. ... edit or amend a review I previously wrote;
+
+As an admin, I want to
+  1. ... delete a malicious or offensive review;
+  2. ... search a for a user using a particular criteria;
+  3. ... >>>.
 
 
 ## Features
