@@ -150,6 +150,12 @@ I deployed this project to Heroku using the following method:
 2. >>>;
 3. >>>.
 
+I set up the data structure for this project in MongoDB using the following method:
+
+1. >>>;
+2. >>>;
+3. >>>.
+
 ### Cloning
 
 Assuming you already have Git [installed](https://git-scm.com/download/), anybody can clone this repository by following these steps:
@@ -163,6 +169,7 @@ Assuming you already have Git [installed](https://git-scm.com/download/), anybod
 For an in-depth guide to cloning repositories, click [here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from 
 which the steps above were taken.
 
+<<<Heroku and Mongo cloning information?>>>
 
 ## Credits
 
