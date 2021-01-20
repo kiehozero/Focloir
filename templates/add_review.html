@@ -6,30 +6,7 @@
 
             <div class="row center-align">
                 <h4>Review a pub</h4>
-                <div>Is this a new pub?</div>
-                <div class="switch">
-                    <label>
-                    No
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    Yes
-                    </label>
-                </div>
-            </div>
-
-            {% if switch == "on" %}
-                 
-                <div class="row container">
-                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
-                        <div class="row"></div>
-                        <div class="row">Name</div>
-                        <div class="row">Street</div>
-                        <div class="row">City</div>
-                        <div class="row">Country</div>
-                    </form>
-                </div>
-
-            {% else %}
+                <div>Can't find your pub? Add a new one <a href="{{ url_for('add_pub') }}">here.</a>
                  
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
@@ -44,8 +21,6 @@
                         <div class="row">Write your review here</div>
                     </form>
                 </div>
-
-            {% endif %}
 
         {% else %}
 

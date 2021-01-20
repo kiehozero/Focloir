@@ -24,6 +24,22 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/add_pub", methods=["GET", "POST"])
+def add_pub():
+    if request.method == "POST":
+        new_pub = {
+            "pname": request.form.get("pname").lower(),
+            "loc": request.form.get("address").lower(),
+            "city": request.form.get("city").lower(),
+            "country": request.form.get("country").lower(),
+        }
+
+        mongo.db.pubs.insert_one(new_pub)
+
+    # this is the else statement for the request method, so the GET request
+    return render_template("add_pub.html")
+
+
 @app.route("/add_review")
 def add_review():
     return render_template("add_review.html")
