@@ -30,14 +30,18 @@ def add_pub():
     countries = mongo.db.countries.find()
     if request.method == "POST":
         new_pub = {
-            "pname": request.form.get("pname").lower(),
-            "loc": request.form.get("loc").lower(),
-            "city": request.form.get("city").lower(),
-            "state": request.form.get("state").lower(),
-            "country": request.form.get("country").lower()
+            "pname": request.form.get("pname"),
+            "loc": request.form.get("loc"),
+            "city": request.form.get("city"),
+            "state": request.form.get("state"),
+            "country": request.form.get("country")
         }
 
         mongo.db.pubs.insert_one(new_pub)
+        flash("{} successfully added".format(request.form.get("pname")))
+        # need a modal to display
+        # automatically sends user to review page
+        return redirect(url_for('add_review'))
 
     # this is the else statement for the request method, so the GET request
     return render_template("add_pub.html", countries=countries)
@@ -67,6 +71,7 @@ def login():
                     session["user"] = request.form.get(
                         "username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
+                    # need a modal or heading to display
                     return redirect(url_for(
                         'my_reviews', username=session["user"]))
 
@@ -132,6 +137,7 @@ def register():
             return redirect(url_for('register'))
 
         reg_user = {
+            # do these all need to be converted to lower case?
             "username": request.form.get("username").lower(),
             "first_name": request.form.get("first_name").lower(),
             "last_name": request.form.get("last_name").lower(),
