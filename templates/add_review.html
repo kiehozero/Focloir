@@ -7,20 +7,46 @@
             <div class="row center-align">
                 <h4>Review a pub</h4>
                 <div>Can't find your pub? Add a new one <a href="{{ url_for('add_pub') }}">here.</a>
+                </div>
                  
                 <div class="row container">
+
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
-                        <div class="row"></div>
-                        <div class="row">Name Dropdown/Autocomplete</div>
-                        <div class="row">Visit Date
-                            <input type="text" class="datepicker">
+
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <select id="pub" name="pub">
+                                    <option disabled selected>Choose your option</option>
+                                    {% for pub in pubs %}
+                                        <option value="{{ pub.name }}">{{ pub.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Pub Name</label>
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <div class="input-field col s10 m5 offset-s1 offset-m2">
+                                <input type="text" id="visit" name="visit" class="datepicker">
+                                <label for="visit">Date visited</label>
+                            </div>
+                        </div>
+
                         <div class="row">Pint</div>
                         <div class="row">Rating</div>
                         <div class="row">Price</div>
-                        <div class="row">Write your review here</div>
+
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <textarea
+                                    id="review" name="review" class="materialize-textarea" 
+                                    minlength="15" maxlength="400" data-length="400"></textarea>
+                                <label for="review">Write your review here</label>
+                            </div>
+                        </div>
                     </form>
                 </div>
+            </div>
 
         {% else %}
 

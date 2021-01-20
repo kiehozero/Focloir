@@ -12,10 +12,12 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     /* initialises index.html parallax view */
     $('.parallax').parallax();
-    /* initialises datepicker in review form */
-    $('.datepicker').datepicker();
     /* initialises dropdown in add pub form */
     $('select').formSelect();
+    /* initialises character countdown in review form */
+    $('textarea#review').characterCounter();
+    /* initialises datepicker in review form */
+    $('.datepicker').datepicker();
 });
 
 /* Navigation */

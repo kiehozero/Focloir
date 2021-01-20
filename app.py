@@ -49,6 +49,16 @@ def add_pub():
 
 @app.route("/add_review")
 def add_review():
+    if request.method == "POST":
+        new_review = {
+            "pub": request.form.get("pub"),
+            "pint": request.form.get("pint"),
+            "visit": request.form.get("visit"),
+            "rating": request.form.get("rating"),
+            "price": request.form.get("price"),
+            "review": request.form.get("review"),
+            "author": session["user"]
+        }
     pubs = mongo.db.pubs.find()
     return render_template("add_review.html", pubs=pubs)
 
