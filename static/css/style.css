@@ -140,6 +140,7 @@ button.datepicker-today {
 }
 
 .datepicker-table td.is_today {
+    /* Not yet working */
     color: #cfb53b;
 }
 

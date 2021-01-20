@@ -3,24 +3,49 @@
     {% block content %}
         
         {% if session.user %}
-            <h4>Review a pub</h4>
-                 
-            <div class="row container">
-                <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
-                    <div class="row"></div>
-                    <div class="row">Name Dropdown</div>
-                    <div class="row">Location</div>
-                    <div class="row">City</div>
-                    <div class="row">Country Dropdown</div>
-                    <div class="row">Visit Date
-                        <input type="text" class="datepicker">
-                    </div>
-                    <div class="row">Pint</div>
-                    <div class="row">Rating</div>
-                    <div class="row">Price</div>
-                    <div class="row">Write your review here</div>
-                </form>
+
+            <div class="row center-align">
+                <h4>Review a pub</h4>
+                <div>Is this a new pub?</div>
+                <div class="switch">
+                    <label>
+                    No
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Yes
+                    </label>
+                </div>
             </div>
+
+            {% if switch == "on" %}
+                 
+                <div class="row container">
+                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
+                        <div class="row"></div>
+                        <div class="row">Name</div>
+                        <div class="row">Street</div>
+                        <div class="row">City</div>
+                        <div class="row">Country</div>
+                    </form>
+                </div>
+
+            {% else %}
+                 
+                <div class="row container">
+                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
+                        <div class="row"></div>
+                        <div class="row">Name Dropdown/Autocomplete</div>
+                        <div class="row">Visit Date
+                            <input type="text" class="datepicker">
+                        </div>
+                        <div class="row">Pint</div>
+                        <div class="row">Rating</div>
+                        <div class="row">Price</div>
+                        <div class="row">Write your review here</div>
+                    </form>
+                </div>
+
+            {% endif %}
 
         {% else %}
 
