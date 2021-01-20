@@ -4,13 +4,21 @@
         
         {% if session.user %}
             <h4>Review a pub</h4>
-                
-            <div>
-                <form>
-                    content content content
-                    Select a pub or enter new one (needs autocomplete?)
-                    Select drink
-                    Rate
+                 
+            <div class="row container">
+                <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
+                    <div class="row"></div>
+                    <div class="row">Name Dropdown</div>
+                    <div class="row">Location</div>
+                    <div class="row">City</div>
+                    <div class="row">Country Dropdown</div>
+                    <div class="row">Visit Date
+                        <input type="text" class="datepicker">
+                    </div>
+                    <div class="row">Pint</div>
+                    <div class="row">Rating</div>
+                    <div class="row">Price</div>
+                    <div class="row">Write your review here</div>
                 </form>
             </div>
 

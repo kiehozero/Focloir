@@ -64,8 +64,8 @@
             <br>
             <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
-            <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
             {% if session.user %}
+                <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
                 <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
                 <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
             {% else %}

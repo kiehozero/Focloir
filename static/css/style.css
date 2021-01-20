@@ -46,7 +46,7 @@ body {
 
 .nav-wrapper,
 .page-footer {
-    /* overwrites default Materialize colouring */
+    /* overwrites default Materialize styling */
     background-image: linear-gradient(to left, #cfb53b, #3b382e);
 }
 
@@ -79,7 +79,7 @@ nav .brand-logo:hover {
 
 .sidenav li > a,
 .sidenav div > a {
-    /* overwrites default Materialize settings */
+    /* overwrites default Materialize styling */
     color: #3b382e;
     font-size: 24px;
     font-weight: 600;
@@ -92,7 +92,7 @@ nav .brand-logo:hover {
 /* Buttons */
 
 .btn-large {
-    /* overwrites default Materialize colouring */
+    /* overwrites default Materialize styling */
     background-color: #3b382e;
     border-radius: 5px;
     color: #cfb53b;
@@ -108,12 +108,12 @@ nav .brand-logo:hover {
 /* Results */
 
 .btn-floating {
-    /* overwrites default Materialize colouring */
+    /* overwrites default Materialize styling */
     background-color: #885043;
 }
 
 .btn-floating:hover {
-    /* overwrites default Materialize colouring */
+    /* overwrites default Materialize styling */
     background-color: #cfb53b;
 }
 
@@ -121,6 +121,36 @@ nav .brand-logo:hover {
 
 .reg-icon {
     color: #3b382e;
+}
+
+/* Datepicker Table */
+/* All of this section is customised to overwrite
+the default Materialize styling */
+
+div.datepicker-calendar-container {
+    color: #3b382e;
+}
+
+button.datepicker-cancel,
+button.datepicker-done,
+button.datepicker-today { 
+    background-color: #443e32;
+    border-radius: 10px;
+    color: #cfb53b;
+}
+
+.datepicker-table td.is_today {
+    color: #cfb53b;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #cfb53b;
+    color: #3b382e;
+}
+
+div.datepicker-date-display {
+    background-color: #3b382e;
+    color: #cfb53b;
 }
 
 /* Footer */

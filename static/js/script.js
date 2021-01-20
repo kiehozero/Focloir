@@ -8,8 +8,12 @@ $ symbol is an undefined variable */
 /* Materialize jQuery intialisation */
 
 $(document).ready(function(){
+    /* initialises mobile side navigation bar */
     $('.sidenav').sidenav();
+    /* initialises index.html parallax view */
     $('.parallax').parallax();
+    /* initialises datepicker in review form */
+    $('.datepicker').datepicker();
 });
 
 /* Navigation */
