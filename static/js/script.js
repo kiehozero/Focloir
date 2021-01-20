@@ -14,6 +14,8 @@ $(document).ready(function(){
     $('.parallax').parallax();
     /* initialises datepicker in review form */
     $('.datepicker').datepicker();
+    /* initialises dropdown in add pub form */
+    $('select').formSelect();
 });
 
 /* Navigation */

@@ -10,11 +10,53 @@
                  
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
-                        <div class="row"></div>
-                        <div class="row">Name</div>
-                        <div class="row">Street</div>
-                        <div class="row">City</div>
-                        <div class="row">Country</div>
+
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <input id="pname" name="pname" type="text" class="validate" required>
+                                <label for="pname">Pub Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <input id="loc" name="loc" type="text" class="validate">
+                                <label for="loc">Street</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <input id="city" name="city" type="text" class="validate" required>
+                                <label for="city">City</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <input id="state" name="state" type="text" class="validate">
+                                <label for="state">County, State or Province</label>
+                            </div>
+                        </div>
+                        <!-- change to drop down once you find a drop-down -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <select id="country" name="country">
+                                    <option disabled selected>Choose your option</option>
+                                    {% for country in countries %}
+                                        <option value="{{ country.name }}">{{ country.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Country</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="card-action center-align">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                    Add this pub!
+                                    <!-- Needs Font Awesome icon? -->
+                                </button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
 
