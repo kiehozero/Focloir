@@ -39,7 +39,7 @@ def add_pub():
 
         mongo.db.pubs.insert_one(new_pub)
         flash("{} successfully added".format(request.form.get("pname")))
-        # need a modal to display
+        # need a modal to display above
         # automatically sends user to review page
         return redirect(url_for('add_review'))
 
@@ -47,8 +47,10 @@ def add_pub():
     return render_template("add_pub.html", countries=countries)
 
 
-@app.route("/add_review")
+@app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    pubs = mongo.db.pubs.find()
+    pints = mongo.db.pints.find()
     if request.method == "POST":
         new_review = {
             "pub": request.form.get("pub"),
@@ -59,8 +61,14 @@ def add_review():
             "review": request.form.get("review"),
             "author": session["user"]
         }
-    pubs = mongo.db.pubs.find()
-    return render_template("add_review.html", pubs=pubs)
+
+        mongo.db.reviews.insert_one(new_review)
+        flash("Review added, add another?")
+        # needs modal to display flash above, plus
+        # buttons saying "Add another review" and
+        # a second option
+
+    return render_template("add_review.html", pubs=pubs, pints=pints)
 
 
 @app.route("/contact_us")

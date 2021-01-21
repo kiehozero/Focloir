@@ -13,12 +13,14 @@
 
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
 
+                        <!-- Really need two extra rows that allow users to narrow down by country and city 
+                        first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <select id="pub" name="pub">
                                     <option disabled selected>Choose your option</option>
                                     {% for pub in pubs %}
-                                        <option value="{{ pub.name }}">{{ pub.name }}</option>
+                                        <option value="{{ pub.pname }}">{{ pub.pname }}</option>
                                     {% endfor %}
                                 </select>
                                 <label>Pub Name</label>
@@ -26,15 +28,30 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s10 m5 offset-s1 offset-m2">
+                            <div class="input-field col s10 m5 offset-s1">
                                 <input type="text" id="visit" name="visit" class="datepicker">
                                 <label for="visit">Date visited</label>
                             </div>
+
+                            <div class="input-field col s10 m5 offset-s1">
+                                <select id="pint" name="pint">
+                                    <option disabled selected>Choose your drink</option>
+                                    {% for pint in pints %}
+                                        <option value="{{ pint.dname }}">
+                                            {{ pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
+                                        </option>
+                                    {% endfor %}
+                                    <!-- should there be an Other option here? -->
+                                </select>
+                                <label>Pint Name</label>
+                            </div>
                         </div>
 
-                        <div class="row">Pint</div>
                         <div class="row">Rating</div>
+                        <!-- use range slider in Materialize? -->
+
                         <div class="row">Price</div>
+                        <!-- This should be number only-->
 
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
