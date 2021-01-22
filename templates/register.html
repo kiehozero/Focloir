@@ -16,24 +16,28 @@
                 </div>
 
                 <div class="card horizontal">
-                    <!-- no content here -->
+                    <!-- no content here, Materialize template reserves this for an image -->
                 </div>
 
                 <div class="card-stacked">
                     
                     <div class="row">
                         <br>
+
+                        <!-- Username input -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <!-- Not sure about this icon -->
                                 <i class="fas fa-key prefix reg-icon"></i>
                                 <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,16}$" 
-                                title="Must be between 5 and 16 characters" class="validate" required>
+                                    title="Must be between 5 and 16 characters" class="validate" required>
                                 <label for="username">Username</label>
                             </div>
                         </div>
 
+                        <!-- Name inputs share a row on larger screens, separate for mobile -->
                         <div class="row">
+                            <!-- Forename input -->
                             <div class="input-field col s10 m5 offset-s1 offset-m1">
                                 <i class="far fa-id-badge prefix reg-icon"></i>
                                 <input id="first_name" name="first_name" minlength="3" 
@@ -41,6 +45,7 @@
                                 <label for="first_name">First Name</label>
                             </div>
 
+                            <!-- Surname input -->
                             <div class="input-field col s10 m5 offset-s1">
                                 <i class="fas fa-id-badge prefix reg-icon"></i>
                                 <!-- Make icon visible only on small screens? -->
@@ -50,6 +55,7 @@
                             </div>
                         </div>
 
+                        <!-- Email address input -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-at prefix reg-icon"></i>
@@ -58,6 +64,7 @@
                             </div>
                         </div>
 
+                        <!-- Password input -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-lock prefix reg-icon"></i>
@@ -67,6 +74,7 @@
                             </div>
                         </div>
 
+                        <!-- Submission button -->
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
