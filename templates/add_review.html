@@ -4,6 +4,9 @@
         
         {% if session.user %}
 
+            <!-- form is composed of various different elements from Materialize, 
+                namely the Date Picker, Radion Button, Selects and Text Inputs-->
+
             <div class="row center-align">
                 <h4>Review a pub</h4>
                 <div>Can't find your pub? Add a new one <a href="{{ url_for('add_pub') }}">here.</a>
@@ -29,7 +32,7 @@
 
                         <div class="row">
                             <div class="input-field col s10 m5 offset-s1">
-                                <input type="text" id="visit" name="visit" class="datepicker" required>
+                                <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
                                 <label for="visit">Date visited</label>
                             </div>
 
@@ -47,11 +50,50 @@
                             </div>
                         </div>
 
-                        <div class="row">Rating</div>
+                        <div class="row">
+                            <div class="input-field col s10 m3 offset-s1">
+                                <select id="prating" name="prating" required>
+                                    <option disabled selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label>Pub Rating</label>
+                            </div>
+
+                            <div class="input-field col s10 m3 offset-s1">
+                                <select id="drating" name="drating" required>
+                                    <option disabled selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label>Pint Rating</label>
+                            </div>
                         <!-- use range slider in Materialize? -->
 
-                        <div class="row">Price</div>
-                        <!-- This should be number only-->
+                            <div class="input-field col s10 m4 offset-s1">
+                                <!-- regex needs to include decimal point and/or comma-->
+                                <input 
+                                    id="price" name="price" type="text" class="validate"
+                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" required>
+                                <label for="price">Price</label>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
@@ -61,6 +103,17 @@
                                 <label for="review">Write your review here</label>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="card-action center-align">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                    <!-- Change font-->
+                                    Submit review
+                                    <i class="far fa-check-square"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
