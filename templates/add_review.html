@@ -22,6 +22,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <select id="pub" name="pub" required>
                                     <option disabled selected>Choose your option</option>
+                                    <!-- Need to sort these results alphabetically -->
                                     {% for pub in pubs %}
                                         <option value="{{ pub.pname }}">{{ pub.pname }}</option>
                                     {% endfor %}
@@ -31,7 +32,7 @@
                         </div>
 
                         <div class="row">
-                            <!-- date format needs tweaking-->
+                            <!-- date format needs tweaking -->
                             <!-- mobile view for this is horrific -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
                                 <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
