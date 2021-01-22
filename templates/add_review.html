@@ -17,7 +17,7 @@
                         first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <select id="pub" name="pub">
+                                <select id="pub" name="pub" required>
                                     <option disabled selected>Choose your option</option>
                                     {% for pub in pubs %}
                                         <option value="{{ pub.pname }}">{{ pub.pname }}</option>
@@ -29,12 +29,12 @@
 
                         <div class="row">
                             <div class="input-field col s10 m5 offset-s1">
-                                <input type="text" id="visit" name="visit" class="datepicker">
+                                <input type="text" id="visit" name="visit" class="datepicker" required>
                                 <label for="visit">Date visited</label>
                             </div>
 
                             <div class="input-field col s10 m5 offset-s1">
-                                <select id="pint" name="pint">
+                                <select id="pint" name="pint" required>
                                     <option disabled selected>Choose your drink</option>
                                     {% for pint in pints %}
                                         <option value="{{ pint.dname }}">
@@ -57,7 +57,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <textarea
                                     id="review" name="review" class="materialize-textarea" 
-                                    minlength="15" maxlength="400" data-length="400"></textarea>
+                                    minlength="15" maxlength="400" data-length="400" required></textarea>
                                 <label for="review">Write your review here</label>
                             </div>
                         </div>

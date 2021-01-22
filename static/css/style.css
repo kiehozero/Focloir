@@ -154,6 +154,18 @@ div.datepicker-date-display {
     color: #cfb53b;
 }
 
+/* Add Review Form */
+
+.dropdown-content li > span {
+    color: #3b382e;
+}
+
+.dropdown-content li > span:hover {
+    background-color: #cfb53b;
+    color: #3b382e;
+    font-weight: 600;
+}
+
 /* Footer */
 
 .foot-social a {
