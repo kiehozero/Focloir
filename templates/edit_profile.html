@@ -8,19 +8,13 @@
 
         <div class="row center-align">
 
-            <a class="button btn-large" href="{{ url_for('my_reviews') }}">My Reviews</a>
+            <a class="button btn-large" href="{{ url_for('my_reviews', username=session['user']) }}">My Reviews</a>
             <a class="button btn-large" href="{{ url_for('logout') }}">Log Out</a>
         </div>
 
         <div class="row"> 
 
-            {{ user.username }}
-                
-            {{ user.first_name }}
-
-            {{ user.last_name }}
-
-            {{ user.email }}
+            Display profile information here
 
         </div>
 

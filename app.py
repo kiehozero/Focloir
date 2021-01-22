@@ -78,6 +78,21 @@ def contact_us():
     return render_template("contact_us.html")
 
 
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+    # only returns username from MongoDB users collection
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    # if statement ensures that you can't add any username to the
+    # profile url string to access their profile page
+    if session["user"]:
+        return render_template(
+            "edit_profile.html", username=username)
+
+    return redirect(url_for('login'))
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -122,12 +137,14 @@ def my_reviews(username):
     # only returns username from MongoDB users collection
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    # reviews = mongo.db.reviews.find({"created_by": session["user"]})
+    # only returns reviews by active user
+    reviews = mongo.db.reviews.find({"author": session["user"]})
 
     # if statement ensures that you can't add any username to the
     # profile url string to access their profile page
     if session["user"]:
-        return render_template("my_reviews.html", username=username)
+        return render_template(
+            "my_reviews.html", username=username, reviews=reviews)
 
     return redirect(url_for('login'))
 
