@@ -67,7 +67,8 @@ def add_review():
         flash("Review added, add another?")
         # needs modal to display flash above, plus
         # buttons saying "Add another review" and
-        # a second option
+        # a second option that takes you somewhere
+        # else on the site.
 
     return render_template("add_review.html", pubs=pubs, pints=pints)
 
