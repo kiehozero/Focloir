@@ -166,11 +166,28 @@ div.datepicker-date-display {
     font-weight: 600;
 }
 
+[type="radio"]:checked + span::after,
+[type="radio"].with-gap:checked + span::after {
+    /* overwrites default Materialize styling for checked radio buttons */
+    background-color: #cfb53b;
+}
+
+[type="radio"]:checked + span::after,
+[type="radio"].with-gap:checked + span::before,
+[type="radio"].with-gap:checked + span::after {
+    /* overwrites default Materialize styling for checked radio buttons */
+    border: 2px solid #cfb53b;
+}
+
+#price {
+    color: #3b382e;
+}
+
 /* Footer */
 
 .foot-social a {
     /* not rendering as planned */
     color: #3b382e;
     font-size: 36px;
-    letter-spacing: 50px;
+    letter-spacing: 36px;
 }

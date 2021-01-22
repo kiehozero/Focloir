@@ -56,7 +56,8 @@ def add_review():
             "pub": request.form.get("pub"),
             "pint": request.form.get("pint"),
             "visit": request.form.get("visit"),
-            "rating": request.form.get("rating"),
+            "prating": request.form.get("prating"),
+            "drating": request.form.get("drating"),
             "price": request.form.get("price"),
             "review": request.form.get("review"),
             "author": session["user"]
