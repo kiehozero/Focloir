@@ -7,8 +7,9 @@
         </div>
 
         <div class="row center-align">
-            <div class="button btn-large">Edit Profile</div>
-            <div class="button btn-large">Log Out</div>
+
+            <a class="button btn-large" href="{{ url_for('edit_profile', username=session['user']) }}">Edit Profile</a>
+            <a class="button btn-large" href="{{ url_for('logout') }}">Log Out</a>
         </div>
 
         <div class="row"> 
@@ -33,35 +34,45 @@
                 </div>
 
             {% for review in reviews %}
-                {% if created_by == username %}
                 <div class="col s6 m3">
                     <div class="card">
-                        <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-                        <span class="card-title">{{ review.pname }}</span>
-                        <a
-                            class="btn-floating halfway-fab waves-effect waves-light"
-                            href="{{ url_for('add_review') }}">
-                            <i class="fas fa-info"></i>
-                        </a>
-                        </div>
-                        <div class="card-content spectral">
-                        <p>
-                            {{ review.rating }}
-                            <br>
-                            {{ review.price }}
-                            <br>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </p>
 
-                        <p>
-                            {{ review.review }}
-                        </p>
+                        <!-- First card is always the option to add a new review -->
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
+                            <span class="card-title">{{ review.pub }}</span>
+                            <a
+                                class="btn-floating halfway-fab waves-effect waves-light left"
+                                href="#">
+                                <div style="font-family: 'Fraunces'; font-weight: 600; font-size: 20px; text-align: center;">{{ review.prating }}</div>
+
+                            </a>
+                            <a
+                                class="btn-floating halfway-fab waves-effect waves-light right"
+                                href="#">
+                                <i class="fas fa-info"></i>
+                                <!-- expand this button to read review and see full information, 
+                                could use Card Reveal from materialize, need to refer to review ID?  -->
+                            </a>
+                        </div>
+
+                        <!-- Returns reviews submitted by this user -->
+                        <div class="card-content spectral">
+                            <p>
+                                <br>
+                                <div class="center-align">
+                                    Pint: {{ review.drating }}/10
+                                    Price: {{ review.price }}
+                                </div>
+                                <br>
+                                <div class="center-align">
+                                    <button class="btn review-card-button">Edit</button>
+                                    <button class="btn review-card-button">Delete</button>
+                                </div>
+                            </p>
                         </div>
                     </div>
                 </div>
-                {% endif %}
             {% endfor %}
 
         </div>

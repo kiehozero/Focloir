@@ -4,6 +4,7 @@ body {
     font-family: 'Fraunces', serif;
 }
 
+
 /* Fonts */
 
 .spectral {
@@ -14,6 +15,7 @@ body {
 .fs-italic {
     font-style: italic;
 }
+
 
 /* Palette */
 
@@ -70,6 +72,7 @@ nav .brand-logo:hover {
     width: 150px;
 }
 
+
 /* Mobile Sidenav */
 
 .sidenav {
@@ -89,6 +92,7 @@ nav .brand-logo:hover {
     letter-spacing: 20px;
 }
 
+
 /* Buttons */
 
 .btn-large {
@@ -105,6 +109,7 @@ nav .brand-logo:hover {
     color: #3b382e;
 }
 
+
 /* Results */
 
 .btn-floating {
@@ -116,6 +121,7 @@ nav .brand-logo:hover {
     /* overwrites default Materialize styling */
     background-color: #cfb53b;
 }
+
 
 /* Registration form - maybe move each page's unique CSS onto a separate sheet? */
 
@@ -154,6 +160,7 @@ div.datepicker-date-display {
     color: #cfb53b;
 }
 
+
 /* Add Review Form */
 
 .dropdown-content li > span {
@@ -182,6 +189,23 @@ div.datepicker-date-display {
 #price {
     color: #3b382e;
 }
+
+
+/* User Account Page */
+
+.review-card-button {
+    background-color: #3b382e;
+    border-radius: 5px;
+    color: #cfb53b;
+    font-family: 'Fraunces';
+    font-weight: 600;
+}
+
+.review-card-button:hover {
+    background-color: #cfb53b;
+    color: #3b382e;
+}
+
 
 /* Footer */
 
