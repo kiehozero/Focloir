@@ -158,16 +158,18 @@ I set up the data structure for this project in MongoDB using the following meth
 
 ### Cloning
 
-Assuming you already have Git [installed](https://git-scm.com/download/), anybody can clone this repository by following these steps:
+Assuming you already have Git [installed](https://git-scm.com/download/), anybody can clone this repository by following 
+these steps:
 
 - Open the command prompt/terminal on your machine;
 - Type the command 'cd' followed by the directory you wish to store the repository in;
-- Go to the top of the [GitHub repository](https://github.com/kiehozero/pintbaby/) and click the green 'Code' drop-down button;
+- Go to the top of the [GitHub repository](https://github.com/kiehozero/pintbaby/) and click the green 'Code' drop-down 
+button;
 - Copy the [link provided](https://github.com/kiehozero/pintbaby.git);
 - Return to the Command Prompt and type 'git clone' followed by the copied address.
 
-For an in-depth guide to cloning repositories, click [here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from 
-which the steps above were taken.
+For an in-depth guide to cloning repositories, click 
+[here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from which the steps above were taken.
 
 <<<Heroku and Mongo cloning information?>>>
 
@@ -175,9 +177,15 @@ which the steps above were taken.
 
 ### Content
 
-- Materialize site
-- CI mini-project tutorial
+- In previous projects I have spent a lot of time trying to untangle my own CSS from Bootstrap; in this project I 
+committed myself to using as much content from a pre-built CSS library as I could. The 
+[Materialize](https://materializecss.com/) is a really lightweight and powerful library that provided great results 
+out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection.
+- [Code Institute](https://www.codeinstitute.net/)'s task manager project gave me a good structure to work from, 
+as well as the foundations for my Python interaction with MongoDB.
 - W3 as usual
+- Pymongo docs
+- Flask Pymongo docs
 
 ### Tutorials
 
