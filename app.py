@@ -26,8 +26,7 @@ def index():
 
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
-    # establishes list of countries used for drop-down
-    countries = mongo.db.countries.find()
+    countries = mongo.db.countries.find().sort("name")
     if request.method == "POST":
         new_pub = {
             "pname": request.form.get("pname"),

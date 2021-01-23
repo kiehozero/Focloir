@@ -17,7 +17,9 @@ $(document).ready(function(){
     /* initialises character countdown in review form */
     $('textarea#review').characterCounter();
     /* initialises datepicker in review form */
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: "yyyy-mm-dd"
+    });
 });
 
 /* Navigation */

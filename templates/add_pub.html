@@ -13,13 +13,15 @@
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
 
+                        <!-- Pub Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <input id="pname" name="pname" type="text" class="validate" required>
                                 <label for="pname">Pub Name</label>
                             </div>
                         </div>
-                        
+
+                        <!-- Street Name (Optional) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <input id="loc" name="loc" type="text" class="validate">
@@ -27,13 +29,15 @@
                             </div>
                         </div>
 
+                        <!-- City (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <input id="city" name="city" type="text" class="validate" required>
-                                <label for="city">City</label>
+                                <label for="city">Town/City</label>
                             </div>
                         </div>
 
+                        <!-- County (Optional) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <input id="state" name="state" type="text" class="validate">
@@ -41,7 +45,7 @@
                             </div>
                         </div>
 
-                        <!-- Need to add every country to the database hahahahahahah-->
+                        <!-- Country (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <select id="country" name="country">
@@ -54,6 +58,7 @@
                             </div>
                         </div>
 
+                        <!-- Submit Button -->
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
