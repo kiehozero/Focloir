@@ -24,7 +24,7 @@
                         <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
                         <span class="card-title">Add review</span>
                         <a 
-                            class="btn-floating halfway-fab waves-effect waves-light"
+                            class="btn-floating halfway-fab waves-effect waves-light right"
                             href="{{ url_for('add_review') }}">
                             <i class="fas fa-pen-nib"></i>
                         </a>
@@ -38,14 +38,26 @@
                 </div>
 
             {% for pub in pubs %}
+                {% set id_no = pub._id %}
                 <div class="col s6 m3">
                     <div class="card">
                         <div class="card-image">
                         <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-                        <span class="card-title">{{ pub.pname }}</span>
+                        <span class="card-title">{{ pub.pname }}, {{ id_no }}</span>
+                        <a
+                            class="btn-floating halfway-fab waves-effect waves-light left"
+                            href="{{ url_for('add_review') }}">
+                            <!--paramter above needs to be pub id-->
+                            <!-- generate link here from pub id, a new template of the add_review that is pre-filled? -->
+                            <div 
+                                style="font-family: 'Fraunces'; font-weight: 600; font-size: 20px; text-align: center;">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                        </a>
                         <a
                             class="btn-floating halfway-fab waves-effect waves-light"
-                            href="{{ url_for('add_review') }}">
+                            href="{{ url_for('pubpage') }}">
+                            <!--paramter above needs to be pub id-->
                             <i class="fas fa-info"></i>
                         </a>
                         </div>
