@@ -48,8 +48,8 @@ def add_pub():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    pubs = mongo.db.pubs.find()
-    pints = mongo.db.pints.find()
+    pubs = mongo.db.pubs.find().sort("pname")
+    pints = mongo.db.pints.find().sort("dname")
     if request.method == "POST":
         new_review = {
             "pub": request.form.get("pub"),
