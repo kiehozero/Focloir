@@ -16,6 +16,7 @@
 
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
 
+                        <!-- Choose Pub Dropdown -->
                         <!-- Really need two extra rows that allow users to narrow down by country and city 
                         first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
@@ -31,14 +32,17 @@
                             </div>
                         </div>
 
+                        <!-- Datepicker and Drink Selection share row on larger screens -->
                         <div class="row">
-                            <!-- date format needs tweaking -->
+
+                            <!-- Datepicker, submitted formatt is yyyy-mm-dd -->
                             <!-- mobile view for this is horrific -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
                                 <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
                                 <label for="visit">Date visited</label>
                             </div>
 
+                            <!-- Drink Selection -->
                             <div class="input-field col s10 m7 offset-s1">
                                 <select id="pint" name="pint" required>
                                     <option disabled selected>Choose your drink</option>
@@ -53,7 +57,10 @@
                             </div>
                         </div>
 
+                        <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
                         <div class="row">
+
+                            <!-- Pub Rating Dropdown -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
                                 <select id="prating" name="prating" required>
                                     <option disabled selected>Select</option>
@@ -71,6 +78,7 @@
                                 <label>Pub Rating</label>
                             </div>
 
+                            <!-- Drink Rating Dropdown -->
                             <div class="input-field col s10 m3 offset-s1">
                                 <select id="drating" name="drating" required>
                                     <option disabled selected>Select</option>
@@ -87,8 +95,8 @@
                                 </select>
                                 <label>Pint Rating</label>
                             </div>
-                        <!-- use range slider in Materialize? -->
 
+                            <!-- Drink Price Input-->
                             <div class="input-field col s10 m4 offset-s1">
                                 <!-- regex needs to include decimal point and/or comma-->
                                 <input 
@@ -98,6 +106,7 @@
                             </div>
                         </div>
 
+                        <!-- Review Textarea with Character Counter from Materialize -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <textarea
@@ -107,6 +116,7 @@
                             </div>
                         </div>
 
+                        <!-- Submit Button -->
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
