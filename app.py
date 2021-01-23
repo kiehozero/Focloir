@@ -82,12 +82,15 @@ def edit_profile(username):
     # only returns username from MongoDB users collection
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    profile = mongo.db.users.find_one(
+        {"username": session["user"]}
+    )
 
     # if statement ensures that you can't add any username to the
     # profile url string to access their profile page
     if session["user"]:
         return render_template(
-            "edit_profile.html", username=username)
+            "edit_profile.html", username=username, profile=profile)
 
     return redirect(url_for('login'))
 
