@@ -66,3 +66,10 @@ $("#logButton").mouseenter(function(){
 $("#logButton").mouseleave(function(){
   $(this).html("Log In");
 });
+
+$("#outButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-sign-out-alt'></i>");
+});
+$("#outButton").mouseleave(function(){
+  $(this).html("Log In");
+});

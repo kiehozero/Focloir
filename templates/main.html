@@ -44,10 +44,10 @@
                     <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
                     <!-- Make a drop down here that returns every country in the pubs collection-->
-                    <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
                     {% if session.user %}
+                        <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
                         <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Reviews</a></li>
-                        <li><a href="{{ url_for('logout') }}" id="#">Log-Out</a></li>
+                        <li><a href="{{ url_for('logout') }}" id="outButton">Log-Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
                         <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>

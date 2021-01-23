@@ -67,7 +67,8 @@ nav .brand-logo:hover {
 #addButton,
 #regButton,
 #logButton,
-#myrButton {
+#myrButton,
+#outButton {
     text-align: center;
     width: 150px;
 }
