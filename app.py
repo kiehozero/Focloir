@@ -163,6 +163,13 @@ def pubs():
     return render_template("pubs.html", pubs=pubs)
 
 
+@app.route("/pubpage")
+def pubpage():
+    pubs = mongo.db.pubs.find()
+    reviews = mongo.db.reviews.find()
+    return render_template("pubpage.html", pubs=pubs, reviews=reviews)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
