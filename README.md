@@ -191,7 +191,10 @@ format of regular expressions in validating user-inputted text.
 
 - [Code Institute](https://www.codeinstitute.net/)'s task manager project gave me a good structure to work from, 
 as well as the foundations for my Python interaction with MongoDB.
--
+- To create a list of countries that users can select from I used a 
+[CodevsColor](https://www.codevscolor.com/insert-multiple-documents-mongodb-collection) guide on the MongoDB shell's
+insertMany function, then used data I found from a HTML element that was created by GitHub user 
+[DanRovito](https://gist.github.com/DanRovito/977bcb97c9c2dfd3398a).
 -
 
 
