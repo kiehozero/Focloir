@@ -18,6 +18,8 @@
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_review') }}">
 
                         <!-- Choose Pub Dropdown -->
+                        <br>
+                        <br>
                         <!-- Really need two extra rows that allow users to narrow down by country and city 
                         first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
@@ -45,6 +47,7 @@
 
                             <!-- Drink Selection -->
                             <div class="input-field col s10 m7 offset-s1">
+                                <!-- This is not displaying properly in most screen sizes -->
                                 <select id="pint" name="pint" required>
                                     <option disabled selected>Choose your drink</option>
                                     {% for pint in pints %}
