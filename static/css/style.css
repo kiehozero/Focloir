@@ -74,7 +74,7 @@ nav .brand-logo:hover {
 }
 
 
-/* Mobile Sidenav */
+/* Mobile and Tablet Sidenav */
 
 .sidenav {
     background-color: #cfb53b;
@@ -164,6 +164,15 @@ div.datepicker-date-display {
 
 /* Add Review Form */
 
+button,
+input,
+optgroup,
+select,
+textarea {
+    /* colouring for all form user-inputted text */
+    color: #3b382e;
+}
+
 .dropdown-content li > span {
     color: #3b382e;
 }
@@ -185,6 +194,18 @@ div.datepicker-date-display {
 [type="radio"].with-gap:checked + span::after {
     /* overwrites default Materialize styling for checked radio buttons */
     border: 2px solid #cfb53b;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    /* overwrites default Materialize styling for selected textarea */
+    border-bottom: 1px solid #cfb53b;
+    box-shadow: 0 1px 0 0 #cfb53b;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) + label,
+span.character-counter {
+    /* overwrites default Materialize styling for textarea heading and char counter */
+    color: #cfb53b;
 }
 
 #price {
