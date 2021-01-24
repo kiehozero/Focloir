@@ -1,0 +1,139 @@
+{% extends "main.html" %}
+
+    {% block content %}
+        
+        {% if session.user %}
+
+            <!-- form is composed of various different elements from Materialize, 
+                namely the Date Picker, Radion Button, Selects and Text Inputs-->
+
+            <div class="row center-align">
+                <h4 class="d-brown">Review your Visit to {{ review.pub }}</h4>
+                 
+                <div class="row container">
+
+                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+
+                        <!-- Choose Pub Dropdown -->
+                        <br>
+                        <br>
+                        <!-- Really need two extra rows that allow users to narrow down by country and city 
+                        first, then use criteria within a find function to filter drop-down below -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <select id="pub" name="pub" required>
+                                    <option disabled selected>Choose your option</option>
+                                    <!-- Need to sort these results alphabetically -->
+                                    {% for pub in pubs %}
+                                        <option value="{{ pub.pname }}">{{ pub.pname }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Pub Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Datepicker and Drink Selection share row on larger screens -->
+                        <div class="row">
+
+                            <!-- Datepicker, submitted formatt is yyyy-mm-dd -->
+                            <!-- mobile view for this is horrific -->
+                            <div class="input-field col s10 m3 offset-s1 offset-m1">
+                                <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
+                                <label for="visit">Date visited</label>
+                            </div>
+
+                            <!-- Drink Selection -->
+                            <div class="input-field col s10 m7 offset-s1">
+                                <!-- This is not displaying properly in most screen sizes -->
+                                <select id="pint" name="pint" required>
+                                    <option disabled selected>Choose your drink</option>
+                                    {% for pint in pints %}
+                                        <option value="{{ pint.dname }}">
+                                            {{ pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
+                                        </option>
+                                    {% endfor %}
+                                    <!-- should there be an Other option here? -->
+                                </select>
+                                <label>Pint Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
+                        <div class="row">
+
+                            <!-- Pub Rating Dropdown -->
+                            <div class="input-field col s10 m3 offset-s1 offset-m1">
+                                <select id="prating" name="prating" required>
+                                    <option disabled selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label>Pub Rating</label>
+                            </div>
+
+                            <!-- Drink Rating Dropdown -->
+                            <div class="input-field col s10 m3 offset-s1">
+                                <select id="drating" name="drating" required>
+                                    <option disabled selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label>Pint Rating</label>
+                            </div>
+
+                            <!-- Drink Price Input-->
+                            <div class="input-field col s10 m4 offset-s1">
+                                <!-- regex needs to include decimal point and/or comma-->
+                                <input 
+                                    id="price" name="price" type="text" class="validate"
+                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" required>
+                                <label for="price">Price</label>
+                            </div>
+                        </div>
+
+                        <!-- Review Textarea with Character Counter from Materialize -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <textarea
+                                    id="review" name="review" class="materialize-textarea" 
+                                    minlength="15" maxlength="400" data-length="400" required></textarea>
+                                <label for="review">Write your review here</label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="card-action center-align">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                    <!-- Change font-->
+                                    Amend Your Visit
+                                    <i class="far fa-check-square"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        {% else %}
+
+        {% endif %}
+
+    {% endblock %}

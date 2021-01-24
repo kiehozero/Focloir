@@ -68,8 +68,10 @@
                                 </div>
                                 <br>
                                 <div class="center-align">
-                                    <button class="btn review-card-button">Edit</button>
-                                    <button class="btn review-card-button">Delete</button>
+                                    <a 
+                                        class="btn review-card-button"
+                                        href="{{ url_for('edit_review', review_id=review._id) }}">Edit</a>
+                                    <a class="btn review-card-button" href="#">Delete</a>
                                 </div>
                             </p>
                         </div>

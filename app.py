@@ -77,22 +77,16 @@ def contact_us():
     return render_template("contact_us.html")
 
 
-@app.route("/edit_profile/<username>", methods=["GET", "POST"])
-def edit_profile(username):
-    # only returns username from MongoDB users collection
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    profile = mongo.db.users.find_one(
-        {"username": session["user"]}
-    )
+@app.route("/edit_profile")
+def edit_profile():
+    return render_template("edit_profile.html")
 
-    # if statement ensures that you can't add any username to the
-    # profile url string to access their profile page
-    if session["user"]:
-        return render_template(
-            "edit_profile.html", username=username, profile=profile)
 
-    return redirect(url_for('login'))
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    pints = mongo.db.pints.find().sort("dname")
+    return render_template("edit_review.html", review=review, pints=pints)
 
 
 @app.route("/login", methods=["GET", "POST"])

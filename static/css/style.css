@@ -118,7 +118,8 @@ nav .brand-logo:hover {
     background-color: #885043;
 }
 
-.btn-floating:hover {
+.btn-floating:hover,
+.btn-floating:focus {
     /* overwrites default Materialize styling */
     background-color: #cfb53b;
 }
