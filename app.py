@@ -86,7 +86,9 @@ def edit_profile():
 def edit_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     pints = mongo.db.pints.find().sort("dname")
-    return render_template("edit_review.html", review=review, pints=pints)
+    pubs = mongo.db.pubs.find().sort("pname")
+    return render_template(
+        "edit_review.html", review=review, pints=pints, pubs=pubs)
 
 
 @app.route("/login", methods=["GET", "POST"])
