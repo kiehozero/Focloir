@@ -196,15 +196,17 @@ textarea {
     border: 2px solid #cfb53b;
 }
 
+input[type="text"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    /* overwrites default Materialize styling for selected textarea */
+    /* overwrites default Materialize styling for focused price input and review textarea */
     border-bottom: 1px solid #cfb53b;
     box-shadow: 0 1px 0 0 #cfb53b;
 }
 
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label,
 span.character-counter {
-    /* overwrites default Materialize styling for textarea heading and char counter */
+    /* overwrites default Materialize styling for input label, textarea label and char counter */
     color: #cfb53b;
 }
 
