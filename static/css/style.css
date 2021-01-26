@@ -43,6 +43,8 @@ body {
     color: #cfb53b;
 }
 
+/* need a green in here */
+
 
 /* Navigation */
 
@@ -222,6 +224,11 @@ span.character-counter {
 
 #price {
     color: #3b382e;
+}
+
+.select-wrapper .caret {
+    /* overwrites default Materialize styling for caret svg */
+    fill: #3b382e;
 }
 
 
