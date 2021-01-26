@@ -46,12 +46,12 @@
 
                             <!-- Drink Selection -->
                             <div class="input-field col s10 m7 offset-s1">
-                                <!-- This is not displaying properly in most screen sizes -->
+                                <!-- This is not displaying longer items in most screen sizes -->
                                 <select id="pint" name="pint" required>
                                     <option disabled selected>Choose your drink</option>
                                     {% for pint in pints %}
                                         <option value="{{ pint.dname }}">
-                                            {{ pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
+                                            {{- pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
                                         </option>
                                     {% endfor %}
                                     <!-- should there be an Other option here? -->
