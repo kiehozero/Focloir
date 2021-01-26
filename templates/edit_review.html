@@ -8,7 +8,7 @@
                 namely the Date Picker, Radion Button, Selects and Text Inputs-->
 
             <div class="row center-align">
-                <h4 class="d-brown">Review your Visit to {{ review.pub }}</h4>
+                <h4 class="d-brown">Edit your visit to {{ review.pub }}</h4>
                  
                 <div class="row container">
 
@@ -22,10 +22,13 @@
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <select id="pub" name="pub" required>
-                                    <option disabled selected>Choose your option</option>
                                     <!-- Need to sort these results alphabetically -->
                                     {% for pub in pubs %}
-                                        <option value="{{ pub.pname }}">{{ pub.pname }}</option>
+                                        {% if pub.pname == review.pub %}
+                                            <option value="{{ pub.pname }}" selected>{{ pub.pname }}</option>
+                                        {% else %}
+                                            <option value="{{ pub.pname }}">{{ pub.pname }}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                                 <label>Pub Name</label>
@@ -38,19 +41,25 @@
                             <!-- Datepicker, submitted formatt is yyyy-mm-dd -->
                             <!-- mobile view for this is horrific -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
-                                <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
-                                <label for="visit">Date visited</label>
+                                <input type="text" id="visit" name="visit" class="datepicker" 
+                                format="yyyy/mm/dd" value="{{ review.visit }}" required>
+                                <label for="visit">Visit Date</label>
                             </div>
 
                             <!-- Drink Selection -->
                             <div class="input-field col s10 m7 offset-s1">
-                                <!-- This is not displaying properly in most screen sizes -->
+                                <!-- This is not displaying longer items in most screen sizes -->
                                 <select id="pint" name="pint" required>
-                                    <option disabled selected>Choose your drink</option>
                                     {% for pint in pints %}
-                                        <option value="{{ pint.dname }}">
-                                            {{ pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
+                                        {% if pint.dname == review.pint %}
+                                            <option value="{{ pint.dname }}">
+                                                {{- pint.dname -}} ({{ pint.dtype }}, {{ pint.origin }})
+                                            </option>
+                                        {% else %}
+                                            <option value="{{ pint.dname }}">
+                                            {{- pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
                                         </option>
+                                        {% endif %}
                                     {% endfor %}
                                     <!-- should there be an Other option here? -->
                                 </select>
@@ -64,7 +73,7 @@
                             <!-- Pub Rating Dropdown -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
                                 <select id="prating" name="prating" required>
-                                    <option disabled selected>Select</option>
+                                    <option selected>{{ review.prating }}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -82,7 +91,7 @@
                             <!-- Drink Rating Dropdown -->
                             <div class="input-field col s10 m3 offset-s1">
                                 <select id="drating" name="drating" required>
-                                    <option disabled selected>Select</option>
+                                    <option selected>{{ review.drating }}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -102,7 +111,8 @@
                                 <!-- regex needs to include decimal point and/or comma-->
                                 <input 
                                     id="price" name="price" type="text" class="validate"
-                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" required>
+                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" 
+                                    value="{{ review.price }}" required>
                                 <label for="price">Price</label>
                             </div>
                         </div>
@@ -112,19 +122,27 @@
                             <div class="input-field col s10 offset-s1">
                                 <textarea
                                     id="review" name="review" class="materialize-textarea" 
-                                    minlength="15" maxlength="400" data-length="400" required></textarea>
-                                <label for="review">Write your review here</label>
+                                    minlength="15" maxlength="400" data-length="400" >{{ review.review }}</textarea>
+                                <label for="review">Current Review</label>
                             </div>
                         </div>
 
-                        <!-- Submit Button -->
+                        <!-- Buttons -->
                         <div class="row">
                             <div class="card-action center-align">
+                                <!-- Submit -->
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
                                     <!-- Change font-->
                                     Amend Your Visit
                                     <i class="far fa-check-square"></i>
                                 </button>
+                                <!-- Cancel -->
+                                <a class="btn-large waves-effect waves-red pb-button" href="#">
+                                    <!-- href will take you back to view_review page once it's up and running -->
+                                    <!-- needs a hover class with colour setting -->
+                                    Cancel This Edit
+                                    <i class="far fa-window-close"></i>
+                                </a>
                             </div>
                         </div>
 

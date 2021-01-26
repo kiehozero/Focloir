@@ -84,6 +84,24 @@ def edit_profile():
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
+    if request.method == "POST":
+        edited_review = {
+            "pub": request.form.get("pub"),
+            "pint": request.form.get("pint"),
+            "visit": request.form.get("visit"),
+            "prating": request.form.get("prating"),
+            "drating": request.form.get("drating"),
+            "price": request.form.get("price"),
+            "review": request.form.get("review"),
+            "author": session["user"]
+        }
+        mongo.db.reviews.update(
+            {"_id": ObjectId(review_id)}, edited_review)
+        # change below to view_review?
+        flash("Review amended")
+        return render_template( "pubs.html")
+
+    # else method (GET)
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     pints = mongo.db.pints.find().sort("dname")
     pubs = mongo.db.pubs.find().sort("pname")
