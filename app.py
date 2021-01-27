@@ -78,17 +78,32 @@ def contact_us():
     return render_template("contact_us.html")
 
 
-@app.route("/edit_profile/<username>")
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
+    if request.method == "POST":
+        # need to work out how to change password"
+        edited_profile = {
+            "username": request.form.get("username"),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "email": request.form.get("email")
+        }
+        mongo.db.reviews.update(
+            {"_id": ObjectId(user_id)}, edited_profile)
+        flash("Profile updated")
+        return redirect(url_for(
+            'my_reviews', username=session["user"]))
+
     # probably a better way of doing both, rather
     # than duplicating requests
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one(
-        {"username": session["user"]}
-    )
+        {"username": session["user"]})
+    user_id = mongo.db.users.find_one(
+        {"username": session["user"]})["_id"]
     return render_template(
-        "edit_profile.html", username=username, user=user)
+        "edit_profile.html", username=username, user=user, user_id=user_id)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
@@ -108,7 +123,7 @@ def edit_review(review_id):
             {"_id": ObjectId(review_id)}, edited_review)
         # change below to view_review?
         flash("Review amended")
-        return render_template( "pubs.html")
+        return render_template("pubs.html")
 
     # else method (GET)
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
