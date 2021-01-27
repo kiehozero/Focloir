@@ -78,9 +78,17 @@ def contact_us():
     return render_template("contact_us.html")
 
 
-@app.route("/edit_profile")
-def edit_profile():
-    return render_template("edit_profile.html")
+@app.route("/edit_profile/<username>")
+def edit_profile(username):
+    # probably a better way of doing both, rather
+    # than duplicating requests
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]}
+    )
+    return render_template(
+        "edit_profile.html", username=username, user=user)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
@@ -162,6 +170,9 @@ def my_reviews(username):
     if session["user"]:
         return render_template(
             "my_reviews.html", username=username, reviews=reviews)
+    # need an else statement here to catch any requests where someone who isn't
+    # logged in can't type a profile address manually and access it. At the moment
+    # this just loads of a Jinja error
 
     return redirect(url_for('login'))
 

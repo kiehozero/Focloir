@@ -12,21 +12,96 @@
             <a class="button btn-large" href="{{ url_for('logout') }}">Log Out</a>
         </div>
 
-        <div class="row"> 
+        <div class="row">
+            <form class="col s12 m10 offset-m1" method="POST" 
+                    action="#">
 
-            Display profile information here
+                <div class="card horizontal">
+                    <!-- no content here, Materialize template reserves this for an image -->
+                </div>
 
-            {% for user in users %}
-                {% if user.username == session["user"] %}
-                
-                    {{ user.username }}
-                    {{ user.first_name }}
-                    {{ user.last_name }}
-                    {{ user.email }}
+                <div class="card-stacked">
+                    
+                    <div class="row">
+                        <br>
 
-                {% endif %}
-            {% endfor %}
+                        <!-- Username input -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <!-- Icon still Materialize default colour on focus -->
+                                <i class="fas fa-key prefix reg-icon"></i>
+                                <input
+                                    id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,16}$" 
+                                    title="Must be between 5 and 16 characters" class="validate" 
+                                    value="{{ username }}" required>
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
 
+                        <!-- Name inputs share a row on larger screens, separate for mobile -->
+                        <div class="row">
+                            <!-- Forename input -->
+                            <div class="input-field col s10 m5 offset-s1 offset-m1">
+                                <i class="far fa-id-badge prefix reg-icon"></i>
+                                <input id="first_name" name="first_name" minlength="3" maxlength="20"
+                                value="{{ user.last_name }}" type="text" class="validate" required>
+                                <label for="first_name">First Name</label>
+                            </div>
+
+                            <!-- Surname input -->
+                            <div class="input-field col s10 m5 offset-s1">
+                                <i class="fas fa-id-badge prefix reg-icon"></i>
+                                <input
+                                    id="last_name" name="last_name" minlength="3" maxlength="20"
+                                    value="{{ user.last_name }}" type="text" class="validate" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Email address input -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-at prefix reg-icon"></i>
+                                <input
+                                    id="email" name="email" type="email" 
+                                    value="{{ user.email }}" class="validate" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="row">
+                            <div class="input-field col s10 m5 offset-s1 offset-m1">
+                                <i class="fas fa-lock prefix reg-icon"></i>
+                                <input
+                                    id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{8,16}$" 
+                                    title="Must be between 8 and 16 characters" class="validate" required>
+                                <label for="password">Password</label>
+                            </div>
+
+                        <!-- Confirm Password input -->
+                            <div class="input-field col s10 m5 offset-s1">
+                                <i class="fas fa-lock prefix reg-icon"></i>
+                                <input id="conf_password" name="conf_password" type="password" pattern="^[a-zA-Z0-9]{8,16}$" 
+                                    title="Must be between 8 and 16 characters" class="validate" required>
+                                <label for="conf_password">Password</label>
+                            </div>
+                        </div>
+
+                        <!-- Submission button -->
+                        <div class="row">
+                            <div class="card-action center-align">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                    <!-- Change font-->
+                                    Amend Your Details
+                                    <!-- Icon below needs to hover as dark brown -->
+                                    <i class="far fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
         </div>
 
     {% endblock %}
