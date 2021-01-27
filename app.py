@@ -82,14 +82,16 @@ def contact_us():
 def edit_profile(username):
     if request.method == "POST":
         # need to work out how to change password"
+        user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         edited_profile = {
             "username": request.form.get("username"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "email": request.form.get("email")
         }
-        mongo.db.reviews.update(
-            {"_id": ObjectId(user_id)}, edited_profile)
+        mongo.db.users.update(
+            {"_id": user_id}, edited_profile)
+            
         flash("Profile updated")
         return redirect(url_for(
             'my_reviews', username=session["user"]))
@@ -236,8 +238,9 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         # successful log-in re-directs to their new blank profile page
-        return redirect(url_for('profile', username=session["user"]))
+        return redirect(url_for('my_reviews', username=session["user"]))
 
+    # change re-direct destination
     return render_template("register.html")
 
 
