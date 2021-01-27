@@ -88,10 +88,11 @@ def edit_profile(username):
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "email": request.form.get("email")
+            # requires a way of working out how to change password or ignoring field
         }
         mongo.db.users.update(
             {"_id": user_id}, edited_profile)
-            
+
         flash("Profile updated")
         return redirect(url_for(
             'my_reviews', username=session["user"]))
