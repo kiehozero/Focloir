@@ -17,12 +17,12 @@
             Display profile information here
 
             {% for user in users %}
-                {% if profile.username == session["user"] %}
+                {% if user.username == session["user"] %}
                 
-                    {{ profile.username }}
-                    {{ profile.first_name }}
-                    {{ profile.last_name }}
-                    {{ profile.email }}
+                    {{ user.username }}
+                    {{ user.first_name }}
+                    {{ user.last_name }}
+                    {{ user.email }}
 
                 {% endif %}
             {% endfor %}
