@@ -67,8 +67,8 @@ def add_review():
         flash("Review added, add another?")
         # needs modal to display flash above, plus
         # buttons saying "Add another review" and
-        # a second option that takes you somewhere
-        # else on the site.
+        # a second option that takes you to the
+        # my_reviews area
 
     return render_template("add_review.html", pubs=pubs, pints=pints)
 
@@ -76,6 +76,18 @@ def add_review():
 @app.route("/contact_us")
 def contact_us():
     return render_template("contact_us.html")
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    # needs a confirm message here, if yes then
+    # below, if no redirect to my_reviews
+    mongo.db.reviews.remove(
+        {"_id": ObjectId(review_id)}
+    )
+    flash("Review deleted")
+    return redirect(url_for(
+        'my_reviews', username=session["user"]))
 
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
@@ -126,7 +138,8 @@ def edit_review(review_id):
             {"_id": ObjectId(review_id)}, edited_review)
         # change below to view_review?
         flash("Review amended")
-        return render_template("pubs.html")
+        return redirect(url_for(
+            'my_reviews', username=session["user"]))
 
     # else method (GET)
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
