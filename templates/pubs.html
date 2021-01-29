@@ -38,7 +38,6 @@
                 </div>
 
             {% for pub in pubs %}
-                {% set id_no = pub._id %}
                 <div class="col s6 m3">
                     <div class="card">
                         <div class="card-image">
@@ -56,7 +55,7 @@
                         </a>
                         <a
                             class="btn-floating halfway-fab waves-effect waves-light"
-                            href="{{ url_for('pubpage') }}">
+                            href="{{ url_for('view_pub', pub_id = pub._id) }}">
                             <!--paramter above needs to be pub id-->
                             <i class="fas fa-info"></i>
                         </a>

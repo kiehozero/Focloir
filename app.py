@@ -201,9 +201,9 @@ def my_reviews(username):
     if session["user"]:
         return render_template(
             "my_reviews.html", username=username, reviews=reviews)
-    # need an else statement here to catch any requests where someone who isn't
-    # logged in can't type a profile address manually and access it. At the moment
-    # this just loads of a Jinja error
+    # need an else statement here to catch any requests where
+    # someone who isn't logged in can't type a profile address
+    # access it. At the moment this just loads of a Jinja error
 
     return redirect(url_for('login'))
 
@@ -220,11 +220,16 @@ def pubs():
     return render_template("pubs.html", pubs=pubs)
 
 
-@app.route("/pubpage")
-def pubpage():
-    pubs = mongo.db.pubs.find()
-    reviews = mongo.db.reviews.find()
-    return render_template("pubpage.html", pubs=pubs, reviews=reviews)
+@app.route("/view_pub/<pub_id>")
+def view_pub(pub_id):
+    pub_id = mongo.db.pubs.find_one(
+        {"_id": ObjectId(pub_id)}
+    )
+    reviews = mongo.db.reviews.find().sort("visit", 1)
+    return render_template(
+        "view_pub.html", pub_id=pub_id)
+
+    return render_template("view_pub.html", pubs=pubs, reviews=reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])
