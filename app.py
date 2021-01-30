@@ -100,7 +100,8 @@ def edit_profile(username):
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "email": request.form.get("email")
-            # requires a way of working out how to change password or ignoring field
+            # requires a way of working out how
+            # to change password or ignore field
         }
         mongo.db.users.update(
             {"_id": user_id}, edited_profile)
@@ -227,9 +228,7 @@ def view_pub(pub_id):
     )
     reviews = mongo.db.reviews.find().sort("visit", 1)
     return render_template(
-        "view_pub.html", pub_id=pub_id)
-
-    return render_template("view_pub.html", pubs=pubs, reviews=reviews)
+        "view_pub.html", pub_id=pub_id, reviews=reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])
