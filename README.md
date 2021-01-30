@@ -183,8 +183,9 @@ committed myself to using as much content from a pre-built CSS library as I coul
 out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection.
 - The [HTML5 Pattern](https://www.html5pattern.com/Miscs) website is a great resource for understanding the use and
 format of regular expressions in validating user-inputted text.
-- W3 as usual
-- Pymongo docs
+- [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
+guide for Pymongo.
+- [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/)
 - Flask Pymongo docs
 
 ### Tutorials
