@@ -4,13 +4,13 @@
 
         <h2 class="center-align">{{ pub_id.pname }}</h2>
 
-        <h4 class="center-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h4>
+        <h5 class="center-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h5>
 
         <div class="row center-align">
             {% for review in reviews %}
                 {% if pub_id.pname == review.pub %}
-                    <div class="col s6 m3">
-                        <div class="card">
+                    <div class="col s12 m4">
+                        <div class="card revcard">
                             <div class="card-image">
                                 <img class="activator" src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
                                 <a class="btn-floating activator halfway-fab waves-effect waves-yellow m-brown">
@@ -20,32 +20,49 @@
                             <div class="card-content">
                                 <span class="card-title activator">
                                     <i class="left">{{ review.visit }}, {{ review.author }}</i>
+                                    <br>
                                 </span>
-                                <div class="card-reveal">
-                                    <span class="activator">
-                                    {{ review.review }}
-                                    <br>
-                                    <br>
-                                    {{ review.pint }} price: {{ review.price }}
-                                    <br>
-                                    {{ review.pint }} verdict: {{ review.drating }}/10
-                                    <br>
-                                    Atmosphere verdict: N/10
-                                    <br>
-                                    Overall verdict: {{ review.prating }}/10
+                            </div>
+                            <div class="card-reveal">
+                                <div class="row">
+                                    <span class="card-title activator">
+                                        <!-- need to display properly-->
+                                        <i class="left">{{ review.visit }}, {{ review.author }}</i>
+                                        <i class="right fas fa-angle-up d-brown"></i>
                                     </span>
                                 </div>
-                            </div>
 
-                            <br>
+                                <!-- Displays review text on open -->
+                                <div class="row">
+                                    <div class="col s12">
+                                        {{ review.review }}
+                                    </div>
+                                </div>
 
-                            <br>
+                                <!-- Displays review scores on open -->
+                                <div class="row revrow">
+                                    <div class="col s6 revbox-g">
+                                        {{ review.pint }} price:
+                                        <br>
+                                        {{ review.price }}
+                                    </div>
+                                    <div class="col s6 revbox-b">
+                                        {{ review.pint }} verdict:
+                                        <br>
+                                        {{ review.drating }}/10
+                                    </div>
+                                    <div class="col s6 revbox-b">
+                                        Atmosphere:
+                                        <br>
+                                        {{ review.arating }}/10
+                                    </div>
+                                    <div class="col s6 revbox-g">
+                                        Overall:
+                                        <br>
+                                        {{ review.prating }}/10
+                                    </div>
+                                </div>
 
-                            <div class="card-reveal">
-                                <span class="card-title">
-                                    <i class="left">{{ review.visit }}</i>
-                                    <i class="right">{{ review.author }}</i>
-                                </span>
                             </div>
                         </div>
                     </div>
