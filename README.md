@@ -186,7 +186,6 @@ format of regular expressions in validating user-inputted text.
 - [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
 guide for Pymongo.
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/)
-- Flask Pymongo docs
 
 ### Tutorials
 
