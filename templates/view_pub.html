@@ -11,14 +11,19 @@
                 {% if pub_id.pname == review.pub %}
                     <div class="col s6 m3">
                         <div class="card">
-                            {{ review.pint }}
-                            
-                            {{ review.prating }}
-                            {{ review.drating }}
-                            {{ review.price }}
-                            {{ review.review }}
+                            <span>
+                                <i class="left">{{ review.pint }}, {{ review.drating }}/10</i>
+                                <i class="right">Cost: {{ review.price }}</i>
+                            </span>
+
                             <br>
-                            <span><i class="left">{{ review.visit }}</i><i class="right">{{ review.author }}</i></span>
+                            {{ review.review }} Overall verdict: {{ review.prating }}/10
+                            <br>
+
+                            <span>
+                                <i class="left">{{ review.visit }}</i>
+                                <i class="right">{{ review.author }}</i>
+                            </span>
                         </div>
                     </div>
                 {% endif %}
