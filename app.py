@@ -226,7 +226,8 @@ def view_pub(pub_id):
     pub_id = mongo.db.pubs.find_one(
         {"_id": ObjectId(pub_id)}
     )
-    reviews = mongo.db.reviews.find().sort("visit", 1)
+    # minus one sorts reviews by most recent first
+    reviews = mongo.db.reviews.find().sort("visit", -1)
     return render_template(
         "view_pub.html", pub_id=pub_id, reviews=reviews)
 

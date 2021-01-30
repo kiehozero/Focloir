@@ -1,7 +1,28 @@
 {% extends "main.html" %}
 
     {% block content %}
-            
-    display pub's reviews and information here
+
+        <h2 class="center-align">{{ pub_id.pname }}</h2>
+
+        <h4 class="center-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h4>
+
+        <div class="row center-align">
+            {% for review in reviews %}
+                {% if pub_id.pname == review.pub %}
+                    <div class="col s6 m3">
+                        <div class="card">
+                            {{ review.pint }}
+                            
+                            {{ review.prating }}
+                            {{ review.drating }}
+                            {{ review.price }}
+                            {{ review.review }}
+                            <br>
+                            <span><i class="left">{{ review.visit }}</i><i class="right">{{ review.author }}</i></span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
     {% endblock %}
