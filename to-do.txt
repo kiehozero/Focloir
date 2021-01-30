@@ -8,3 +8,4 @@
 8. Google Search API for photos of each pub?
 9. Sort pubs by best rating, best or cheapest pint?
 10. Footer cleanup, expand sidenav to all screen sizes?
+11. Add arating to add review, edit review forms, my review results
