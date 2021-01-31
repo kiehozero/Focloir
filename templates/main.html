@@ -41,12 +41,13 @@
                 <a href="{{ url_for('index') }}" class="brand-logo right">pintbaby</a>
                 <a href="#" data-target="mobile-snav" class="sidenav-trigger"><i class="fas fa-angle-down"></i></a>
                 <ul class="left hide-on-med-and-down fs-italic">
-                    <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
+                    <!-- Is this Pints link needed? -->
+                    <!-- <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li> -->
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
                     <!-- Make a drop down here that returns every country in the pubs collection-->
                     {% if session.user %}
                         <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
-                        <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Reviews</a></li>
+                        <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Profile</a></li>
                         <li><a href="{{ url_for('logout') }}" id="outButton">Log-Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
