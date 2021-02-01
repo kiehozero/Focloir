@@ -71,5 +71,5 @@ $("#outButton").mouseenter(function(){
   $(this).html("<i class='fas fa-sign-out-alt'></i>");
 });
 $("#outButton").mouseleave(function(){
-  $(this).html("Log In");
+  $(this).html("Log Out");
 });

@@ -7,6 +7,8 @@ trial and error testing, and removing the disabled attribute corrected this.
 
 2. Log Out/ Log In issue - sometimes an account will be logged in and able to add reviews, but the nav bar will show the log in
 button, despite what the Jinja templating dictates. I've tested this by adding a review when the log in message is showing, and 
-the review successfully displays the session.user as a author
+the review successfully displays the session.user as a author. Amazingly the solution to this came down to a typo in the script.js 
+file! The mouseleave function for the log out button was still labelled as 'Log In' from when I'd copied it, so it would always
+display correctly initially, but once hovered over, would display incorrectly.
 
 3. Password editing submissions
