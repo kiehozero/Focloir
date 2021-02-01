@@ -12,3 +12,4 @@
 12. Try catch for when attempting to log in on multiple devices as same user?
 13. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
 break up blocks? Think of the Novara Media buttons you saw
+14. Index page needs a basic breakdown of functions, probably better imagery and colour separation
