@@ -8,6 +8,7 @@ body {
 /* Fonts */
 
 .spectral {
+    /* Secondary font for non-heading texts */
     font-family: 'Spectral', sans-serif;
     font-weight: 400;
 }
@@ -124,6 +125,14 @@ nav .brand-logo:hover {
 .btn-floating:focus {
     /* overwrites default Materialize styling */
     background-color: #cfb53b;
+}
+
+.review-dot {
+    /* Only applies to btn-floating if it is displaying a review */
+    font-family: 'Fraunces';
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
 }
 
 

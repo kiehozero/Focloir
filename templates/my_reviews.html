@@ -41,22 +41,12 @@
                         <div class="card-image activator">
                             <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
                             <span class="card-title">{{ review.pub }}</span>
-                            <a
-                                class="btn-floating halfway-fab waves-effect waves-light left"
-                                href="#">
-                                <!-- href will take you to expanded view_review page -->
-                                <div 
-                                    style="font-family: 'Fraunces'; font-weight: 600; font-size: 20px; text-align: center;">
-                                    {{ review.prating }}
-                                </div>
-                            </a>
-                            <a
-                                class="btn-floating halfway-fab waves-effect waves-light right"
-                                href="#">
+                            <div class="btn-floating halfway-fab waves-effect waves-light left review-dot">
+                                {{ review.prating }}
+                            </div>
+                            <div class="btn-floating halfway-fab waves-effect waves-light right">
                                 <i class="fas fa-book-open"></i>
-                                <!-- expand this button to read review and see full information, 
-                                could use Card Reveal from materialize, need to refer to review ID?  -->
-                            </a>
+                            </div>
                         </div>
 
                         <!-- Returns reviews submitted by this user -->
