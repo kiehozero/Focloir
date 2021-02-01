@@ -139,7 +139,7 @@ def edit_review(review_id):
         }
         mongo.db.reviews.update(
             {"_id": ObjectId(review_id)}, edited_review)
-        # change below to view_review?
+        # needs to be able to display flash
         flash("Review amended")
         return redirect(url_for(
             'my_reviews', username=session["user"]))
