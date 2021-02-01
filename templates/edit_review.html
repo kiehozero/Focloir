@@ -72,7 +72,7 @@
                         <div class="row">
 
                             <!-- Pub Rating Dropdown -->
-                            <div class="input-field col s10 m3 offset-s1 offset-m1">
+                            <div class="input-field col s10 m2 offset-s1 offset-m1">
                                 <select id="prating" name="prating" required>
                                     <option selected>{{ review.prating }}</option>
                                     <option value="1">1</option>
@@ -86,11 +86,11 @@
                                     <option value="9">9</option>
                                     <option value="10">10</option>
                                 </select>
-                                <label>Overall Rating</label>
+                                <label for="prating">Overall</label>
                             </div>
 
                             <!-- Drink Rating Dropdown -->
-                            <div class="input-field col s10 m3 offset-s1">
+                            <div class="input-field col s10 m2 offset-s1">
                                 <select id="drating" name="drating" required>
                                     <option selected>{{ review.drating }}</option>
                                     <option value="1">1</option>
@@ -104,7 +104,25 @@
                                     <option value="9">9</option>
                                     <option value="10">10</option>
                                 </select>
-                                <label>Pint Rating</label>
+                                <label for="drating">Pint</label>
+                            </div>
+
+                            <!-- Atmosphere Rating Dropdown -->
+                            <div class="input-field col s10 m2 offset-s1">
+                                <select id="arating" name="arating" required>
+                                    <option selected>{{ review.arating }}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label for="arating">Atmosphere</label>
                             </div>
 
                             <!-- Drink Price Input-->

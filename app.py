@@ -58,6 +58,7 @@ def add_review():
             "visit": request.form.get("visit"),
             "prating": request.form.get("prating"),
             "drating": request.form.get("drating"),
+            "arating": request.form.get("arating"),
             "price": request.form.get("price"),
             "review": request.form.get("review"),
             "author": session["user"]
@@ -131,6 +132,7 @@ def edit_review(review_id):
             "visit": request.form.get("visit"),
             "prating": request.form.get("prating"),
             "drating": request.form.get("drating"),
+            "arating": request.form.get("arating"),
             "price": request.form.get("price"),
             "review": request.form.get("review"),
             "author": session["user"]
