@@ -1,11 +1,14 @@
-1. View review - card reveal?
-2. Pub page - shows reviews for that pub sorted by newest first
+1. unique page headers
+2. Pub page - make into col-8 to give some whitespace on large screens?
 3. Search bar functionality to narrow down pubs by name, city or country
 4. Admin panel - delete users, pubs or reviews
 5. Contact modal - emailJS edits
 6. Age verification modal upon open
 7. Edit profile page, allow user to change account details or delete altogether - password not working
-8. Google Search API for photos of each pub?
+8. Google Image Search API for photos of each pub?
 9. Sort pubs by best rating, best or cheapest pint?
 10. Footer cleanup, expand sidenav to all screen sizes?
-11. Add arating to add review, edit review forms, my review results
+11. Faint background instead of white on large screen sizes?
+12. Try catch for when attempting to log in on multiple devices as same user?
+13. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
+break up blocks? Think of the Novara Media buttons you saw
