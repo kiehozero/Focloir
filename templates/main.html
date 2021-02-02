@@ -41,18 +41,31 @@
                 <a href="{{ url_for('index') }}" class="brand-logo right">pintbaby</a>
                 <a href="#" data-target="mobile-snav" class="sidenav-trigger"><i class="fas fa-angle-down"></i></a>
                 <ul class="left hide-on-med-and-down fs-italic">
-                    <!-- Is this Pints link needed? -->
-                    <!-- <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li> -->
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
                     <!-- Make a drop down here that returns every country in the pubs collection-->
+
+                    <!-- Displays Add Review and My Profile links once user is logged in -->
                     {% if session.user %}
                         <li><a href="{{ url_for('add_review') }}" id="addButton">Add a Review</a></li>
                         <li><a href="{{ url_for('my_reviews', username=session['user']) }}" id="myrButton">My Profile</a></li>
+                    {% endif %}
+
+                    <!-- Displays the Pint and User panels if the user is an admin -->
+                    {% if session.user == "pbadmin" %}
+                        <!-- needs user display function here -->
+                        <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
+                        <li><a href="#" id="admButton">Register</a></li>
+                    {% endif %}
+
+                    <!-- Displays the log out option for signed in users, but displays 
+                    the Log In and Register links for guests -->
+                    {% if session.user %}
                         <li><a href="{{ url_for('logout') }}" id="outButton">Log-Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" id="logButton">Log-In</a></li>
                         <li><a href="{{ url_for('register') }}" id="regButton">Register</a></li>
                     {% endif %}
+
                 </ul>
                 </div>
             </nav>
@@ -70,14 +83,16 @@
                 <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
                 <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
             {% else %}
+            {% if session.user == "pbadmin" %}
+                <!-- needs user display function here -->
+                <li><a href="#" class="mob-heading">Register</a></li>
+            {% endif %}
             <!-- display only if logged out -->
                 <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
                 <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
             {% endif %}
             <br>
             <li><a href="{{ url_for('index') }}" class="mob-heading">Home</a></li>
-            <br>
-            <br>
             <br>
             <br>
             <br>
