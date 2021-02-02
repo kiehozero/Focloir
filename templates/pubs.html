@@ -56,7 +56,7 @@
                         <a
                             class="btn-floating halfway-fab waves-effect waves-light"
                             href="{{ url_for('view_pub', pub_id = pub._id) }}">
-                            <!--paramter above needs to be pub id-->
+                            <!--parameter above needs to be pub id-->
                             <i class="fas fa-book-open"></i>
                         </a>
                         </div>
@@ -68,11 +68,22 @@
                             <br>
                         </p>
                         </div>
-                        <!-- Add button here to view reviews of this pub. Add an if loop that if 
-                        a review author matches the session user, then display an additional edit 
-                        button on each review (but not the pub itself, these should only be 
-                        deleteable by admins. Reviews can be deleted by the author or admin. See 
-                        the Accordion Data Task Binding for an explanation of for loops -->
+
+                        {% if session.user == "pbadmin" %}
+                            <!-- edit button that contains additional user form option for user, this 
+                            will need to be pre-filled with the original editor's username so it isn't 
+                            overwritten with the admin's name -->
+                            <!-- below will need to be a new admin_edit_pub function-->
+                            <div class="center-align">
+                                <a 
+                                    class="btn review-card-button"
+                                    href="#">
+                                    Edit
+                                </a>
+                            </div>
+                            <!-- styling in some margin bottom padding -->
+                        {% endif %}
+
                     </div>
                 </div>
             {% endfor %}

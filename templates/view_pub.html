@@ -62,8 +62,32 @@
                                         {{ review.prating }}/10
                                     </div>
                                 </div>
-
                             </div>
+
+                            {% if session.user == "pbadmin" %}
+                                <div class="row">
+                                    <!-- edit button that contains additional user form option for user, this 
+                                    will need to be pre-filled with the original editor's username so it isn't 
+                                    overwritten with the admin's name-->
+                                    <br>
+                                    <div class="center-align">
+                                        <!-- below will need to be a new admin_edit_review function-->
+                                        <a 
+                                            class="btn review-card-button"
+                                            href="{{ url_for('edit_review', review_id=review._id) }}">
+                                            Edit
+                                        </a>
+                                        <a
+                                            class="btn review-card-button"
+                                            href="{{ url_for('delete_review', review_id=review._id) }}">
+                                            <!-- Style delete buttons in the pallette red colour -->
+                                            Delete
+                                        </a>
+                                        <!-- style in margin or padding bottom here -->
+                                    </div>
+                                </div>
+                            {% endif %}
+
                         </div>
                     </div>
                 {% endif %}
