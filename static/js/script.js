@@ -25,13 +25,6 @@ $(document).ready(function(){
 /* Navigation */
 /* Need to ensure that button width stays the same when icon changes */
 
-$("#pintButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-beer'></i>");
-});
-$("#pintButton").mouseleave(function(){
-  $(this).html("Pints");
-});
-
 $("#pubButton").mouseenter(function(){
   $(this).html("<i class='fas fa-store-alt'></i>");
 });
@@ -72,4 +65,18 @@ $("#outButton").mouseenter(function(){
 });
 $("#outButton").mouseleave(function(){
   $(this).html("Log Out");
+});
+
+$("#admButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-users-cog'></i>");
+});
+$("#admButton").mouseleave(function(){
+  $(this).html("User Panel");
+});
+
+$("#pintButton").mouseenter(function(){
+  $(this).html("<i class='fas fa-beer'></i>");
+});
+$("#pintButton").mouseleave(function(){
+  $(this).html("Pints");
 });
