@@ -136,6 +136,13 @@ nav .brand-logo:hover {
     text-align: center;
 }
 
+/* Cards */
+
+.card,
+.card .card-image img {
+    border-radius: 15px 15px 15px 15px;
+}
+
 
 /* Registration form - maybe move each page's unique CSS onto a separate sheet? */
 
