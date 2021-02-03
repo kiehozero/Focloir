@@ -11,6 +11,7 @@
         <h5 class="center-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h5>
 
         <div class="row center-align">
+            <div class="col s12 m8 offset-m2">
             {% for review in reviews %}
                 {% if pub_id.pname == review.pub %}
                     <div class="col s12 m4">
@@ -96,6 +97,7 @@
                     </div>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
 
     {% endblock %}

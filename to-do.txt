@@ -1,13 +1,13 @@
-2. Pub page - make into col-8 to give some whitespace on large screens?
-3. Search bar functionality to narrow down pubs by name, city or country
-4. Admin panel - delete users, pubs or reviews
-5. Contact modal - emailJS edits
-7. Edit profile page, allow user to change account details or delete altogether - password not working
-8. Google Image Search API for photos of each pub?
-9. Sort pubs by best rating, best or cheapest pint?
-10. Footer cleanup, expand sidenav to all screen sizes?
-11. Faint background instead of white on large screen sizes?
-12. Try catch for when attempting to log in on multiple devices as same user?
-13. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
+1. Search bar functionality to narrow down pubs by name, city or country
+2. Admin panel - delete users, pubs or reviews
+3. Contact modal - emailJS edits
+4. Datepicker change month buttons are still green
+5. Edit profile page, allow user to change account details or delete altogether - password not working
+6. Google Image Search API for photos of each pub?
+7. Sort pubs by best rating, best or cheapest pint?
+8. Footer cleanup
+9. Faint background instead of white on large screen sizes?
+10. Try catch for when attempting to log in on multiple devices as same user?
+11. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
 break up blocks? Think of the Novara Media buttons you saw
-14. Index page needs a basic breakdown of functions, probably better imagery and colour separation
+12. Index page needs a basic breakdown of functions, probably better imagery and colour separation
