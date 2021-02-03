@@ -196,8 +196,9 @@ def my_reviews(username):
     # only returns username from MongoDB users collection
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    # only returns reviews by active user
-    reviews = mongo.db.reviews.find({"author": session["user"]})
+    # returns reviews by active user, ordered by most recent visit first
+    reviews = mongo.db.reviews.find(
+        {"author": session["user"]}).sort("visit", -1)
 
     # if statement ensures that you can't add any username to the
     # profile url string to access their profile page
@@ -219,7 +220,7 @@ def pints():
 
 @app.route("/pubs")
 def pubs():
-    pubs = mongo.db.pubs.find()
+    pubs = mongo.db.pubs.find().sort("pname")
     return render_template("pubs.html", pubs=pubs)
 
 
