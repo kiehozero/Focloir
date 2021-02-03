@@ -12,3 +12,6 @@ file! The mouseleave function for the log out button was still labelled as 'Log 
 display correctly initially, but once hovered over, would display incorrectly.
 
 3. Password editing submissions
+
+4. The admin-only User and Pint pages were displaying to all users, then disappeared once a non-admin user logged-in. This was
+fixed quickly with a Jinja loop specifying this links to display only if the user was an admin.
