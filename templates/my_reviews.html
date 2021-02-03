@@ -16,12 +16,16 @@
             <a class="button btn-large" href="{{ url_for('logout') }}">Log Out</a>
         </div>
 
-        <div class="row"> 
+        <div class="row center-align">
+            <div class="col s12 m8 offset-m2">
 
-            <div class="col s6 m3">
+                <!-- First card is always the option to add a new review -->
+                <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
+                        <img 
+                            src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                            alt="pintbaby placeholder">
                         <span class="card-title">Add review</span>
                         <a 
                             class="btn-floating halfway-fab waves-effect waves-light"
@@ -30,38 +34,41 @@
                         </a>
                         </div>
                         <div class="card-content spectral">
-                        <p>
-                            Click the button to submit a review
-                        </p>
+                            <h5>
+                                <br aria->
+                            </h5>
+                            <div class="center-align">
+                                <a 
+                                    class="btn review-card-button"
+                                    href="{{ url_for('add_review') }}">
+                                    Add
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            {% for review in reviews %}
-                <div class="col s6 m3">
-                    <div class="card">
-
-                        <!-- First card is always the option to add a new review -->
-                        <div class="card-image activator">
-                            <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
-                            <span class="card-title">{{ review.pub }}</span>
-                            <div class="btn-floating halfway-fab waves-effect waves-light left review-dot">
-                                {{ review.prating }}
-                            </div>
-                            <div class="btn-floating halfway-fab waves-effect waves-light right">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                        </div>
-
-                        <!-- Returns reviews submitted by this user -->
-                        <div class="card-content spectral">
-                            <p>
-                                <br>
-                                <div class="center-align">
-                                    Pint: {{ review.drating }}/10
-                                    Price: {{ review.price }}
+                {% for review in reviews %}
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image activator">
+                                <img
+                                    src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                                    alt="pintbaby placeholder">
+                                <span class="card-title left-align">{{ review.pub }}</span>
+                                <div class="btn-floating halfway-fab waves-effect waves-light left review-dot">
+                                    {{ review.prating }}
                                 </div>
-                                <br>
+                                <div class="btn-floating halfway-fab waves-effect waves-light right">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                            </div>
+
+                            <!-- Returns reviews submitted by this user -->
+                            <div class="card-content spectral">
+                                <h5 class="center-align">
+                                    {{ review.visit }}
+                                </h5>
                                 <div class="center-align">
                                     <a 
                                         class="btn review-card-button"
@@ -74,64 +81,75 @@
                                         Delete
                                     </a>
                                 </div>
-                            </p>
+                            </div>
+
+                            <div class="card-reveal">
+                                <div class="row">
+                                    <span class="card-title activator">
+                                        <!-- need to display properly-->
+                                        <i class="left">{{ review.pint }}</i>
+                                        <i class="right fas fa-angle-down d-brown"></i>
+                                    </span>
+                                </div>
+
+                                <div class="row">
+                                    {{ review.review }}
+                                </div>
+
+                                <div class="row revrow center-align">
+                                    <div class="col s6 revbox-g">
+                                        <div class="rev-metrics">
+                                            <p>
+                                                Price:
+                                                {{ review.price }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col s6 revbox-b">
+                                        <div class="rev-metrics">
+                                            <p>
+                                                Pour:
+                                                {{ review.drating }}/10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col s6 revbox-b">
+                                        <div class="rev-metrics">
+                                            <p>
+                                                Atmosphere:
+                                                {{ review.arating }}/10
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col s6 revbox-g">
+                                        <div class="rev-metrics">
+                                            <p>
+                                                Overall:
+                                                {{ review.prating }}/10
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row center-align">
+                                    <a 
+                                        class="btn review-card-button"
+                                        href="{{ url_for('edit_review', review_id=review._id) }}">
+                                        Edit
+                                    </a>
+                                    <!-- Style delete buttons in the pallette red colour -->
+                                    <a
+                                        class="btn review-card-button"
+                                        href="{{ url_for('delete_review', review_id=review._id) }}">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div class="card-reveal">
-                            <div class="row">
-                                <span class="card-title activator">
-                                    <!-- need to display properly-->
-                                    <i class="left">{{ review.visit }}</i>
-                                    <i class="right fas fa-angle-down d-brown"></i>
-                                </span>
-                            </div>
-
-                            <div class="row">
-                                {{ review.review }}
-                            </div>
-
-                            <div class="row revrow center-align">
-                                <div class="col s6 revbox-g">
-                                    {{ review.pint }} price:
-                                    <br>
-                                    {{ review.price }}
-                                </div>
-                                <div class="col s6 revbox-b">
-                                    {{ review.pint }} verdict:
-                                    <br>
-                                    {{ review.drating }}/10
-                                </div>
-                                <div class="col s6 revbox-b">
-                                    Atmosphere:
-                                    <br>
-                                    {{ review.arating }}/10
-                                </div>
-                                <div class="col s6 revbox-g">
-                                    Overall:
-                                    <br>
-                                    {{ review.prating }}/10
-                                </div>
-                            </div>
-
-                            <div class="row center-align">
-                                <a 
-                                    class="btn review-card-button"
-                                    href="{{ url_for('edit_review', review_id=review._id) }}">
-                                    Edit
-                                </a>
-                                <!-- Style delete buttons in the pallette red colour -->
-                                <a
-                                    class="btn review-card-button"
-                                    href="{{ url_for('delete_review', review_id=review._id) }}">
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
-                </div>
-            {% endfor %}
-
+                {% endfor %}
+            </div>
         </div>
 
     {% endblock %}
