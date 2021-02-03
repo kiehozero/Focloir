@@ -80,3 +80,9 @@ $("#pintButton").mouseenter(function(){
 $("#pintButton").mouseleave(function(){
   $(this).html("Pints");
 });
+
+/* Mobile Only */
+
+if ($(window).width() < 602) {
+$("#searchButton").html("<i class='fas fa-power-off'></i>");
+}

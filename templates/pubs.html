@@ -6,18 +6,30 @@
 
     {% block content %}
 
+    <!-- Search box taken from Code Institute task manager tutorial -->
     <div class="row center-align">
-        <h4>Select a pub to add or read reviews</h4>
+        <div class="col s12 m8 offset-m1">
+            <form action="{{ url_for('search_pubs') }}" method="POST">
+                <div class="row valign-wrapper center-align">
 
-        <form>
-            <div class="input-field col s10 m6 offset-s1 offset-m3">
+                    <!-- Search Box -->
+                    <div class="input-field col s6 m8">
+                        <input name="search" id="search" minlength="3"
+                            class="validate" type="text" required>
+                        <label for="search">Search by pub or location</label>
+                    </div>
 
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search">
-                    <i class="fas fa-search right"></i>
-                </label>
-            </div>
-        </form>
+                    <!-- Buttons -->
+                    <div class="s6 m4">
+                        <a href="{{ url_for('pubs') }}" class="btn search-button" id="searchButton">Show All</a>
+                        <button type="submit" class="btn search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="row">

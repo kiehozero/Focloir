@@ -266,6 +266,13 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/search_pubs", methods=["GET", "POST"])
+def search_pubs():
+    query = request.form.get("search")
+    pubs = list(mongo.db.pubs.find({"$text": {"$search": query}}).sort("pname"))
+    return render_template("pubs.html", pubs=pubs)
+
+
 # Make sure to change the debug true statement below
 # to debug false before project is submitted
 if __name__ == "__main__":
