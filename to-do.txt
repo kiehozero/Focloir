@@ -2,7 +2,6 @@
 3. Search bar functionality to narrow down pubs by name, city or country
 4. Admin panel - delete users, pubs or reviews
 5. Contact modal - emailJS edits
-6. Age verification modal upon open
 7. Edit profile page, allow user to change account details or delete altogether - password not working
 8. Google Image Search API for photos of each pub?
 9. Sort pubs by best rating, best or cheapest pint?
