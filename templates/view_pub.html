@@ -1,5 +1,9 @@
 {% extends "main.html" %}
 
+    {% block title %}
+        {{ pub_id.city }}'s {{ pub_id.pname }}
+    {% endblock %}
+
     {% block content %}
 
         <h2 class="center-align">{{ pub_id.pname }}</h2>

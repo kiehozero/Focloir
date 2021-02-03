@@ -1,8 +1,12 @@
 {% extends "main.html" %}
 
+    {% block title %}
+        Add a pint
+    {% endblock %}
+
     {% block content %}
 
-    {%if session.user == "pbadmin" %}
+    {% if session.user == "pbadmin" %}
 
     <!-- will allow admin to add or remove pints -->
 

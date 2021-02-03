@@ -1,5 +1,9 @@
 {% extends "main.html" %}
 
+    {% block title %}
+        Edit your {{ review.pub }} review
+    {% endblock %}
+
     {% block content %}
         
         {% if session.user %}
