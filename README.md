@@ -34,6 +34,10 @@ suit a website:
     time-worn, lived-in, nostalgic feel.
 
 - The icons I used within this project are all sources from [Font Awesome](https://fontawesome.com/)'s free package.
+- I overwrote the Materialize styling of the cards to increase the border-radius, I wanted each review to resemble the 
+shape of cardboard beer mats, especially the 
+[collectible beer mats](https://cartophilic-info-exch.blogspot.com/2015/11/fosters-lager-scottish-courage-sporting_14.html)
+that used to be found in pubs.
 
 ### User Stories
 
