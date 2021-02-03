@@ -55,7 +55,7 @@
                     {% if session.user == "pbadmin" %}
                         <!-- needs user display function here -->
                         <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
-                        <li><a href="#" id="admButton">Register</a></li>
+                        <li><a href="#" id="admButton">Users</a></li>
                     {% endif %}
 
                     <!-- Displays the log out option for signed in users, but displays 
@@ -77,18 +77,27 @@
         <ul class="sidenav center-align" id="mobile-snav">
             <br>
             <br>
-            <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
+
+            <!-- Displays Add Review and My Profile links once user is logged in -->
             {% if session.user %}
                 <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
-                <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Reviews</a></li>
+                <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Profile</a></li>
+            {% endif %}
+
+                <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
+            
+            <!-- Displays the Pint and User panels if the user is an admin -->
+            {% if session.user == "pbadmin" %}
+                <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
+                <li><a href="#" class="mob-heading">Users</a></li>
+            {% endif %}
+
+            <!-- Displays the log out option for signed in users, but displays 
+            the Log In and Register links for guests -->
+            {% if session.user %}
                 <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
             {% else %}
-            {% if session.user == "pbadmin" %}
-                <!-- needs user display function here -->
-                <li><a href="#" class="mob-heading">Register</a></li>
-            {% endif %}
-            <!-- display only if logged out -->
                 <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
                 <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
             {% endif %}
