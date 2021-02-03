@@ -11,3 +11,4 @@
 11. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
 break up blocks? Think of the Novara Media buttons you saw
 12. Index page needs a basic breakdown of functions, probably better imagery and colour separation
+13. Text size on scores for larger screens
