@@ -175,9 +175,17 @@ button.datepicker-today {
     color: #cfb53b;
 }
 
-.datepicker-table td.is-selected {
+.datepicker-table td.is-selected,
+button .month-next:focus,
+button .month-prev:focus {
     background-color: #cfb53b;
     color: #3b382e;
+}
+
+.datepicker-day-button:focus {
+    /* overwrites default Materialize styling, colour is #cfb53b 
+    converted to rgb, then shaded to match Materialize effect */
+    background-color: rgba(207, 180, 59, 0.25)
 }
 
 div.datepicker-date-display {
