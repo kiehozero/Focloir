@@ -43,7 +43,7 @@ def add_pub():
         # automatically sends user to review page
         return redirect(url_for('add_review'))
 
-    # this is the else statement for the request method, so the GET request
+    # this is the else statement, so the GET request
     return render_template("add_pub.html", countries=countries)
 
 
@@ -162,8 +162,7 @@ def login():
             if check_password_hash(
                 is_user["password"], request.form.get(
                     "password")):
-                    session["user"] = request.form.get(
-                        "username").lower()
+                    session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
                     # need a modal or heading to display
                     return redirect(url_for(
@@ -220,7 +219,9 @@ def pints():
 
 @app.route("/pubs")
 def pubs():
-    pubs = mongo.db.pubs.find().sort("pname")
+    # Converting below to a list allows the if loop in the template 
+    # page to work properly when a user searches for somewhere
+    pubs = list(mongo.db.pubs.find().sort("pname"))
     return render_template("pubs.html", pubs=pubs)
 
 
