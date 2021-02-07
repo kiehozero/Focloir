@@ -4,12 +4,12 @@
 4. Text size on scores for larger screens
 5. Edit profile page, allow user to change account details or delete altogether - password not working
 6. Google Image Search API for photos of each pub?
-7. Sort pubs by best rating, best or cheapest pint?
+7. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
+break up blocks? Think of the Novara Media buttons you saw
 8. Footer cleanup - seen a few projects where the footer was like this with the gap underneath? Maybe 
 mess around with the colour scheme and see if it looks grand when it isn't white
 9. Index page needs a basic breakdown of functions, probably better imagery and colour separation, 
 give these the border radius of 0 as with Novara, just to stop that border radius being absolutely 
 everywhere
 10. Try catch for when attempting to log in on multiple devices as same user?
-11. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
-break up blocks? Think of the Novara Media buttons you saw
+
