@@ -6,6 +6,15 @@
 
     {% block content %}
             
-        Will display list of users and allow admin to edit or delete them
+        {% for user in users %}
+        <div class="center-align">
+            <div>
+            {{ user.username }}, {{ user.email }}
+            </div>
+            <button class="delete-button">
+                Delete
+            </button>
+        </div>
+        {% endfor %}
 
     {% endblock %}

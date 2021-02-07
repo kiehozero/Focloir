@@ -55,7 +55,7 @@
                     {% if session.user == "pbadmin" %}
                         <!-- needs user display function here -->
                         <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
-                        <li><a href="#" id="admButton">Users</a></li>
+                        <li><a href="{{ url_for('users') }}" id="admButton">Users</a></li>
                     {% endif %}
 
                     <!-- Displays the log out option for signed in users, but displays 
@@ -90,7 +90,7 @@
             <!-- Displays the Pint and User panels if the user is an admin -->
             {% if session.user == "pbadmin" %}
                 <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
-                <li><a href="#" class="mob-heading">Users</a></li>
+                <li><a href="{{ url_for('users') }}" class="mob-heading">Users</a></li>
             {% endif %}
 
             <!-- Displays the log out option for signed in users, but displays 

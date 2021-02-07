@@ -308,6 +308,13 @@ def search_pubs():
     return render_template("pubs.html", pubs=pubs)
 
 
+@app.route("/users")
+# admin only
+def users():
+    users = list(mongo.db.users.find().sort("username"))
+    return render_template("users.html", users=users)
+
+
 @app.route("/view_pub/<pub_id>")
 def view_pub(pub_id):
     pub_id = mongo.db.pubs.find_one(

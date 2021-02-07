@@ -77,7 +77,7 @@ $("#admButton").mouseenter(function(){
 });
 
 $("#admButton").mouseleave(function(){
-    $(this).html("User Panel");
+    $(this).html("Users");
 });
 
 $("#pintButton").mouseenter(function(){
