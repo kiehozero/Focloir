@@ -1,5 +1,5 @@
 1. Faint background instead of white on large screen sizes?
-2. Admin panel - delete users
+2. Admin panel - delete user functionality
 3. Contact modal - emailJS edits
 4. Text size on scores for larger screens
 5. Edit profile page, allow user to change account details or delete altogether - password not working

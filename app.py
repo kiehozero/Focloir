@@ -311,6 +311,7 @@ def search_pubs():
 @app.route("/users")
 # admin only
 def users():
+    # add post method to delete user
     users = list(mongo.db.users.find().sort("username"))
     return render_template("users.html", users=users)
 
