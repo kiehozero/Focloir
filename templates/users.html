@@ -5,16 +5,35 @@
     {% endblock %}
 
     {% block content %}
-            
-        {% for user in users %}
-        <div class="center-align">
-            <div>
-            {{ user.username }}, {{ user.email }}
-            </div>
-            <button class="delete-button">
-                Delete
-            </button>
+
+        <div class="row center-align">
+            <h4>Users</h4>
         </div>
-        {% endfor %}
+        
+        <div class="container">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>E-mail Address</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <button class="delete-button">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     {% endblock %}
