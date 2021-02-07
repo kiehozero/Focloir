@@ -49,6 +49,8 @@ def add_pub():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    # need a second version of this function that is re-directed
+    # from a pub page that autofills the pub name on the form
     pubs = mongo.db.pubs.find().sort("pname")
     pints = mongo.db.pints.find().sort("dname")
     if request.method == "POST":
@@ -89,6 +91,19 @@ def delete_review(review_id):
     flash("Review deleted")
     return redirect(url_for(
         'my_reviews', username=session["user"]))
+
+
+@app.route("/delete_review_admin/<review_id>")
+def delete_review_admin(review_id):
+    # needs a confirm message here, if yes then
+    # below, if no redirect to my_reviews
+    # same functionality as above, just re-directs to
+    # the pub index rather than the user profile
+    mongo.db.reviews.remove(
+        {"_id": ObjectId(review_id)}
+    )
+    flash("Review deleted")
+    return redirect(url_for('pubs'))
 
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
@@ -150,6 +165,36 @@ def edit_review(review_id):
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
         "edit_review.html", review=review, pints=pints, pubs=pubs)
+
+
+@app.route("/moderate_review/<review_id>", methods=["GET", "POST"])
+def moderate_review(review_id):
+    # admin only function to moderate content, e.g. offensive or legally
+    # questionable statements
+    if request.method == "POST":
+        edited_review = {
+            "pub": request.form.get("pub"),
+            "pint": request.form.get("pint"),
+            "visit": request.form.get("visit"),
+            "prating": request.form.get("prating"),
+            "drating": request.form.get("drating"),
+            "arating": request.form.get("arating"),
+            "price": request.form.get("price"),
+            "review": request.form.get("review"),
+            "author": request.form.get("author")
+        }
+        mongo.db.reviews.update(
+            {"_id": ObjectId(review_id)}, edited_review)
+        # needs to be able to display flash
+        flash("Review amended")
+        return redirect(url_for('pubs'))
+
+    # else method (GET)
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    pints = mongo.db.pints.find().sort("dname")
+    pubs = mongo.db.pubs.find().sort("pname")
+    return render_template(
+        "moderate_review.html", review=review, pints=pints, pubs=pubs)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -225,17 +270,6 @@ def pubs():
     return render_template("pubs.html", pubs=pubs)
 
 
-@app.route("/view_pub/<pub_id>")
-def view_pub(pub_id):
-    pub_id = mongo.db.pubs.find_one(
-        {"_id": ObjectId(pub_id)}
-    )
-    # minus one sorts reviews by most recent first
-    reviews = mongo.db.reviews.find().sort("visit", -1)
-    return render_template(
-        "view_pub.html", pub_id=pub_id, reviews=reviews)
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -272,6 +306,17 @@ def search_pubs():
     query = request.form.get("search")
     pubs = list(mongo.db.pubs.find({"$text": {"$search": query}}).sort("pname"))
     return render_template("pubs.html", pubs=pubs)
+
+
+@app.route("/view_pub/<pub_id>")
+def view_pub(pub_id):
+    pub_id = mongo.db.pubs.find_one(
+        {"_id": ObjectId(pub_id)}
+    )
+    # minus one sorts reviews by most recent first
+    reviews = mongo.db.reviews.find().sort("visit", -1)
+    return render_template(
+        "view_pub.html", pub_id=pub_id, reviews=reviews)
 
 
 # Make sure to change the debug true statement below

@@ -1,7 +1,7 @@
 {% extends "main.html" %}
 
     {% block title %}
-        {{ pub_id.city }}'s {{ pub_id.pname }}
+        {{ pub_id.pname }}, {{ pub_id.city }}
     {% endblock %}
 
     {% block content %}
@@ -13,26 +13,29 @@
         <div class="row center-align">
             <div class="col s12 m8 offset-m2">
             {% for review in reviews %}
+            <!-- need to add a default add_review box in here if there are no reviews yet, see search bar if loop -->
                 {% if pub_id.pname == review.pub %}
                     <div class="col s12 m4">
                         <div class="card revcard">
+
                             <div class="card-image">
                                 <img class="activator" src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
                                 <span class="card-title">{{ review.author }}</span>
                                 <div class="btn-floating activator halfway-fab waves-effect waves-yellow review-dot">
-                                    <i class="material-icons">{{ review.prating }}</i>
+                                    {{ review.prating }}
                                 </div>
                             </div>
+
                             <div class="card-content">
                                 <span class="card-title activator">
                                     <i class="left">{{ review.visit }}</i>
                                     <br>
                                 </span>
                             </div>
+
                             <div class="card-reveal">
                                 <div class="row">
                                     <span class="card-title activator">
-                                        <!-- need to display properly-->
                                         <i class="left">{{ review.pint }}</i>
                                         <i class="right fas fa-angle-up d-brown"></i>
                                     </span>
@@ -41,19 +44,19 @@
                                 <!-- Displays review text on open -->
                                 <div class="row">
                                     <div class="col s12">
-                                        {{ review.review }}
+                                        <em>{{review.author}} says</em>: {{ review.review }}
                                     </div>
                                 </div>
 
                                 <!-- Displays review scores on open -->
                                 <div class="row revrow">
                                     <div class="col s6 revbox-g">
-                                        {{ review.pint }} price:
+                                        Price:
                                         <br>
                                         {{ review.price }}
                                     </div>
                                     <div class="col s6 revbox-b">
-                                        {{ review.pint }} verdict:
+                                        Quality:
                                         <br>
                                         {{ review.drating }}/10
                                     </div>
@@ -70,26 +73,22 @@
                                 </div>
                             </div>
 
+                            <!-- Additional panel to display only for admins -->
                             {% if session.user == "pbadmin" %}
                                 <div class="row">
-                                    <!-- edit button that contains additional user form option for user, this 
-                                    will need to be pre-filled with the original editor's username so it isn't 
-                                    overwritten with the admin's name-->
                                     <br>
-                                    <div class="center-align">
-                                        <!-- below will need to be a new admin_edit_review function-->
+                                    <div class="center-align admin-panel">
                                         <a 
                                             class="btn review-card-button"
-                                            href="{{ url_for('edit_review', review_id=review._id) }}">
-                                            Edit
+                                            href="{{ url_for('moderate_review', review_id=review._id) }}">
+                                            Moderate
                                         </a>
                                         <a
-                                            class="btn review-card-button"
-                                            href="{{ url_for('delete_review', review_id=review._id) }}">
+                                            class="btn delete-button"
+                                            href="{{ url_for('delete_review_admin', review_id=review._id) }}">
                                             <!-- Style delete buttons in the pallette red colour -->
                                             Delete
                                         </a>
-                                        <!-- style in margin or padding bottom here -->
                                     </div>
                                 </div>
                             {% endif %}
