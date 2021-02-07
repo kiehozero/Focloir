@@ -21,7 +21,7 @@ body {
 /* Palette */
 
 .l-brown {
-    color: #4a463a;
+    color: #885043;
 }
 
 .m-brown {
@@ -37,11 +37,15 @@ body {
 }
 
 .fade-red {
-    color: #885043;
+    color: #c34040;
 }
 
 .old-gold {
     color: #cfb53b;
+}
+
+.light-grey {
+    color: #e7e7e7;
 }
 
 /* need a green in here */
@@ -114,8 +118,28 @@ nav .brand-logo:hover {
     color: #3b382e;
 }
 
+.cancel-button {
+    background-color: #c34040;
+    color: #e7e7e7;
+}
 
-/* Results */
+.cancel-button:hover {
+    background-color: #e7e7e7;
+    color: #c34040;
+}
+
+.delete-button {
+    background-color: #c34040;
+    border-radius: 5px;
+    color: #e7e7e7;
+    font-family: 'Fraunces';
+    font-weight: 600;
+}
+
+.delete-button:hover {
+    background-color: #e7e7e7;
+    color: #c34040;
+}
 
 .btn-floating {
     /* overwrites default Materialize styling */
@@ -195,6 +219,8 @@ div.datepicker-date-display {
 
 
 /* Add Review Form */
+/* All of this section is customised to overwrite
+the default Materialize styling */
 
 button,
 input,
@@ -289,6 +315,13 @@ span.character-counter {
     background-color: #3b382e;
     color: #cfb53b;
     font-weight: 600;
+}
+
+
+/* Admin Panel */
+
+.admin-panel {
+    padding-bottom: 12px;
 }
 
 /* Footer */

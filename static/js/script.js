@@ -23,66 +23,77 @@ $(document).ready(function(){
 });
 
 /* Navigation */
-/* Need to ensure that button width stays the same when icon changes */
 
 $("#pubButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-store-alt'></i>");
+   $(this).html("<i class='fas fa-store-alt'></i>");
 });
+
 $("#pubButton").mouseleave(function(){
-  $(this).html("Pubs");
+    $(this).html("Pubs");
 });
 
 $("#addButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-pen-nib'></i>");
+    $(this).html("<i class='fas fa-pen-nib'></i>");
 });
+
 $("#addButton").mouseleave(function(){
-  $(this).html("Add a review");
+    $(this).html("Add a review");
 });
 
 $("#regButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-id-badge'></i>");
+    $(this).html("<i class='fas fa-id-badge'></i>");
 });
+
 $("#regButton").mouseleave(function(){
-  $(this).html("Register");
+    $(this).html("Register");
 });
 
 $("#myrButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-newspaper'></i>");
+    $(this).html("<i class='fas fa-newspaper'></i>");
 });
+
 $("#myrButton").mouseleave(function(){
-  $(this).html("My Reviews");
+    $(this).html("My Reviews");
 });
 
 $("#logButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-sign-in-alt'></i>");
+    $(this).html("<i class='fas fa-sign-in-alt'></i>");
 });
+
 $("#logButton").mouseleave(function(){
-  $(this).html("Log In");
+    $(this).html("Log In");
 });
 
 $("#outButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-sign-out-alt'></i>");
+    $(this).html("<i class='fas fa-sign-out-alt'></i>");
 });
+
 $("#outButton").mouseleave(function(){
-  $(this).html("Log Out");
+    $(this).html("Log Out");
 });
 
 $("#admButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-users-cog'></i>");
+    $(this).html("<i class='fas fa-users-cog'></i>");
 });
+
 $("#admButton").mouseleave(function(){
-  $(this).html("User Panel");
+    $(this).html("User Panel");
 });
 
 $("#pintButton").mouseenter(function(){
-  $(this).html("<i class='fas fa-beer'></i>");
+    $(this).html("<i class='fas fa-beer'></i>");
 });
+
 $("#pintButton").mouseleave(function(){
-  $(this).html("Pints");
+    $(this).html("Pints");
 });
+
 
 /* Mobile Only */
 
 if ($(window).width() < 602) {
-$("#searchButton").html("<i class='fas fa-power-off'></i>");
+    $("#adminDelete").html("<i class='far fa-trash-alt'></i>");
+    $("#adminModerate").html("<i class='far fa-edit'></i>");
+    $("#userDelete").html("<i class='far fa-trash-alt'></i>");
+    $("#userEdit").html("<i class='far fa-edit'></i>");
 }

@@ -22,12 +22,9 @@
                         <!-- Choose Pub Dropdown -->
                         <br>
                         <br>
-                        <!-- Really need two extra rows that allow users to narrow down by country and city 
-                        first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <select id="pub" name="pub" required>
-                                    <!-- Need to sort these results alphabetically -->
                                     {% for pub in pubs %}
                                         {% if pub.pname == review.pub %}
                                             <option value="{{ pub.pname }}" selected>{{ pub.pname }}</option>
@@ -43,7 +40,7 @@
                         <!-- Datepicker and Drink Selection share row on larger screens -->
                         <div class="row">
 
-                            <!-- Datepicker, submitted formatt is yyyy-mm-dd -->
+                            <!-- Datepicker -->
                             <!-- mobile view for this is horrific -->
                             <div class="input-field col s10 m3 offset-s1 offset-m1">
                                 <input type="text" id="visit" name="visit" class="datepicker" 
@@ -158,7 +155,7 @@
                                     <i class="far fa-check-square"></i>
                                 </button>
                                 <!-- Cancel -->
-                                <button class="btn-large waves-effect waves-red pb-button" href="#">
+                                <button class="btn-large waves-effect waves-red pb-button cancel-button" href="#">
                                     <!-- href will take you back to view_review page once it's up and running -->
                                     <!-- needs a hover class with colour setting -->
                                     Cancel This Edit
