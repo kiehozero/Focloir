@@ -80,13 +80,14 @@
                                     <div class="center-align admin-panel">
                                         <a 
                                             class="btn review-card-button"
+                                            id="#adminModerate"
                                             href="{{ url_for('moderate_review', review_id=review._id) }}">
                                             Moderate
                                         </a>
                                         <a
                                             class="btn delete-button"
+                                            id="#adminDelete"
                                             href="{{ url_for('delete_review_admin', review_id=review._id) }}">
-                                            <!-- Style delete buttons in the pallette red colour -->
                                             Delete
                                         </a>
                                     </div>
