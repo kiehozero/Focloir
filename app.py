@@ -106,6 +106,18 @@ def contact_us():
     return render_template("contact_us.html")
 
 
+@app.route("/delete_pub_admin/<pub_id>")
+def delete_pub_admin(pub_id):
+    # admin only
+    # needs a confirm message here, if yes then
+    # below, if no redirect to my_reviews
+    mongo.db.pubs.remove(
+        {"_id": ObjectId(pub_id)}
+    )
+    flash("Pub deleted")
+    return redirect(url_for('pubs'))
+
+
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     # needs a confirm message here, if yes then
@@ -279,12 +291,6 @@ def my_reviews(username):
     # access it. At the moment this just loads of a Jinja error
 
     return redirect(url_for('login'))
-
-
-@app.route("/pints")
-def pints():
-    pints = mongo.db.pints.find()
-    return render_template("pints.html", pints=pints)
 
 
 @app.route("/pubs")

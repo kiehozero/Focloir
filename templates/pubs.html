@@ -78,7 +78,6 @@
                         <a
                             class="btn-floating halfway-fab waves-effect waves-light"
                             href="{{ url_for('view_pub', pub_id=pub._id) }}">
-                            <!--parameter above needs to be pub id-->
                             <i class="fas fa-book-open"></i>
                         </a>
                         </div>
@@ -101,6 +100,12 @@
                                     class="btn review-card-button"
                                     href="#">
                                     Edit
+                                </a>
+
+                                <a 
+                                    class="btn delete-button"
+                                    href="{{ url_for('delete_pub_admin', pub_id=pub._id) }}">
+                                    Delete
                                 </a>
                             </div>
                             <!-- styling in some margin bottom padding -->
