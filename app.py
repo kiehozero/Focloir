@@ -76,6 +76,31 @@ def add_review():
     return render_template("add_review.html", pubs=pubs, pints=pints)
 
 
+@app.route("/add_review_of/<pub_id>", methods=["GET", "POST"])
+def add_review_of(pub_id):
+    pub_id = mongo.db.pubs.find_one(
+        {"_id": ObjectId(pub_id)})
+    if request.method == "POST":
+        new_review = {
+            "pub": request.form.get("pub"),
+            "visit": request.form.get("visit"),
+            "prating": request.form.get("prating"),
+            "drating": request.form.get("drating"),
+            "arating": request.form.get("arating"),
+            "price": request.form.get("price"),
+            "review": request.form.get("review"),
+            "author": session["user"]
+        }
+
+        mongo.db.reviews.insert_one(new_review)
+        flash("Review added")
+        return redirect(url_for('pubs'))
+        # needs a redirect back to pub page
+
+    return render_template(
+        "add_review_of.html", pub_id=pub_id)
+
+
 @app.route("/contact_us")
 def contact_us():
     return render_template("contact_us.html")
@@ -264,7 +289,7 @@ def pints():
 
 @app.route("/pubs")
 def pubs():
-    # Converting below to a list allows the if loop in the template 
+    # Converting below to a list allows the if loop in the template
     # page to work properly when a user searches for somewhere
     pubs = list(mongo.db.pubs.find().sort("pname"))
     return render_template("pubs.html", pubs=pubs)

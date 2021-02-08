@@ -12,6 +12,36 @@
 
         <div class="row center-align">
             <div class="col s12 m8 offset-m2">
+
+            <!-- First card is always the option to add a new review -->
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                        <img 
+                            src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                            alt="pintbaby placeholder">
+                        <span class="card-title">Add review</span>
+                        <a 
+                            class="btn-floating halfway-fab waves-effect waves-light"
+                            href="{{ url_for('add_review_of', pub_id=pub_id._id) }}">
+                            <i class="fas fa-pen-nib"></i>
+                        </a>
+                        </div>
+                        <div class="card-content spectral">
+                            <h5>
+                                <br aria->
+                            </h5>
+                            <div class="center-align">
+                                <a 
+                                    class="btn review-card-button"
+                                    href="{{ url_for('add_review_of', pub_id=pub_id._id) }}">
+                                    Add
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             {% for review in reviews %}
             <!-- need to add a default add_review box in here if there are no reviews yet, see search bar if loop -->
                 {% if pub_id.pname == review.pub %}
