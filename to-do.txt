@@ -2,8 +2,9 @@
 2. Admin panel - delete user functionality
 3. Contact modal - emailJS edits
 4. Text size on scores for larger screens
-5. Edit profile page, allow user to change account details or delete altogether - password not working
-6. Google Image Search API for photos of each pub?
+5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
+the update function in pymongo
+6. Google Image Search API for photos of each pub? Just use URL option
 7. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
 break up blocks? Think of the Novara Media buttons you saw
 8. Footer cleanup - seen a few projects where the footer was like this with the gap underneath? Maybe 

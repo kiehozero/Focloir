@@ -84,8 +84,6 @@
                 <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
                 <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Profile</a></li>
             {% endif %}
-
-                <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
             
             <!-- Displays the Pint and User panels if the user is an admin -->
             {% if session.user == "pbadmin" %}
