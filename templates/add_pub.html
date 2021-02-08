@@ -17,6 +17,9 @@
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
 
+                        <!-- All of the below categories need additional validation to ensure 
+                        that no blanks can be entered -->
+
                         <!-- Pub Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
@@ -25,10 +28,10 @@
                             </div>
                         </div>
 
-                        <!-- Street Name (Optional) -->
+                        <!-- Street Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <input id="loc" name="loc" type="text" class="validate">
+                                <input id="loc" name="loc" type="text" class="validate" required>
                                 <label for="loc">Street</label>
                             </div>
                         </div>
