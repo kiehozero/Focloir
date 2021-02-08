@@ -5,20 +5,18 @@
 5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
 the update function in pymongo to only update a particular field
 6. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile
-7. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to 
-break up blocks? Think of the Novara Media buttons you saw
+7. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to break up blocks? Think 
+of the Novara Media buttons you saw
 8. Footer cleanup - seen a few projects where the footer was like this with the gap underneath? Maybe 
 mess around with the colour scheme and see if it looks grand when it isn't white
-9. Index page needs a basic breakdown of functions, probably better imagery and colour separation, 
-give these the border radius of 0 as with Novara, just to stop that border radius being absolutely 
-everywhere
+9. Index page needs a basic breakdown of functions, probably better imagery and colour separation
 10. Try catch for when attempting to log in on multiple devices as same user?
 11. Remove pints page, replace with pub admin page where you can delete pubss
 12. Datepicker validation, dates have to be in the past
 13. Reviews: Remove photo, change from card reveal to standard card with all content
-14. Add review: add photo URL, validation on form currently allows submission all of spaces in textarea, no value selected on rating, price
-can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove pint dropdown
-15. Add pub form: more items need to be set as mandatory, particularly address options as they are used in heading. Validation (see point
-14 as well needs to be strong enough to eliminate reviews that are just all spaces (see emailJS form on MS2 as this was validated this 
-way)
+14. Add review: add photo URL, validation on form currently allows submission all of spaces in textarea, no value selected on 
+rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
+pint dropdown 15. Add pub form: more items need to be set as mandatory, particularly address options as they are used in heading. 
+Validation (see point 14 as well needs to be strong enough to eliminate reviews that are just all spaces (see emailJS form on 
+MS2 as this was validated this way)
 
