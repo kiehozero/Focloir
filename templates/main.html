@@ -54,11 +54,10 @@
                     <!-- Displays the Pint and User panels if the user is an admin -->
                     {% if session.user == "pbadmin" %}
                         <!-- needs user display function here -->
-                        <li><a href="{{ url_for('pints') }}" id="pintButton">Pints</a></li>
                         <li><a href="{{ url_for('users') }}" id="admButton">Users</a></li>
                     {% endif %}
 
-                    <!-- Displays the log out option for signed in users, but displays 
+                    <!-- Displays the Log Out link for signed in users, but displays 
                     the Log In and Register links for guests -->
                     {% if session.user %}
                         <li><a href="{{ url_for('logout') }}" id="outButton">Log-Out</a></li>
@@ -85,13 +84,12 @@
                 <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Profile</a></li>
             {% endif %}
             
-            <!-- Displays the Pint and User panels if the user is an admin -->
+            <!-- Displays the User panel if the user is an admin -->
             {% if session.user == "pbadmin" %}
-                <li><a href="{{ url_for('pints') }}" class="mob-heading">Pints</a></li>
                 <li><a href="{{ url_for('users') }}" class="mob-heading">Users</a></li>
             {% endif %}
 
-            <!-- Displays the log out option for signed in users, but displays 
+            <!-- Displays the Log Out link for signed in users, but displays 
             the Log In and Register links for guests -->
             {% if session.user %}
                 <li><a href="{{ url_for('logout') }}" class="mob-heading">Log Out</a></li>
@@ -139,7 +137,7 @@
                 <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <!-- whitespace need removing -->
+        <!-- whitespace needs removing -->
     </footer>
 
     <script
