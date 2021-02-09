@@ -22,6 +22,10 @@ route redirects to the generic pub index page rather than that pub's particular 
 
 6. Mention removal of pints drop-down
 
+## User Stories
+
+
+
 ## Validation
 
 CSS Validator, HTML Validator, JSHint, Flake 8 for Python

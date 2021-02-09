@@ -47,14 +47,16 @@ As a user I want to...
 
   1. ... read about a pub I have not visited before;
   2. ... rate a pub that I have just visited;
-  3. ... find the best-rated pub in a city I am visiting;
-  4. ... see my review history
-  5. ... edit or amend a review I previously wrote;
+  3. ... find pubs in a city I am visiting;
+  4. ... review a pub that is not yet on the site;
+  5. ... see my review history
+  6. ... edit or amend a review I previously wrote;
 
 As an admin, I want to
-  1. ... delete a malicious or offensive review;
-  2. ... search a for a user using a particular criteria;
-  3. ... >>>.
+  1. ... delete or moderate an offensive review;
+  2. ... view a user's review history;
+  3. ... delete a pub;
+  4. ... delete a malicious user;
 
 
 ## Features
@@ -181,7 +183,7 @@ For an in-depth guide to cloning repositories, click
 ## Database Architecture
 
 As mentioned above, the database is built in MongoDB, and a sketch of the database's archtecture can be found
-[here](planning/structure/Data Structure.png)
+[here](planning/structure/data-structure.png)
 
 
 ## Credits
