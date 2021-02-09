@@ -1,5 +1,5 @@
 1. Faint background instead of white on large screen sizes?
-2. Admin panel - delete user functionality
+2. Reviews: Remove photo, change from card reveal to standard card with all content
 3. Contact modal - emailJS edits
 4. Text size on scores for larger screens
 5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
@@ -12,10 +12,8 @@ mess around with the colour scheme and see if it looks grand when it isn't white
 9. Index page needs a basic breakdown of functions, probably better imagery and colour separation
 10. Try catch for when attempting to log in on multiple devices as same user?
 11. Datepicker validation, dates have to be in the past
-12. Reviews: Remove photo, change from card reveal to standard card with all content
-13. Add review: add photo URL, validation on form currently allows submission all of spaces in textarea, no value selected on 
+12. Add review: add photo URL, validation on form currently allows submission all of spaces in textarea, no value selected on 
 rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
 pint dropdown 15. Add pub form: more items need to be set as mandatory, particularly address options as they are used in heading. 
 Validation (see point 14 as well needs to be strong enough to eliminate reviews that are just all spaces (see emailJS form on 
 MS2 as this was validated this way)
-

@@ -143,6 +143,17 @@ def delete_review_admin(review_id):
     return redirect(url_for('pubs'))
 
 
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    flash("Are you sure you want to remove {{ user.username }}'s account?")
+    mongo.db.users.remove(
+        {"_id": ObjectId(user_id)}
+    )
+    # need to display flash messages
+    flash("User Deleted")
+    return redirect(url_for('users'))
+
+
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     if request.method == "POST":
@@ -342,7 +353,6 @@ def search_pubs():
 @app.route("/users")
 # admin only
 def users():
-    # add post method to delete user
     users = list(mongo.db.users.find().sort("username"))
     return render_template("users.html", users=users)
 

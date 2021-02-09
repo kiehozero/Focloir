@@ -27,14 +27,16 @@
                         <td>{{ user.email }}</td>
                         <td>
                             <!-- Displays all reviews on opening -->
-                            <button class="btn review-card-button">
+                            <a class="btn review-card-button">
                                 <i class="fas fa-book-open"></i>
-                            </button>
+                            </a>
                         </td>
                         <td>
-                            <button class="btn delete-button">
+                            <a
+                                href="{{ url_for('delete_user', user_id=user._id) }}"
+                                class="btn delete-button">
                                 <i class="far fa-trash-alt"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}
