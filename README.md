@@ -175,7 +175,7 @@ button;
 For an in-depth guide to cloning repositories, click 
 [here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from which the steps above were taken.
 
-<<<Heroku and Mongo cloning information?>>>
+<<<Heroku and Mongo cloning information? Look for other MS3 READMEs>>>
 
 ## Credits
 
@@ -201,8 +201,9 @@ insertMany function, then used data I found from a HTML element was created by G
 [DanRovito](https://gist.github.com/DanRovito/977bcb97c9c2dfd3398a). There is also official 
 [pyMongo documentation](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#insert_many) on this
 function.
--
-
+- [Pythonise](https://pythonise.com/series/learning-flask/flask-message-flashing) and 
+[AskPython](https://www.askpython.com/python-modules/flask/flask-flash-method)'s lessons on flash messaging helped 
+me understand a pretty basic part of Flask, but nevertheless a very important one.
 
 ### Media
 
