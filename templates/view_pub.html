@@ -1,5 +1,8 @@
 {% extends "main.html" %}
 
+    <!-- Template to view all of a pub's reviews. Additional admin 
+        features include the ability to edit or delete any review. -->
+
     {% block title %}
         {{ pub_id.pname }}, {{ pub_id.city }}
     {% endblock %}
@@ -43,7 +46,6 @@
                 </div>
 
             {% for review in reviews %}
-            <!-- need to add a default add_review box in here if there are no reviews yet, see search bar if loop -->
                 {% if pub_id.pname == review.pub %}
                     <div class="col s12 m4">
                         <div class="card revcard">
