@@ -177,6 +177,13 @@ For an in-depth guide to cloning repositories, click
 
 <<<Heroku and Mongo cloning information? Look for other MS3 READMEs>>>
 
+
+## Database Architecture
+
+As mentioned above, the database is built in MongoDB, and a sketch of the database's archtecture can be found
+[here](/planning/structure/Data Structure.png)
+
+
 ## Credits
 
 ### Content

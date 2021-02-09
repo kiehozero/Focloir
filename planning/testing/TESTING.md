@@ -20,6 +20,8 @@ fixed quickly with a Jinja loop specifying this links to display only if the use
 ID, not resolved this yet, tried deleting the return redirect but got a Jinja error back, the fix I've put in for now is that the
 route redirects to the generic pub index page rather than that pub's particular page
 
+6. Mention removal of pints drop-down
+
 ## Validation
 
 CSS Validator, HTML Validator, JSHint, Flake 8 for Python
