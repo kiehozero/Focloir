@@ -181,7 +181,7 @@ For an in-depth guide to cloning repositories, click
 ## Database Architecture
 
 As mentioned above, the database is built in MongoDB, and a sketch of the database's archtecture can be found
-[here](/planning/structure/Data Structure.png)
+[here](planning/structure/Data Structure.png)
 
 
 ## Credits
