@@ -17,4 +17,5 @@ rating, price can be zero, price box doesn't tell user the format that needs to 
 pint dropdown 15. Add pub form: more items need to be set as mandatory, particularly address options as they are used in heading. 
 Validation (see point 14 as well needs to be strong enough to eliminate reviews that are just all spaces (see emailJS form on 
 MS2 as this was validated this way)
-13. Amend data-structure.png to remove pints box
+13. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
+user review > amend review > delete review > delete user
