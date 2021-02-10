@@ -5,8 +5,7 @@
 5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
 the update function in pymongo to only update a particular field
 6. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile
-7. Larger border radius on buttons? Perhaps white out the button and just display a coloured border to break up blocks? Think 
-of the Novara Media buttons you saw
+7. Border radius on buttons? Perhaps white out the button and display coloured border to break up blocks? See Novara Media
 8. Footer cleanup - seen a few projects where the footer was like this with the gap underneath? Maybe 
 mess around with the colour scheme and see if it looks grand when it isn't white
 9. Index page needs a basic breakdown of functions, probably better imagery and colour separation
@@ -19,3 +18,4 @@ Validation (see point 14 as well needs to be strong enough to eliminate reviews 
 MS2 as this was validated this way)
 13. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
 user review > amend review > delete review > delete user
+14. Add icons to add_review, add_review_of, edit_profile

@@ -14,157 +14,151 @@
                 namely the Date Picker, Radion Button, Selects and Text Inputs-->
 
             <div class="row center-align">
+                <!-- Bug fix #7: icon centring-->
                 <h4 class="d-brown">Moderate {{review.author}}'s review of {{ review.pub }}</h4>
+            </div>
                  
-                <div class="row container">
+            <div class="row container">
 
-                    <form class="col s12 m10 offset-m1" method="POST" 
-                    action="{{ url_for('moderate_review', review_id=review._id) }}">
+                <form class="col s12 m10 offset-m1" method="POST" 
+                action="{{ url_for('moderate_review', review_id=review._id) }}">
 
-                        <!-- Choose Pub Dropdown -->
-                        <br>
-                        <br>
-                        <div class="row">
+                    <!-- Choose Pub Dropdown -->
+                    <br>
+                    <br>
+                    <div class="row">
 
-                            <!-- Unable to amend this dropdown, all others are editable-->
-                            <div class="input-field col s10 m5 offset-s1 offset-m1">
-                                <select id="author" name="author" required>
-                                    <option value="{{ review.author }}" selected>{{ review.author }}</option>
-                                </select>
-                                <label for="pub">User</label>
-                            </div>
-
-                            <div class="input-field col s10 m5 offset-s1">
-                                <select id="pub" name="pub" required>
-                                    {% for pub in pubs %}
-                                        {% if pub.pname == review.pub %}
-                                            <option value="{{ pub.pname }}" selected>{{ pub.pname }}</option>
-                                        {% else %}
-                                            <option value="{{ pub.pname }}">{{ pub.pname }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                <label for="pub">Pub Name</label>
-                            </div>
+                        <!-- Unable to amend this dropdown, all others are editable-->
+                        <div class="input-field col s10 m4 offset-s1 offset-m1">
+                            <i class="far fa-id-badge prefix fonta-icons"></i>
+                            <select id="author" name="author" required>
+                                <option value="{{ review.author }}" selected>{{ review.author }}</option>
+                            </select>
+                            <label for="pub">User</label>
                         </div>
 
-                        <!-- Datepicker and Drink Selection share row on larger screens -->
-                        <div class="row">
+                        <div class="input-field col s10 m6 offset-s1 left">
+                            <!-- Not displaying correctly -->
+                            <i class="fas fa-sign prefix fonta-icons"></i>
+                            <select id="pub" name="pub" required>
+                                {% for pub in pubs %}
+                                    {% if pub.pname == review.pub %}
+                                        <option value="{{ pub.pname }}" selected>{{ pub.pname }}</option>
+                                    {% else %}
+                                        <option value="{{ pub.pname }}">{{ pub.pname }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <label for="pub">Pub Name</label>
+                        </div>
+                    </div>
 
-                            <!-- Datepicker -->
-                            <!-- mobile view for this is horrific -->
-                            <div class="input-field col s10 m3 offset-s1 offset-m1">
-                                <input type="text" id="visit" name="visit" class="datepicker" 
-                                format="yyyy/mm/dd" value="{{ review.visit }}" required>
-                                <label for="visit">Visit Date</label>
-                            </div>
+                    <!-- Datepicker and Drink Selection share row on larger screens -->
+                    <div class="row">
 
-                            <!-- Drink Selection -->
-                            <div class="input-field col s10 m7 offset-s1">
-                                <!-- This is not displaying longer items in most screen sizes -->
-                                <select id="pint" name="pint" required>
-                                    {% for pint in pints %}
-                                        {% if pint.dname == review.pint %}
-                                            <option value="{{ pint.dname }}">
-                                                {{- pint.dname -}} ({{ pint.dtype }}, {{ pint.origin }})
-                                            </option>
-                                        {% else %}
-                                            <option value="{{ pint.dname }}">
-                                            {{- pint.dname }} ({{ pint.dtype }}, {{ pint.origin }})
-                                        </option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                <label>Pint Name</label>
-                            </div>
+                        <!-- Datepicker -->
+                        <!-- mobile view for this is horrific -->
+                        <div class="input-field col s10 m5 offset-s1 offset-m1">
+                            <i class="far fa-calendar-alt prefix fonta-icons"></i>
+                            <input type="text" id="visit" name="visit" class="datepicker" 
+                            format="yyyy/mm/dd" value="{{ review.visit }}" required>
+                            <label for="visit">Visit Date</label>
                         </div>
 
-                        <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
-                        <div class="row">
-
-                            <!-- Pub Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1 offset-m1">
-                                <select id="prating" name="prating" required>
-                                    <option selected>{{ review.prating }}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                                <label for="prating">Overall</label>
-                            </div>
-
-                            <!-- Drink Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1">
-                                <select id="drating" name="drating" required>
-                                    <option selected>{{ review.drating }}</option>
-                                </select>
-                                <label for="drating">Pint</label>
-                            </div>
-
-                            <!-- Atmosphere Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1">
-                                <select id="arating" name="arating" required>
-                                    <option selected>{{ review.arating }}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                                <label for="arating">Atmosphere</label>
-                            </div>
-
-                            <!-- Drink Price Input-->
-                            <div class="input-field col s10 m4 offset-s1">
-                                <input 
-                                    id="price" name="price" type="text" class="validate"
-                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" 
-                                    value="{{ review.price }}" required>
-                                <label for="price">Price</label>
-                            </div>
+                        <!-- Drink Price Input-->
+                        <div class="input-field col s10 m5 offset-s1">
+                            <i class="fas fa-money-bill-wave prefix fonta-icons"></i>
+                            <input 
+                                id="price" name="price" type="text" class="validate"
+                                minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" 
+                                value="{{ review.price }}" required>
+                            <label for="price">Price</label>
                         </div>
 
-                        <!-- Review Textarea with Character Counter from Materialize -->
-                        <div class="row">
-                            <div class="input-field col s10 offset-s1">
-                                <textarea
-                                    id="review" name="review" class="materialize-textarea" 
-                                    minlength="15" maxlength="400" data-length="400" >{{ review.review }}</textarea>
-                                <label for="review">Current Review</label>
-                            </div>
+
+                    </div>
+
+                    <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
+                    <div class="row">
+
+                        <!-- Pub Rating Dropdown -->
+                        <div class="input-field col s10 m4 offset-s1 offset-m1">
+                            <i class="far fa-smile prefix fonta-icons"></i>
+                            <select id="prating" name="prating" required>
+                                <option selected>{{ review.prating }}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <label for="prating">Overall</label>
                         </div>
 
-                        <!-- Buttons -->
-                        <div class="row">
-                            <div class="card-action center-align">
-                                <!-- Submit -->
-                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
-                                    <!-- Change font-->
-                                    Amend This Visit
-                                    <i class="far fa-check-square"></i>
-                                </button>
-                                <!-- Cancel -->
-                                <button class="btn-large waves-effect waves-red pb-button cancel-button" href="#">
-                                    Cancel This Edit
-                                    <i class="far fa-window-close"></i>
-                                </button>
-                            </div>
+                        <!-- Drink Rating Dropdown -->
+                        <div class="input-field col s10 m3 offset-s1">
+                            <i class="fas fa-beer prefix fonta-icons"></i>
+                            <select id="drating" name="drating" required>
+                                <option selected>{{ review.drating }}</option>
+                            </select>
+                            <label for="drating">Pint</label>
                         </div>
 
-                    </form>
-                </div>
+                        <!-- Atmosphere Rating Dropdown -->
+                        <div class="input-field col s10 m3 offset-s1">
+                            <i class="fas fa-glass-cheers prefix fonta-icons"></i>
+                            <select id="arating" name="arating" required>
+                                <option selected>{{ review.arating }}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <label for="arating">Atmosphere</label>
+                        </div>
+
+                    </div>
+
+                    <!-- Review Textarea with Character Counter from Materialize -->
+                    <div class="row">
+                        <div class="input-field col s10 offset-s1">
+                        <i class="fas fa-pen-nib prefix fonta-icons"></i>
+                            <textarea
+                                id="review" name="review" class="materialize-textarea" 
+                                minlength="15" maxlength="400" data-length="400" >{{ review.review }}</textarea>
+                            <label for="review">Current Review</label>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="row">
+                        <div class="card-action center-align">
+                            <!-- Submit -->
+                            <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                <!-- Change font-->
+                                Amend This Visit
+                                <i class="far fa-check-square"></i>
+                            </button>
+                            <!-- Cancel -->
+                            <button class="btn-large waves-effect waves-red pb-button cancel-button" href="#">
+                                Cancel This Edit
+                                <i class="far fa-window-close"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
 
         {% else %}

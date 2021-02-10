@@ -14,7 +14,9 @@
                 namely the Date Picker, Radion Button, Selects and Text Inputs-->
 
             <div class="row center-align">
+                <!-- Bug fix #7: icon centring-->
                 <h4 class="d-brown">Review {{ pub_id.pname }}</h4>
+            </div>
                  
                 <div class="row container">
 
@@ -24,30 +26,45 @@
                         <br>
                         <br>
                         <div class="row">
-                            <div class="input-field col s10 l5 offset-s1 offset-l1">
+                            <div class="input-field col s10 offset-s1">
+                                <!-- Not displaying correctly -->
+                                <i class="fas fa-sign prefix fonta-icons"></i>
                                 <select id="pub" name="pub" required>
                                     <option value="{{ pub_id.pname }}">{{ pub_id.pname }}</option>
                                 </select>
                                 <label>Pub Name</label>
                             </div>
+                        </div>
 
+                        <div class="row">
                             <!-- Datepicker and Drink Selection share row on larger screens -->
                             <!-- Datepicker, submitted format is yyyy-mm-dd -->
                             <!-- This really doesn't need a full row to itself on larger screens -->
                             <!-- mobile view for this is horrific -->
-                            <div class="input-field col s10 l5 offset-s1">
+                            <div class="input-field col s10 m5 offset-s1 offset-m1">
+                                <i class="far fa-calendar-alt prefix fonta-icons"></i>
                                 <input
                                     type="text" id="visit" name="visit" 
                                     class="datepicker" format="yyyy/mm/dd" required>
                                 <label for="visit">Date visited</label>
                             </div>
+
+                            <!-- Drink Price Input-->
+                            <div class="input-field col s10 m5 offset-s1">
+                                <i class="fas fa-money-bill-wave prefix fonta-icons"></i>
+                                <input 
+                                    id="price" name="price" type="text" class="validate"
+                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" required>
+                                <label for="price">Price</label>
+                            </div>
                         </div>
 
-                        <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
                         <div class="row">
+                            <!-- Ratings share row on larger screens -->
 
                             <!-- Pub Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1 offset-m1">
+                            <div class="input-field col s10 m4 offset-s1 offset-m1">
+                                <i class="far fa-smile prefix fonta-icons"></i>
                                 <select id="prating" name="prating" required>
                                     <option disabled selected>Select</option>
                                     <option value="1">1</option>
@@ -65,7 +82,8 @@
                             </div>
 
                             <!-- Drink Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1">
+                            <div class="input-field col s10 m3 offset-s1">
+                                <i class="fas fa-beer prefix fonta-icons"></i>
                                 <select id="drating" name="drating" required>
                                     <option disabled selected>Select</option>
                                     <option value="1">1</option>
@@ -83,7 +101,8 @@
                             </div>
 
                             <!-- Atmosphere Rating Dropdown -->
-                            <div class="input-field col s10 m2 offset-s1">
+                            <div class="input-field col s10 m3 offset-s1">
+                                <i class="fas fa-glass-cheers prefix fonta-icons"></i>
                                 <select id="arating" name="arating" required>
                                     <option disabled selected>Select</option>
                                     <option value="1">1</option>
@@ -99,19 +118,12 @@
                                 </select>
                                 <label for="arating">Atmosphere</label>
                             </div>
-
-                            <!-- Drink Price Input-->
-                            <div class="input-field col s10 m4 offset-s1">
-                                <input 
-                                    id="price" name="price" type="text" class="validate"
-                                    minlength="1" maxlength="8" pattern="\d+(\.\d{2})?" required>
-                                <label for="price">Price</label>
-                            </div>
                         </div>
 
                         <!-- Review Textarea with Character Counter from Materialize -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-pen-nib prefix fonta-icons"></i>
                                 <textarea
                                     id="review" name="review" class="materialize-textarea" 
                                     minlength="15" maxlength="400" data-length="400" required></textarea>
@@ -132,7 +144,6 @@
 
                     </form>
                 </div>
-            </div>
 
         {% else %}
 

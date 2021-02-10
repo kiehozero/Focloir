@@ -22,6 +22,12 @@ route redirects to the generic pub index page rather than that pub's particular 
 
 6. Mention removal of pints drop-down
 
+7. Icons on my various edit and submission forms were not centre-aligning on select items specifically. This was I had erroneously
+enclosing my entire form within the div.row element and tag combination, which contained Materialize's 'center' tag. I made various 
+attempts at overriding this in DOM child elements, before realising I simply needed to moving the closing div tag to before the 
+div.container element that the form was inside. Since I did this on the very first form I made, it meant I had to go and amend all
+of them, plus re-indenting all of the code!
+
 ## User Stories
 
 

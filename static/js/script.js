@@ -90,6 +90,7 @@ $("#pintButton").mouseleave(function(){
 
 
 /* Mobile Only */
+/* Need to extend for tablets */
 
 if ($(window).width() < 602) {
     $("#adminDelete").html("<i class='far fa-trash-alt'></i>");

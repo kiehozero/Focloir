@@ -170,8 +170,10 @@ nav .brand-logo:hover {
 
 /* Registration form - maybe move each page's unique CSS onto a separate sheet? */
 
-.reg-icon {
+.fonta-icons {
     color: #3b382e;
+    /* Bugfix #1 icons were not displaying properly when contained inside a div with a select element, 
+    solution was to turn off the text-align: center that was inherited from the Materialize center tag */
 }
 
 .input-field .prefix.active {

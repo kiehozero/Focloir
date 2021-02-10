@@ -11,6 +11,7 @@
         {% if session.user %}
 
             <div class="row center-align">
+                <!-- Bug fix #7: icon centring-->
                 <h4>Add a pub</h4>
             </div>
 
@@ -25,6 +26,7 @@
                         <!-- Pub Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-sign prefix fonta-icons"></i>
                                 <input id="pname" name="pname" type="text" class="validate" required>
                                 <label for="pname">Pub Name</label>
                             </div>
@@ -33,6 +35,7 @@
                         <!-- Street Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-road prefix fonta-icons"></i>
                                 <input id="loc" name="loc" type="text" class="validate" required>
                                 <label for="loc">Street</label>
                             </div>
@@ -40,7 +43,9 @@
 
                         <!-- City (Mandatory) -->
                         <div class="row">
+                            
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-city prefix fonta-icons"></i>
                                 <input id="city" name="city" type="text" class="validate" required>
                                 <label for="city">Town/City</label>
                             </div>
@@ -49,6 +54,7 @@
                         <!-- County (Optional) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-map-marker-alt prefix fonta-icons"></i>
                                 <input id="state" name="state" type="text" class="validate">
                                 <label for="state">County, State or Province</label>
                             </div>
@@ -57,6 +63,7 @@
                         <!-- Country (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-flag prefix fonta-icons"></i>
                                 <select id="country" name="country">
                                     <option disabled selected>Choose your option</option>
                                     {% for country in countries %}
