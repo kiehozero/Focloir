@@ -28,6 +28,17 @@ attempts at overriding this in DOM child elements, before realising I simply nee
 div.container element that the form was inside. Since I did this on the very first form I made, it meant I had to go and amend all
 of them, plus re-indenting all of the code!
 
+8. My mentor challenged me to work out how to restrict review dates being submitted for dates in the past, rather than using the 
+generic yearRange option in Materialize's [datepicker](https://materializecss.com/pickers.html). Luckily a handy little codepen by 
+[Dakila Lozano](https://codepen.io/dakila/pen/GxbxGB) demonstrated how to manipulate the maxDate range, and a quick check of 
+[W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution.
+
+## Outstanding Issues
+
+1. The Materialize datepicker currently allows for a user to publish a review on a date in the future. While their 
+[documentation](https://materializecss.com/pickers.html) allows for the setting of a maximum date, I couldn't find a way to 
+successfully retrieve the current date and set that as the maximum.
+
 ## User Stories
 
 

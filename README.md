@@ -193,26 +193,29 @@ As mentioned above, the database is built in MongoDB, and a sketch of the databa
 - In previous projects I have spent a lot of time trying to untangle my own CSS from Bootstrap; in this project I 
 committed myself to using as much content from a pre-built CSS library as I could. The 
 [Materialize](https://materializecss.com/) is a really lightweight and powerful library that provided great results 
-out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection.
+out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection;
 - The [HTML5 Pattern](https://www.html5pattern.com/Miscs) website is a great resource for understanding the use and
-format of regular expressions in validating user-inputted text.
+format of regular expressions in validating user-inputted text;
 - [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
-guide for Pymongo.
+guide for Pymongo;
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/)
 
 ### Tutorials
 
 - [Code Institute](https://www.codeinstitute.net/)'s task manager project gave me a good structure to work from, 
-as well as the foundations for my Python interaction with MongoDB.
+as well as the foundations for my Python interaction with MongoDB;
 - To create a list of countries that users can select from I used a 
 [CodevsColor](https://www.codevscolor.com/insert-multiple-documents-mongodb-collection) guide on the MongoDB shell's
 insertMany function, then used data I found from a HTML element was created by GitHub user 
 [DanRovito](https://gist.github.com/DanRovito/977bcb97c9c2dfd3398a). There is also official 
 [pyMongo documentation](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#insert_many) on this
-function.
+function;
 - [Pythonise](https://pythonise.com/series/learning-flask/flask-message-flashing) and 
 [AskPython](https://www.askpython.com/python-modules/flask/flask-flash-method)'s lessons on flash messaging helped 
-me understand a pretty basic part of Flask, but nevertheless a very important one.
+me understand a pretty basic part of Flask, but nevertheless a very important one;
+- [Dakila Lozano](https://codepen.io/dakila/pen/GxbxGB) demonstrated how to manipulate the maxDate option in 
+Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick check of 
+[W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution.
 
 ### Media
 

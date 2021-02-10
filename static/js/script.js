@@ -7,6 +7,12 @@ $ symbol is an undefined variable */
 
 /* Materialize jQuery intialisation */
 
+/* variables below are used to set the maxDate for the datepicker */
+
+var currYear = (new Date()).getFullYear();
+var currMonth = (new Date()).getMonth();
+var currDate = (new Date()).getDate();
+
 $(document).ready(function(){
     /* initialises mobile side navigation bar */
     $('.sidenav').sidenav();
@@ -18,7 +24,9 @@ $(document).ready(function(){
     $('textarea#review').characterCounter();
     /* initialises datepicker in review form */
     $('.datepicker').datepicker({
-        format: "yyyy-mm-dd"
+        format: "yyyy-mm-dd",
+        maxDate: new Date(currYear,currMonth, currDate),
+        yearRange: [2016, currYear],
     });
 });
 

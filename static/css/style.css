@@ -196,14 +196,13 @@ button.datepicker-today {
     color: #cfb53b;
 }
 
-.datepicker-table td.is_today {
-    /* Not yet working */
+.datepicker-table td.is-today {
     color: #cfb53b;
 }
 
 .datepicker-table td.is-selected,
-button .month-next:focus,
-button .month-prev:focus {
+button.month-next:focus,
+button.month-prev:focus {
     background-color: #cfb53b;
     color: #3b382e;
 }
