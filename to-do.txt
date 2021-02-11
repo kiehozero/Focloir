@@ -8,7 +8,7 @@ the update function in pymongo to only update a particular field
 if session.user does not equal user_id being passed in route?
 7. Border radius on buttons? Perhaps white out the button and display coloured border to break up blocks? See Novara Media
 8. Index page needs a basic breakdown of functions, probably better imagery and colour separation
-9. Add review: add photo URL, validation on form currently allows submission all of spaces in textarea, no value selected on 
+9. Add review: validation on form currently allows submission all of spaces in textarea, no value selected on 
 rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
 pint dropdown 15. Add pub form: more items need to be set as mandatory, particularly address options as they are used in heading. 
 Validation (see point 14 as well needs to be strong enough to eliminate reviews that are just all spaces (see emailJS form on 
