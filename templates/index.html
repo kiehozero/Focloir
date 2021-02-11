@@ -12,13 +12,15 @@
             <div class="parallax"><img src="{{ url_for('static', filename='images/against-grain.png') }}"></div>
         </div>
 
-        <div class="section light-grey-bg">
+        <div class="section light-grey-bg center">
             <div class="row container">
-                <h2 class="header m-brown">Parallax</h2>
-                <p class="m-brown">Parallax is an effect where the background content or image in this
-                    case, is moved at a different speed than the foreground content while scrolling.</p>
-                <p class="m-brown">Parallax is an effect where the background content or image in this
-                    case, is moved at a different speed than the foreground content while scrolling.</p>
+                <h3 class="header m-brown">Welcome to Pintbaby!</h3>
+                <p class="m-brown">Here at Pintbaby we know that the search for the perfect pint is never-ending, 
+                    so we've given you the opportunity to tell world what you love about your favourite pubs.
+
+                    To start using Pintbaby, simply click <a href="{{ url_for('register') }}" class="old-gold">here</a> 
+                    to register and start reviewing in seconds.
+                </p>
             </div>
         </div>
 
@@ -26,18 +28,39 @@
             <div class="parallax"><img src="{{ url_for('static', filename='images/long-hall.png') }}"></div>
         </div>
 
-        <div class="section light-grey-bg">
+        <div class="section light-grey-bg center">
             <div class="row container">
-                <h2 class="header m-brown right">Parallax</h2>
-                <p class="m-brown">Parallax is an effect where the background content or image in this
-                    case, is moved at a different speed than the foreground content while scrolling.</p>
-                <p class="m-brown">Parallax is an effect where the background content or image in this
-                    case, is moved at a different speed than the foreground content while scrolling.</p>
+                <p class="m-brown">
+                    Tired of Google reviews that talk about the lack of desserts on the menu? Sick of reading 
+                    salty Yelp posts that moan about speed of service or not doing cocktails? At Pintbaby we've 
+                    focused on what matters to the regular pub-goer: the atmosphere of the pub, the quality of 
+                    the pour and most crucially (to some!) the damage to your wallet! To start reading other 
+                    user's reviews click <a href="{{ url_for('pubs') }}" class="old-gold">here</a>.
+                     
+                </p>
+                <h5 class="header m-brown">
+                    A pint of plain is your only man.
+                    - Flann O'Brien
+                </h5>
             </div>
         </div>
 
         <div class="parallax-container">
             <div class="parallax"><img src="{{ url_for('static', filename='images/black-horse.png') }}"></div>
+        </div>
+
+        <div class="section light-grey-bg center">
+            <div class="row container">
+                <p class="m-brown">
+                    We love to get feedback on how to help our users in their quest for the perfect pint, so click
+                    <a href="{{ url_for('contact_us') }}" class="old-gold">here</a> to send us any feedback - good
+                    or bad! - press enquiries or a CV if you want to join our team!
+                </p>
+                <h5 class="header m-brown">
+                    For a quart of ale is a dish for a king.
+                    - William Shakespeare
+                </h5>
+            </div>
         </div>
 
     {% endblock %}
