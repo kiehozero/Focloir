@@ -298,6 +298,7 @@ textarea {
     border: 2px solid #cfb53b;
 }
 
+input[type="url"]:not(.browser-default):focus:not([readonly]),
 input[type="text"]:not(.browser-default):focus:not([readonly]),
 input[type="email"]:not(.browser-default):focus:not([readonly]),
 input[type="password"]:not(.browser-default):focus:not([readonly]),
@@ -307,6 +308,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 #cfb53b;
 }
 
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
 input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
 input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
 input[type="password"]:not(.browser-default):focus:not([readonly]) + label,

@@ -27,6 +27,7 @@ def index():
 
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
+    # add if session.user loop, if false, redirect to registration page
     countries = mongo.db.countries.find().sort("name")
     if request.method == "POST":
         new_pub = {
@@ -34,13 +35,15 @@ def add_pub():
             "loc": request.form.get("loc"),
             "city": request.form.get("city"),
             "state": request.form.get("state"),
-            "country": request.form.get("country")
+            "country": request.form.get("country"),
+            "photo": request.form.get("photo")
         }
 
         mongo.db.pubs.insert_one(new_pub)
         flash("{} successfully added".format(request.form.get("pname")))
         # need a modal to display above
         # automatically sends user to review page
+        # needs to redirect to review page pre-filled with that pub
         return redirect(url_for('add_review'))
 
     # this is the else statement, so the GET request

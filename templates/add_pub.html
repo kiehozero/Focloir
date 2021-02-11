@@ -74,12 +74,20 @@
                             </div>
                         </div>
 
+                        <!-- Photo URL (Optional) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="far fa-image prefix fonta-icons"></i>
+                                <input id="photo" name="photo" type="url" class="validate">
+                                <label for="photo">Photograph URL</label>
+                            </div>
+                        </div>
+
                         <!-- Submit Button -->
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
                                     Add this pub!
-                                    <!-- Needs Font Awesome icon? -->
                                 </button>
                             </div>
                         </div>
@@ -89,6 +97,7 @@
 
         {% else %}
 
+            
             <div class="center-align">
                 <a class="d-brown" href="{{ url_for('register') }}">New to Pintbaby? Register here!</a>
             </div>

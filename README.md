@@ -216,6 +216,8 @@ me understand a pretty basic part of Flask, but nevertheless a very important on
 - [Dakila Lozano](https://codepen.io/dakila/pen/GxbxGB) demonstrated how to manipulate the maxDate option in 
 Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick check of 
 [W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution.
+- The good people over at [Useful Angle](https://usefulangle.com/post/36/javascript-validate-url-form-input-field-without-regex)
+provided a quick solution for adding URLs using HTML's form element.
 
 ### Media
 
