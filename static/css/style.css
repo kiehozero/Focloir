@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,900;1,700&family=Spectral:wght@400;500&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Fraunces', serif;
 }
 
+.background-image {
+    background: url("../images/against-grain.png") no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+    padding-bottom: 0px;
+    padding-top: 56px;
+}
 
 /* Fonts */
 
@@ -20,33 +34,62 @@ body {
 
 /* Palette */
 
-.l-brown {
-    color: #885043;
+.cream {
+    color: #cbbf85;
 }
 
-.m-brown {
-    color: #443e32;
+.cream-bg {
+    background-color: #cbbf85;
 }
 
 .d-brown {
     color: #3b382e;
 }
 
-.cream {
-    color: #cbbf85;
+.d-brown-bg {
+    background-color: #3b382e;
 }
 
 .fade-red {
     color: #c34040;
 }
 
-.old-gold {
-    color: #cfb53b;
+.fade-red-bg {
+    background-color: #c34040;
+}
+
+.l-brown {
+    color: #885043;
+}
+
+.l-brown-bg {
+    background-color: #885043;
 }
 
 .light-grey {
     color: #e7e7e7;
 }
+
+.light-grey-bg {
+    background-color: #e7e7e7;
+}
+
+.m-brown {
+    color: #443e32;
+}
+
+.m-brown-bg {
+    background-color: #443e32;
+}
+
+.old-gold {
+    color: #cfb53b;
+}
+
+.old-gold-bg {
+    background-color: #cfb53b;
+}
+
 
 /* need a green in here */
 
@@ -81,13 +124,12 @@ nav .brand-logo:hover {
     width: 150px;
 }
 
+footer.row {
+    margin-bottom: auto;
+}
+
 
 /* Mobile and Tablet Sidenav */
-
-.sidenav {
-    background-color: #cfb53b;
-    color: #3b382e;
-}
 
 .sidenav li > a,
 .sidenav div > a {
@@ -306,15 +348,7 @@ span.character-counter {
 
 /* Review View */
 
-.revbox-g {
-    background-color: #cfb53b;
-    color: #3b382e;
-    font-weight: 600;
-}
-
-.revbox-b {
-    background-color: #3b382e;
-    color: #cfb53b;
+.revbox {
     font-weight: 600;
 }
 
@@ -345,7 +379,7 @@ span.character-counter {
     }
 }
 
-@media (max-width: 824px) {
+@media (max-width: 720px) {
     /* Mobile screen rules */
     footer {
         /* removes footer as the social links are in the side nav bar */
