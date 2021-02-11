@@ -222,8 +222,10 @@ Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick
 - I found the background image for the landing page on the 
 [Rebel Dublin](http://rebeldublin.ie/life-in-dublin/nightlife/dublin-pub-crawl-camden-mile/) website, but the photograph 
 was originally taken by the writers of the [My Name is Ola](http://www.mynameisola.com/en) blog.
+- Black Horse [photo](https://www.robinsonsbrewery.com/pubs/black-horse-preston/) courtesy of RobinsonsBrewery
+- Long Hall [photo](https://suitcasemag.com/articles/best-pubs-dublin)
 
 ### Acknowledgements
 
-- >>>
-- >>>
+- My brother Adam for doing some testing, my partner for letting me eternally bounce ideas of myself and my mentor Precious
+for helping me structure and prioritise my project work.

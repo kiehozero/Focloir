@@ -73,7 +73,7 @@
 
         <!-- Mobile side navigation bar -->
 
-        <ul class="sidenav center-align" id="mobile-snav">
+        <ul class="sidenav center-align m-brown old-gold-bg" id="mobile-snav">
             <br>
             <br>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
@@ -127,17 +127,13 @@
 
     </main>
 
-    <footer class="page-footer">
-        <!-- add media query in style.css to remove on mobile and tablet view -->
-        <div class="footer-copyright row">
-            <div class="col s4 offset-s8 foot-social right">
-                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i></a>
-            </div>
+    <footer class="page-footer footer-copyright row">
+        <div class="col s4 offset-s8 foot-social right">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook m-brown"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter m-brown"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram m-brown"></i></a>
+            <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope m-brown"></i></a>
         </div>
-        <!-- whitespace needs removing -->
     </footer>
 
     <script

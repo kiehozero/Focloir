@@ -33,6 +33,9 @@ generic yearRange option in Materialize's [datepicker](https://materializecss.co
 [Dakila Lozano](https://codepen.io/dakila/pen/GxbxGB) demonstrated how to manipulate the maxDate range, and a quick check of 
 [W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution.
 
+9. Had some whitespace showing underneath the footer because of the Materialize row tag that I'd used inside it, so I moved this 
+up to the footer tag and it resolved the issue.
+
 ## Outstanding Issues
 
 1. The Materialize datepicker currently allows for a user to publish a review on a date in the future. While their 
