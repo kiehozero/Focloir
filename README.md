@@ -132,7 +132,7 @@ bout non-loadable content, so this feature has been omitted from the first relea
 
 ## Testing
 
-I have included a [testing log](TESTING.md) within the repository.
+I have included a [testing log](planning/testing/TESTING.md) within the repository.
 
 >>> In terms of look and feel, the site is similar across all browsers. The tablet and desktop views are almost identical, 
 while mobile devices always drop into col-12 formatting. The mobile and tablet views both place buttons underneath a map 
@@ -198,7 +198,9 @@ out of the box. The result of this is that nearly all of my CSS styling was arou
 format of regular expressions in validating user-inputted text;
 - [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
 guide for Pymongo;
-- [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/)
+- [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
+- [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
+issues that my mentor identified. See bugfix #11 in the [testing](planning/testing/TESTING.md) document.
 
 ### Tutorials
 

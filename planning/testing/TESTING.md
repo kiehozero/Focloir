@@ -40,7 +40,8 @@ up to the footer tag and it resolved the issue.
 initially used an id property identify them, jQuery was only changing the first item returned from the database. I amended the items
 inside the Jinja loop to use a class property instead and all returned items changed.
 
-11. My mentor identified some form submission issues, namely validation of what can be submitted and what is a mandatory submission
+11. My mentor identified some form submission issues, namely validation of what can be submitted, the minimum values for the price
+field and what is a mandatory submission
 
 ## Outstanding Issues
 
