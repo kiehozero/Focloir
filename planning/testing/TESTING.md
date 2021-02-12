@@ -36,6 +36,10 @@ generic yearRange option in Materialize's [datepicker](https://materializecss.co
 9. Had some whitespace showing underneath the footer because of the Materialize row tag that I'd used inside it, so I moved this 
 up to the footer tag and it resolved the issue.
 
+10. On mobile view any buttons I used within a pub or review card are supposed to change from text to an icon view, Because I 
+initially used an id property identify them, jQuery was only changing the first item returned from the database. I amended the items
+inside the Jinja loop to use a class property instead and all returned items changed.
+
 ## Outstanding Issues
 
 1. The Materialize datepicker currently allows for a user to publish a review on a date in the future. While their 
