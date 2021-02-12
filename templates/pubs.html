@@ -16,17 +16,19 @@
                 <div class="row valign-wrapper center-align">
 
                     <!-- Search Box -->
-                    <div class="input-field col s6 m8">
+                    <div class="input-field col s10 offset-s1 offset-m4">
                         <input name="search" id="search" minlength="3"
                             class="validate" type="text" required>
                         <label for="search">Search by pub or location</label>
                     </div>
 
                     <!-- Buttons -->
-                    <div class="s6 m4">
-                        <a href="{{ url_for('pubs') }}" class="btn search-button" id="searchButton">Show All</a>
-                        <button type="submit" class="btn search-button">
-                            <i class="fas fa-search"></i>
+                    <div class="col s10">
+                        <a href="{{ url_for('pubs') }}" class="btn search-button" id="searchReset">
+                            Show All
+                        </a>
+                        <button type="submit" class="btn search-button" id="searchButton">
+                            Search
                         </button>
                     </div>
 
@@ -100,13 +102,13 @@
                             <!-- below will need to be a new admin_edit_pub function-->
                             <div class="center-align admin-panel">
                                 <a 
-                                    class="btn review-card-button"
+                                    class="btn review-card-button admin-moderate"
                                     href="#">
                                     Edit
                                 </a>
 
                                 <a 
-                                    class="btn delete-button"
+                                    class="btn delete-button admin-delete"
                                     href="{{ url_for('delete_pub_admin', pub_id=pub._id) }}">
                                     Delete
                                 </a>
