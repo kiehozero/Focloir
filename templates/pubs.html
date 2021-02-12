@@ -44,7 +44,9 @@
             <div class="col s12 m4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
+                        <img
+                            src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                            alt="Pinbaby placeholder image">
                         <span class="card-title">Add a new pub</span>
                         <a 
                             class="btn-floating halfway-fab waves-effect waves-light right"
@@ -70,7 +72,8 @@
                         <div class="card-image">
                         {% if pub.photo %}
                             <img
-                                src="{{ pub.photo }}">
+                                src="{{ pub.photo }}"
+                                alt="{{ pub.pname }} in {{ pub.city }}, {{ pub.country }}">
                         {% else %}
                             <img
                                 src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"

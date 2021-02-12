@@ -9,9 +9,25 @@
 
     {% block content %}
 
-        <h2 class="center-align">{{ pub_id.pname }}</h2>
+    
+    {% if pub_id.photo %}
+        <div class="parallax-container parallax-pub">
+            <div class="parallax">
+                <img
+                    class="materialboxed"
+                    src="{{ pub_id.photo }}"
+                    alt="{{ pub_id.pname }} in {{ pub_id.city }}, {{ pub_id.country }}">
+            </div>
+        </div>
+    {% endif %}
 
-        <h5 class="center-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h5>
+    <div class="row">   
+    <div class="col s12 m8 offset-m2">
+            <h2 class="left-align">{{ pub_id.pname }}</h2>
+
+            <h5 class="left-align">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h5>
+    </div> 
+    </div>
 
         <div class="row center-align">
             <div class="col s12 m8 offset-m2">
@@ -48,7 +64,10 @@
                         <div class="card revcard">
 
                             <div class="card-image">
-                                <img class="activator" src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
+                                <img
+                                    class="activator"
+                                    src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                                    alt="Pintbaby placeholder image">
                                 <span class="card-title">{{ review.author }}</span>
                                 <div class="btn-floating activator halfway-fab waves-effect waves-yellow review-dot">
                                     {{ review.prating }}
@@ -65,7 +84,6 @@
                             <div class="card-reveal">
                                 <div class="row">
                                     <span class="card-title activator">
-                                        <i class="left">{{ review.pint }}</i>
                                         <i class="right fas fa-angle-up d-brown"></i>
                                     </span>
                                 </div>

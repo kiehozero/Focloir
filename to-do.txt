@@ -9,9 +9,9 @@ the update function in pymongo to only update a particular field
 if session.user does not equal user_id being passed in route?
 7. Add pub form: Validation (see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
 (see emailJS form on MS2 as this was validated this way)
-8. Add review: validation on form currently allows submission all of spaces in textarea, no value selected on 
-rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
-pint dropdown
+8. Add review: validation on form currently allows submission all of spaces in textarea, price can be zero, price box doesn't 
+tell user the format that needs to be submitted if they do it incorrectly, remove pint dropdown
 
 Cleaning
 - alt tags for all imgs
+- white space at bottom of pages that don't have enough content (i.e. login.html)

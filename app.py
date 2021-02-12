@@ -27,27 +27,31 @@ def index():
 
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
-    # add if session.user loop, if false, redirect to registration page
     countries = mongo.db.countries.find().sort("name")
-    if request.method == "POST":
-        new_pub = {
-            "pname": request.form.get("pname"),
-            "loc": request.form.get("loc"),
-            "city": request.form.get("city"),
-            "state": request.form.get("state"),
-            "country": request.form.get("country"),
-            "photo": request.form.get("photo")
-        }
+    if session.user == True:
+        if request.method == "POST":
+            new_pub = {
+                "pname": request.form.get("pname"),
+                "loc": request.form.get("loc"),
+                "city": request.form.get("city"),
+                "state": request.form.get("state"),
+                "country": request.form.get("country"),
+                "photo": request.form.get("photo")
+            }
 
-        mongo.db.pubs.insert_one(new_pub)
-        flash("{} successfully added".format(request.form.get("pname")))
-        # need a modal to display above
-        # automatically sends user to review page
-        # needs to redirect to review page pre-filled with that pub
-        return redirect(url_for('add_review'))
+            mongo.db.pubs.insert_one(new_pub)
+            flash("{} successfully added".format(request.form.get("pname")))
+            # need a modal to display above
+            # automatically sends user to review page
+            # needs to redirect to review page pre-filled with that pub
+            return redirect(url_for('add_review'))
 
-    # this is the else statement, so the GET request
-    return render_template("add_pub.html", countries=countries)
+        # this is the else statement, so the GET request
+        return render_template("add_pub.html", countries=countries)
+
+    # below not currently functioning
+    else:
+        return redirect(url_for('register'))
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -204,7 +208,7 @@ def edit_pub(pub_id):
             {"_id": ObjectId(pub_id)}, edited_pub)
         # needs to be able to display flash
         flash("Review amended")
-        return redirect(url_for('pubs'))
+        return redirect(url_for('view_pub', pub_id=pub_id))
 
     # else method (GET)
     pub = mongo.db.pubs.find_one({"_id": ObjectId(pub_id)})

@@ -28,9 +28,11 @@ $(document).ready(function(){
         maxDate: new Date(currYear,currMonth, currDate),
         yearRange: [2016, currYear],
     });
+    /* initialises photo expansion feature in pub page */
+    $('.materialboxed').materialbox();
 });
 
-/* Navigation */
+/* Navigation Bar */
 
 $("#pubButton").mouseenter(function(){
    $(this).html("<i class='fas fa-store-alt'></i>");
