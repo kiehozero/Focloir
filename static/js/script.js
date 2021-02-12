@@ -7,7 +7,7 @@ $ symbol is an undefined variable */
 
 /* Materialize jQuery intialisation */
 
-/* variables below are used to set the maxDate for the datepicker */
+/* Bugfix #8: variables below are used to set the maxDate for the datepicker */
 
 var currYear = (new Date()).getFullYear();
 var currMonth = (new Date()).getMonth();

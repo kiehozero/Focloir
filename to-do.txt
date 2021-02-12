@@ -4,13 +4,11 @@ user review > amend review > delete review > delete user
 3. Contact modal - emailJS edits
 4. Text size on scores for larger screens
 5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
-the update function in pymong   o to only update a particular field
+the update function in pymongo to only update a particular field
 6. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
 if session.user does not equal user_id being passed in route?
-7. Border radius on buttons? Perhaps white out the button and display coloured border to break up blocks? See Novara Media
-8. Index page needs a basic breakdown of functions, probably better imagery and colour separation
-9. Add review: validation on form currently allows submission all of spaces in textarea, no value selected on 
+7. Add pub form: Validation (see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
+(see emailJS form on MS2 as this was validated this way)
+8. Add review: validation on form currently allows submission all of spaces in textarea, no value selected on 
 rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
 pint dropdown
-10. Add pub form: Validation (see point 9 as well needs to be strong enough to eliminate reviews that are just all spaces 
-(see emailJS form on MS2 as this was validated this way)

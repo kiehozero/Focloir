@@ -101,9 +101,10 @@
                             overwritten with the admin's name, same as moderate_review function -->
                             <!-- below will need to be a new admin_edit_pub function-->
                             <div class="center-align admin-panel">
+                                <!-- Bugfix #10: JS icon class/ids -->
                                 <a 
                                     class="btn review-card-button admin-moderate"
-                                    href="#">
+                                    href="{{ url_for('edit_pub', pub_id=pub._id) }}">
                                     Edit
                                 </a>
 

@@ -75,6 +75,7 @@
                                     {{ review.visit }}
                                 </h5>
                                 <div class="center-align">
+                                    <!-- Bugfix #10: JS icon class/ids -->
                                     <a 
                                         class="btn review-card-button user-edit"
                                         href="{{ url_for('edit_review', review_id=review._id) }}">
