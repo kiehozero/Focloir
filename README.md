@@ -72,9 +72,9 @@ As an admin, I want to
 - Share plans with friends - This is the key to any website at the moment. I signed up to ShareThis during my previous 
 project with a view to adding some pre-made share buttons to the site, but was getting quite a lot of console warnings a
 bout non-loadable content, so this feature has been omitted from the first release.
-- 
-- 
-- 
+- User profile photos
+- Ìntegration of Google Image Search API
+- Change password feature
 - 
 
 
@@ -226,6 +226,7 @@ provided a quick solution for adding URLs using HTML's form element.
 was originally taken by the writers of the [My Name is Ola](http://www.mynameisola.com/en) blog.
 - Black Horse [photo](https://www.robinsonsbrewery.com/pubs/black-horse-preston/) courtesy of RobinsonsBrewery
 - Long Hall [photo](https://suitcasemag.com/articles/best-pubs-dublin)
+- The photos I uploaded when creating new pubs were all sourced from [Google Maps](https://maps.google.com/).
 
 ### Acknowledgements
 
