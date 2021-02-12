@@ -1,0 +1,115 @@
+{% extends "main.html" %}
+
+    <!-- Template for adding a pub to the site -->
+
+    {% block title %}
+        Edit {{ pub_id.pname }}
+    {% endblock %}
+
+    {% block content %}
+        
+        {% if session.user %}
+
+            <div class="row center-align">
+                <!-- Bug fix #7: icon centring-->
+                <h4>Edit {{ pub_id.pname }}</h4>
+            </div>
+
+                <!-- form template taken from Materialize website-->
+                 
+                <div class="row container">
+                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_pub', pub_id=pub_id._id) }}">
+
+                        <!-- All of the below categories need additional validation to ensure 
+                        that no blanks can be entered -->
+
+                        <!-- Pub Name (Mandatory) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-sign prefix fonta-icons"></i>
+                                <input id="pname" name="pname" type="text" 
+                                    value="{{ pub_id.pname }}" class="validate" required>
+                                <label for="pname">Pub Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Street Name (Mandatory) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-road prefix fonta-icons"></i>
+                                <input id="loc" name="loc" type="text"
+                                    value="{{ pub_id.loc }}" class="validate" required>
+                                <label for="loc">Street</label>
+                            </div>
+                        </div>
+
+                        <!-- City (Mandatory) -->
+                        <div class="row">
+                            
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-city prefix fonta-icons"></i>
+                                <input id="city" name="city" type="text"
+                                    value="{{ pub_id.city }}" class="validate" required>
+                                <label for="city">Town/City</label>
+                            </div>
+                        </div>
+
+                        <!-- County (Optional) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-map-marker-alt prefix fonta-icons"></i>
+                                <input id="state" name="state" type="text"
+                                    value="{{ pub_id.state }}" class="validate">
+                                <label for="state">County, State or Province</label>
+                            </div>
+                        </div>
+
+                        <!-- Country (Mandatory) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="fas fa-flag prefix fonta-icons"></i>
+                                <select id="country" name="country" required>
+                                    {% for country in countries %}
+                                        {% if country.name == pub_id.country %}
+                                            <option value="{{ country.name }}" selected>{{ country.name }}</option>
+                                        {% else %}
+                                            <option value="{{ country.name }}">{{ country.name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                <label>Country</label>
+                            </div>
+                        </div>
+
+                        <!-- Photo URL (Optional) -->
+                        <div class="row">
+                            <div class="input-field col s10 offset-s1">
+                                <i class="far fa-image prefix fonta-icons"></i>
+                                <input id="photo" name="photo" type="url"
+                                value="{{ pub_id.photo }}" class="validate">
+                                <label for="photo">Photograph URL</label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="card-action center-align">
+                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                    Amend pub
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+        {% else %}
+
+            
+            <div class="center-align">
+                <a class="d-brown" href="{{ url_for('register') }}">New to Pintbaby? Register here!</a>
+            </div>
+
+        {% endif %}
+
+    {% endblock %}

@@ -189,6 +189,30 @@ def edit_profile(username):
         "edit_profile.html", username=username, user=user, user_id=user_id)
 
 
+@app.route("/edit_pub/<pub_id>", methods=["GET", "POST"])
+def edit_pub(pub_id):
+    # admin-only function
+    pub_id = mongo.db.pubs.find_one(
+        {"_id": ObjectId(pub_id)})
+    countries = mongo.db.countries.find().sort("name")
+
+    if request.method == "POST":
+        edited_pub = {
+            "pname": request.form.get("pname"),
+            "loc": request.form.get("loc"),
+            "city": request.form.get("city"),
+            "state": request.form.get("state"),
+            "country": request.form.get("country"),
+            "photo": request.form.get("photo")
+        }
+        mongo.db.pub.update(
+            {"_id": ObjectId(pub_id)}, edited_pub)
+        return redirect(url_for('pubs'))
+        # creating new instance of pub rather than amending against _id
+
+    return render_template("edit_pub.html", pub_id=pub_id, countries=countries)
+
+
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
