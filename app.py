@@ -282,11 +282,11 @@ def login():
             if check_password_hash(
                 is_user["password"], request.form.get(
                     "password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    # need a modal or heading to display
-                    return redirect(url_for(
-                        'my_reviews', username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                # need a modal or heading to display
+                return redirect(url_for(
+                    'my_reviews', username=session["user"]))
 
             else:
                 flash("Username and password combination is incorrect")
@@ -373,7 +373,8 @@ def register():
 @app.route("/search_pubs", methods=["GET", "POST"])
 def search_pubs():
     query = request.form.get("search")
-    pubs = list(mongo.db.pubs.find({"$text": {"$search": query}}).sort("pname"))
+    pubs = list(
+        mongo.db.pubs.find({"$text": {"$search": query}}).sort("pname"))
     return render_template("pubs.html", pubs=pubs)
 
 
