@@ -1,4 +1,4 @@
-<img src="static/images/text-logo.PNG">
+<img src="../static/images/text-logo.PNG">
 
 Welcome to my data-centric development milestone project. For this project I chose to create 
 [pintbaby](https://www.pintbaby.herokuapp.com/), a website that allows users to add and review pubs around the world.
