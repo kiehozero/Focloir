@@ -41,7 +41,7 @@ that used to be found in pubs.
 
 ### User Stories
 
-Testing for each of the below user stories is included within the [testing log](TESTING.md).
+Testing for each of the below user stories is included within the [testing log](planning/testing/TESTING.md).
 
 As a user I want to...
 
@@ -200,7 +200,7 @@ format of regular expressions in validating user-inputted text;
 guide for Pymongo;
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
 - [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
-issues that my mentor identified. See bugfix #11 in the [testing](planning/testing/TESTING.md) document.
+issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md).
 
 ### Tutorials
 
