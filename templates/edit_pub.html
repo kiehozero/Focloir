@@ -3,22 +3,22 @@
     <!-- Template for adding a pub to the site -->
 
     {% block title %}
-        Edit {{ pub_id.pname }}
+        Edit {{ pub.pname }}
     {% endblock %}
 
     {% block content %}
         
-        {% if session.user %}
+        {% if session.user == "pbadmin" %}
 
             <div class="row center-align">
                 <!-- Bug fix #7: icon centring-->
-                <h4>Edit {{ pub_id.pname }}</h4>
+                <h4>Edit {{ pub.pname }}</h4>
             </div>
 
                 <!-- form template taken from Materialize website-->
                  
                 <div class="row container">
-                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_pub', pub_id=pub_id._id) }}">
+                    <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_pub', pub_id=pub._id) }}">
 
                         <!-- All of the below categories need additional validation to ensure 
                         that no blanks can be entered -->
@@ -28,7 +28,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-sign prefix fonta-icons"></i>
                                 <input id="pname" name="pname" type="text" 
-                                    value="{{ pub_id.pname }}" class="validate" required>
+                                    value="{{ pub.pname }}" class="validate" required>
                                 <label for="pname">Pub Name</label>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-road prefix fonta-icons"></i>
                                 <input id="loc" name="loc" type="text"
-                                    value="{{ pub_id.loc }}" class="validate" required>
+                                    value="{{ pub.loc }}" class="validate" required>
                                 <label for="loc">Street</label>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-city prefix fonta-icons"></i>
                                 <input id="city" name="city" type="text"
-                                    value="{{ pub_id.city }}" class="validate" required>
+                                    value="{{ pub.city }}" class="validate" required>
                                 <label for="city">Town/City</label>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-map-marker-alt prefix fonta-icons"></i>
                                 <input id="state" name="state" type="text"
-                                    value="{{ pub_id.state }}" class="validate">
+                                    value="{{ pub.state }}" class="validate">
                                 <label for="state">County, State or Province</label>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                 <i class="fas fa-flag prefix fonta-icons"></i>
                                 <select id="country" name="country" required>
                                     {% for country in countries %}
-                                        {% if country.name == pub_id.country %}
+                                        {% if country.name == pub.country %}
                                             <option value="{{ country.name }}" selected>{{ country.name }}</option>
                                         {% else %}
                                             <option value="{{ country.name }}">{{ country.name }}</option>
@@ -86,7 +86,7 @@
                             <div class="input-field col s10 offset-s1">
                                 <i class="far fa-image prefix fonta-icons"></i>
                                 <input id="photo" name="photo" type="url"
-                                value="{{ pub_id.photo }}" class="validate">
+                                value="{{ pub.photo }}" class="validate">
                                 <label for="photo">Photograph URL</label>
                             </div>
                         </div>
