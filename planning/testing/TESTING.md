@@ -40,6 +40,8 @@ up to the footer tag and it resolved the issue.
 initially used an id property identify them, jQuery was only changing the first item returned from the database. I amended the items
 inside the Jinja loop to use a class property instead and all returned items changed.
 
+11. My mentor identified some form submission issues, namely validation of what can be submitted and what is a mandatory submission
+
 ## Outstanding Issues
 
 1. The Materialize datepicker currently allows for a user to publish a review on a date in the future. While their 

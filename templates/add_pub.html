@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-flag prefix fonta-icons"></i>
-                                <select id="country" name="country">
+                                <select id="country" name="country" required>
                                     <option disabled selected>Choose your option</option>
                                     {% for country in countries %}
                                         <option value="{{ country.name }}">{{ country.name }}</option>
