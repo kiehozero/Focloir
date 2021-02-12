@@ -101,8 +101,10 @@ $("#pintButton").mouseleave(function(){
 /* Need to extend for tablets */
 
 if ($(window).width() < 602) {
-    $("#adminDelete").html("<i class='far fa-trash-alt'></i>");
-    $("#adminModerate").html("<i class='far fa-edit'></i>");
-    $("#userDelete").html("<i class='far fa-trash-alt'></i>");
-    $("#userEdit").html("<i class='far fa-edit'></i>");
+    $(".admin-delete").html("<i class='far fa-trash-alt'></i>");
+    $(".admin-moderate").html("<i class='far fa-edit'></i>");
+    $("#searchButton").html("<i class='fas fa-search'></i>");
+    $("#searchReset").html("<i class='fas fa-power-off'></i>");
+    $(".user-delete").html("<i class='far fa-trash-alt'></i>");
+    $(".user-edit").html("<i class='far fa-edit'></i>");
 }

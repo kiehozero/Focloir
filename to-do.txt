@@ -1,4 +1,5 @@
-1. Faint background instead of white on large screen sizes?
+1. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
+user review > amend review > delete review > delete user
 2. Reviews: Remove photo, change from card reveal to standard card with all content
 3. Contact modal - emailJS edits
 4. Text size on scores for larger screens
@@ -13,5 +14,3 @@ rating, price can be zero, price box doesn't tell user the format that needs to 
 pint dropdown
 10. Add pub form: Validation (see point 9 as well needs to be strong enough to eliminate reviews that are just all spaces 
 (see emailJS form on MS2 as this was validated this way)
-11. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
-user review > amend review > delete review > delete user

@@ -44,7 +44,7 @@
                             </h5>
                             <div class="center-align">
                                 <a 
-                                    class="btn review-card-button"
+                                    class="btn review-card-button user-edit"
                                     href="{{ url_for('add_review') }}">
                                     Add
                                 </a>
@@ -76,14 +76,12 @@
                                 </h5>
                                 <div class="center-align">
                                     <a 
-                                        class="btn review-card-button"
-                                        id="userEdit"
+                                        class="btn review-card-button user-edit"
                                         href="{{ url_for('edit_review', review_id=review._id) }}">
                                         Edit
                                     </a>
                                     <a
-                                        class="btn delete-button"
-                                        id="userDelete"
+                                        class="btn delete-button user-delete"
                                         href="{{ url_for('delete_review', review_id=review._id) }}">
                                         Delete
                                     </a>

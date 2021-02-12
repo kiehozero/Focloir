@@ -111,14 +111,12 @@
                                     <br>
                                     <div class="center-align admin-panel">
                                         <a 
-                                            class="btn review-card-button"
-                                            id="#adminModerate"
+                                            class="btn review-card-button admin-moderate"
                                             href="{{ url_for('moderate_review', review_id=review._id) }}">
                                             Moderate
                                         </a>
                                         <a
-                                            class="btn delete-button"
-                                            id="#adminDelete"
+                                            class="btn delete-button admin-delete"
                                             href="{{ url_for('delete_review_admin', review_id=review._id) }}">
                                             Delete
                                         </a>
