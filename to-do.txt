@@ -1,8 +1,8 @@
 1. Flash messaging to modal
-2. Reviews: Change photo to pub.photo, change from card reveal to standard card with all content
+2. Reviews: Change photo to pub.photo (just pass pub db in route?), change from card reveal to standard card with all content
 3. Contact modal - emailJS edits
 4. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
-if session.user does not equal user_id being passed in route?
+if session.user does not equal user_id being passed in route? Definitely something in one of the tutorials about if session.user
 5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
 the update function in pymongo to only update a particular field
 6. Add pub form: Validation, see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
