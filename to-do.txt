@@ -12,3 +12,6 @@ if session.user does not equal user_id being passed in route?
 8. Add review: validation on form currently allows submission all of spaces in textarea, no value selected on 
 rating, price can be zero, price box doesn't tell user the format that needs to be submitted if they do it incorrectly, remove 
 pint dropdown
+
+Cleaning
+- alt tags for all imgs

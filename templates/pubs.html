@@ -68,7 +68,14 @@
                 <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/pintbaby-bg.png') }}">
+                        {% if pub.photo %}
+                            <img
+                                src="{{ pub.photo }}">
+                        {% else %}
+                            <img
+                                src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                                alt="Pintbaby placeholder image">
+                        {% endif %}
                         <span class="card-title">{{ pub.pname }}</span>
                         <a
                             class="btn-floating halfway-fab waves-effect waves-lightleft"
