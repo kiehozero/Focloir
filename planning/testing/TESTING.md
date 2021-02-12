@@ -1,4 +1,4 @@
-<img src="static/images/testing.PNG">
+<img src="../static/images/testing.PNG">
 
 1. Edit review form - this was not initially posting any data to mongo upon submit, but I worked out, somehow, that the reason 
 was because the select elements were marked as disabled but contained no value (unlike the input elements), so if you didn't 
