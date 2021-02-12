@@ -155,6 +155,7 @@ footer.row {
     box-shadow: none;
 }
 
+.btn-large:focus,
 .btn-large:hover {
     background-color: #cfb53b;
     color: #3b382e;
@@ -165,6 +166,7 @@ footer.row {
     color: #e7e7e7;
 }
 
+.cancel-button:focus,
 .cancel-button:hover {
     background-color: #e7e7e7;
     color: #c34040;
@@ -178,6 +180,7 @@ footer.row {
     font-weight: 600;
 }
 
+.delete-button:focus
 .delete-button:hover {
     background-color: #e7e7e7;
     color: #c34040;
@@ -186,6 +189,7 @@ footer.row {
 .btn-floating {
     /* overwrites default Materialize styling */
     background-color: #885043;
+    color: #e7e7e7;
 }
 
 .btn-floating:hover,
@@ -211,12 +215,6 @@ footer.row {
 
 
 /* Registration form - maybe move each page's unique CSS onto a separate sheet? */
-
-.fonta-icons {
-    color: #3b382e;
-    /* Bugfix #1 icons were not displaying properly when contained inside a div with a select element, 
-    solution was to turn off the text-align: center that was inherited from the Materialize center tag */
-}
 
 .input-field .prefix.active {
     color: #cfb53b;
@@ -316,10 +314,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label,
 span.character-counter {
     /* overwrites default Materialize styling for various form inputs */
     color: #cfb53b;
-}
-
-#price {
-    color: #3b382e;
 }
 
 .select-wrapper .caret {

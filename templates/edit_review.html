@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="input-field col s10 offset-s1">
                             <!-- Not displaying correctly -->
-                            <i class="fas fa-sign prefix fonta-icons"></i>
+                            <i class="fas fa-sign prefix d-brown"></i>
                             <select id="pub" name="pub" required>
                                 {% for pub in pubs %}
                                     {% if pub.pname == review.pub %}
@@ -49,7 +49,7 @@
                         <!-- Datepicker -->
                         <!-- mobile view for this is horrific -->
                         <div class="input-field col s10 m5 offset-s1 offset-m1">
-                            <i class="far fa-calendar-alt prefix fonta-icons"></i>
+                            <i class="far fa-calendar-alt prefix d-brown"></i>
                             <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd"
                                 value="{{ review.visit }}" required>
                             <label for="visit">Visit Date</label>
@@ -57,9 +57,10 @@
 
                         <!-- Drink Price Input-->
                         <div class="input-field col s10 m5 offset-s1">
-                            <i class="fas fa-money-bill-wave prefix fonta-icons"></i>
-                            <input id="price" name="price" type="text" class="validate" minlength="1" maxlength="8"
-                                pattern="\d+(\.\d{2})?" value="{{ review.price }}" required>
+                            <i class="fas fa-money-bill-wave prefix d-brown"></i>
+                            <input id="price" name="price" type="text" class="validate d-brown"
+                                minlength="1" maxlength="8" pattern="\d+(\.\d{2})?"
+                                value="{{ review.price }}" required>
                             <label for="price">Price</label>
                         </div>
                     </div>
@@ -69,7 +70,7 @@
                 
                         <!-- Pub Rating Dropdown -->
                         <div class="input-field col s10 m4 offset-s1 offset-m1">
-                            <i class="far fa-smile prefix fonta-icons"></i>
+                            <i class="far fa-smile prefix d-brown"></i>
                             <select id="prating" name="prating" required>
                                 <option selected>{{ review.prating }}</option>
                                 <option value="1">1</option>
@@ -88,7 +89,7 @@
 
                         <!-- Drink Rating Dropdown -->
                         <div class="input-field col s10 m3 offset-s1">
-                            <i class="fas fa-beer prefix fonta-icons"></i>
+                            <i class="fas fa-beer prefix d-brown"></i>
                             <select id="drating" name="drating" required>
                                 <option selected>{{ review.drating }}</option>
                                 <option value="1">1</option>
@@ -107,7 +108,7 @@
 
                         <!-- Atmosphere Rating Dropdown -->
                         <div class="input-field col s10 m3 offset-s1">
-                            <i class="fas fa-glass-cheers prefix fonta-icons"></i>
+                            <i class="fas fa-glass-cheers prefix d-brown"></i>
                             <select id="arating" name="arating" required>
                                 <option selected>{{ review.arating }}</option>
                                 <option value="1">1</option>
@@ -129,7 +130,7 @@
                     <!-- Review Textarea with Character Counter from Materialize -->
                     <div class="row">
                         <div class="input-field col s10 offset-s1">
-                            <i class="fas fa-pen-nib prefix fonta-icons"></i>
+                            <i class="fas fa-pen-nib prefix d-brown"></i>
                             <textarea id="review" name="review" class="materialize-textarea" minlength="15" maxlength="400"
                                 data-length="400">{{ review.review }}</textarea>
                             <label for="review">Current Review</label>

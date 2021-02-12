@@ -26,7 +26,7 @@
                         <!-- Pub Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <i class="fas fa-sign prefix fonta-icons"></i>
+                                <i class="fas fa-sign prefix d-brown"></i>
                                 <input id="pname" name="pname" type="text" 
                                     value="{{ pub.pname }}" class="validate" required>
                                 <label for="pname">Pub Name</label>
@@ -36,7 +36,7 @@
                         <!-- Street Name (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <i class="fas fa-road prefix fonta-icons"></i>
+                                <i class="fas fa-road prefix d-brown"></i>
                                 <input id="loc" name="loc" type="text"
                                     value="{{ pub.loc }}" class="validate" required>
                                 <label for="loc">Street</label>
@@ -47,7 +47,7 @@
                         <div class="row">
                             
                             <div class="input-field col s10 offset-s1">
-                                <i class="fas fa-city prefix fonta-icons"></i>
+                                <i class="fas fa-city prefix d-brown"></i>
                                 <input id="city" name="city" type="text"
                                     value="{{ pub.city }}" class="validate" required>
                                 <label for="city">Town/City</label>
@@ -57,7 +57,7 @@
                         <!-- County (Optional) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <i class="fas fa-map-marker-alt prefix fonta-icons"></i>
+                                <i class="fas fa-map-marker-alt prefix d-brown"></i>
                                 <input id="state" name="state" type="text"
                                     value="{{ pub.state }}" class="validate">
                                 <label for="state">County, State or Province</label>
@@ -67,7 +67,7 @@
                         <!-- Country (Mandatory) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <i class="fas fa-flag prefix fonta-icons"></i>
+                                <i class="fas fa-flag prefix d-brown"></i>
                                 <select id="country" name="country" required>
                                     {% for country in countries %}
                                         {% if country.name == pub.country %}
@@ -84,7 +84,7 @@
                         <!-- Photo URL (Optional) -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <i class="far fa-image prefix fonta-icons"></i>
+                                <i class="far fa-image prefix d-brown"></i>
                                 <input id="photo" name="photo" type="url"
                                 value="{{ pub.photo }}" class="validate">
                                 <label for="photo">Photograph URL</label>
