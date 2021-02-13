@@ -5,7 +5,7 @@ if session.user does not equal user_id being passed in route? Working for logged
 the update function in pymongo to only update a particular field
 5. Add pub form: Validation, see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
 (see emailJS CI tutorial?)
-6. Add review: validation on form currently allows submission all of spaces in textarea, rice box doesn't 
+6. Add review: validation on form currently allows submission all of spaces in textarea, price box doesn't 
 tell user the format that needs to be submitted if they do it incorrectly
 
 Cleaning
