@@ -70,8 +70,8 @@ As an admin, I want to
 ### Features to Implement
 
 - Share plans with friends - This is the key to any website at the moment. I signed up to ShareThis during my previous 
-project with a view to adding some pre-made share buttons to the site, but was getting quite a lot of console warnings a
-bout non-loadable content, so this feature has been omitted from the first release.
+project with a view to adding some pre-made share buttons to the site, but was getting quite a lot of console warnings 
+about non-loadable content, so this feature has been omitted.
 - User profile photos
 - Ìntegration of Google Image Search API
 - Change password feature
@@ -129,15 +129,17 @@ bout non-loadable content, so this feature has been omitted from the first relea
     - A non-relational database in which all data submitted by users is stored, and also where the skeleton of the project's
     data structure was first mapped out.
 
+- [Flask](#)
+    - 
+
 
 ## Testing
 
 I have included a [testing log](planning/testing/TESTING.md) within the repository.
 
 >>> In terms of look and feel, the site is similar across all browsers. The tablet and desktop views are almost identical, 
-while mobile devices always drop into col-12 formatting. The mobile and tablet views both place buttons underneath a map 
-that stretches to  fill the screen width. For mobile devices, I have included Materialize's default sidenav bar, which was 
-much easier to set up than Bootstrap's mobile menu options.
+while mobile devices always drop into col-12 formatting. For mobile devices, I have included Materialize's default sidenav 
+bar, which was much easier to set up than Bootstrap's mobile menu options.
 
 I tested this project primarily on Firefox but also Chrome and Edge, taking advantage of the screen size options to test 
 using iPad, Samsung Galaxy and Kindle Fire. I also tested the site on my own Huawei device, as well as passing the initial 
@@ -147,7 +149,7 @@ site on to some friends for UI feedback and some rudimentary data entry testing.
 ## Deployment
 
 I used [GitHub](https://www.github.com/) as the code host for this project, and [GitPod](https://www.gitpod.io/) to write 
-it, using just a single branch. <<<stuff about [Heroku](https://www.heroku.com/) and >>>. The actual data is stored within 
+it, using just a single branch. stuff about [Heroku](https://www.heroku.com/). The actual data is stored within 
 a [MongoDB](https://www.mongodb.com/) cluster >>>.
 
 I deployed this project to Heroku using the following method:
@@ -200,7 +202,9 @@ format of regular expressions in validating user-inputted text;
 guide for Pymongo;
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
 - [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
-issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md).
+issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md);
+- [Pythonise](https://pythonise.com/series/learning-flask/flask-message-flashing) has a great tutorial series on using
+Flask, particularly the link on how to best utilise flash messaging.
 
 ### Tutorials
 

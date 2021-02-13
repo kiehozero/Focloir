@@ -1,17 +1,17 @@
-1. Flash messaging to modal
-2. Reviews: Change photo to pub.photo (just pass pub db in route?), change from card reveal to standard card with all content
-3. Contact modal - emailJS edits
-4. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
+1. Reviews: Change photo to pub.photo (just pass pub db in route?) on my profile section, leave pub profile as is, change from 
+card reveal to standard card with all content
+2. Contact modal - emailJS edits
+3. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
 if session.user does not equal user_id being passed in route? Definitely something in one of the tutorials about if session.user
-5. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
+4. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
 the update function in pymongo to only update a particular field
-6. Add pub form: Validation, see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
+5. Add pub form: Validation, see point below as well needs to be strong enough to eliminate reviews that are just all spaces 
 (see emailJS CI tutorial?)
-7. Add review: validation on form currently allows submission all of spaces in textarea, price can be zero, price box doesn't 
+6. Add review: validation on form currently allows submission all of spaces in textarea, price can be zero, price box doesn't 
 tell user the format that needs to be submitted if they do it incorrectly, remove pint dropdown
-8. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
+7. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
 user review > amend review > delete review > delete user
-9. Moderate user page from Users page, functionality
+8. Moderate user page from Users page, functionality
 
 Cleaning
 - alt tags for all imgs
@@ -19,3 +19,4 @@ Cleaning
 
 Questions
 - does the parallax view on the view pub page work on desktops?
+- cloning in Heroku and Mongo, is this even possible?

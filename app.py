@@ -28,7 +28,7 @@ def index():
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
     countries = mongo.db.countries.find().sort("name")
-    if session.user == True:
+    if session.user:
         if request.method == "POST":
             new_pub = {
                 "pname": request.form.get("pname"),
@@ -46,7 +46,7 @@ def add_pub():
             # needs to redirect to review page pre-filled with that pub
             return redirect(url_for('add_review'))
 
-        # this is the else statement, so the GET request
+        # GET method
         return render_template("add_pub.html", countries=countries)
 
     # below not currently functioning
@@ -56,8 +56,6 @@ def add_pub():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    # need a second version of this function that is re-directed
-    # from a pub page that autofills the pub name on the form
     pubs = mongo.db.pubs.find().sort("pname")
     pints = mongo.db.pints.find().sort("dname")
     if request.method == "POST":
@@ -74,12 +72,10 @@ def add_review():
         }
 
         mongo.db.reviews.insert_one(new_review)
-        flash("Review added, add another?")
-        # needs modal to display flash above, plus
-        # buttons saying "Add another review" and
-        # a second option that takes you to the
-        # my_reviews area
+        flash("Review added")
+        # redirect to specific pub page
 
+    # GET method
     return render_template("add_review.html", pubs=pubs, pints=pints)
 
 
@@ -102,8 +98,9 @@ def add_review_of(pub_id):
         mongo.db.reviews.insert_one(new_review)
         flash("Review added")
         return redirect(url_for('pubs'))
-        # needs a redirect back to pub page
+        # needs a redirect back to specific pub page
 
+    # GET method
     return render_template(
         "add_review_of.html", pub_id=pub_id)
 
@@ -181,8 +178,7 @@ def edit_profile(username):
         return redirect(url_for(
             'my_reviews', username=session["user"]))
 
-    # probably a better way of doing both, rather
-    # than duplicating requests
+    # GET method
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one(
@@ -210,7 +206,7 @@ def edit_pub(pub_id):
         flash("Review amended")
         return redirect(url_for('view_pub', pub_id=pub_id))
 
-    # else method (GET)
+    # GET method
     pub = mongo.db.pubs.find_one({"_id": ObjectId(pub_id)})
     countries = mongo.db.countries.find().sort("name")
     return render_template(
@@ -238,12 +234,46 @@ def edit_review(review_id):
         return redirect(url_for(
             'my_reviews', username=session["user"]))
 
-    # else method (GET)
+    # GET method
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     pints = mongo.db.pints.find().sort("dname")
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
         "edit_review.html", review=review, pints=pints, pubs=pubs)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        #username validation
+        is_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        if is_user:
+            # password match
+            if check_password_hash(
+                is_user["password"], request.form.get(
+                    "password")):
+                session["user"] = request.form.get("username").lower()
+                return redirect(url_for(
+                    'my_reviews', username=session["user"]))
+
+            else:
+                flash("Username and password combination is incorrect")
+                return redirect(url_for('login'))
+
+        else:
+            flash("Username and password combination is incorrect")
+            return redirect(url_for('login'))
+
+    # GET method
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for('login'))
 
 
 @app.route("/moderate_review/<review_id>", methods=["GET", "POST"])
@@ -268,50 +298,12 @@ def moderate_review(review_id):
         flash("Review amended")
         return redirect(url_for('pubs'))
 
-    # else method (GET)
+    # GET method
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     pints = mongo.db.pints.find().sort("dname")
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
         "moderate_review.html", review=review, pints=pints, pubs=pubs)
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        is_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-
-        if is_user:
-            if check_password_hash(
-                is_user["password"], request.form.get(
-                    "password")):
-                session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
-                # need a modal or heading to display
-                return redirect(url_for(
-                    'my_reviews', username=session["user"]))
-
-            else:
-                flash("Username and password combination is incorrect")
-                # need a modal to display
-                return redirect(url_for('login'))
-
-        else:
-            flash("Username and password combination is incorrect")
-            # need a modal to display
-            return redirect(url_for('login'))
-
-    # this is the else statement for the request method, so the GET request
-    return render_template("login.html")
-
-
-@app.route("/logout")
-def logout():
-    flash("You have been logged out")
-    session.pop("user")
-    # needs a modal to display this on the page
-    return redirect(url_for('login'))
 
 
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
@@ -346,13 +338,11 @@ def pubs():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # username validate
+        # username validation
         is_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if is_user:
             flash("Username taken!")
-            # add a div to display this flash
             return redirect(url_for('register'))
 
         reg_user = {
@@ -370,7 +360,7 @@ def register():
         # successful log-in re-directs to their new blank profile page
         return redirect(url_for('my_reviews', username=session["user"]))
 
-    # change re-direct destination
+    # GET method
     return render_template("register.html")
 
 
@@ -394,7 +384,7 @@ def view_pub(pub_id):
     pub_id = mongo.db.pubs.find_one(
         {"_id": ObjectId(pub_id)}
     )
-    # minus one sorts reviews by most recent first
+    # sorts reviews by most recent first
     reviews = mongo.db.reviews.find().sort("visit", -1)
     return render_template(
         "view_pub.html", pub_id=pub_id, reviews=reviews)

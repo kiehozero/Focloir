@@ -119,6 +119,19 @@
 
     <main>
 
+        <section>
+            <!-- Flash message container -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <h5 class="center-align cream-bg">
+                            {{ message }}
+                        </h5>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </section>
+
         {% block content %}
         {% endblock %}
 
