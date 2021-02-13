@@ -63,19 +63,48 @@ As an admin, I want to
 
 ### Existing Features
 
-- Rate a pub's price point and the quality of the pint served
-- Search by name, city, country
-- 
+- All users can access all pubs and reviews upon arrival at the site without registering by visiting the Pubs page. Users 
+without an account cannot edit or add any reviews.
+- Upon registering, account holders can, in addition to the above, add a pub by visiting the Pub page, as well as adding a review
+either by visiting the Add a Review page or visiting the page of a pub they wish to review. If they visit the former page and 
+cannot find their pub, a link at the top of the page directs them to the Add a Pub page.
+- When adding a review, all fields are mandatory. All ratings and dates are restricted by Materialize drop-downs and pickers, 
+while the price field is restricted to numbers, whether whole or decimal. The review field itself is restricted to 400 characters,
+but must be greater than 400 characters.
+- When adding a pub, all fields except County and URL are mandatory. If no URL is submitted, a placeholder image is used. The country
+field is controlled by a drop-down list, and the URL field must meet the criteria of the HTML input form URL type.
+- The pubs page by default shows all pubs in the database. A search bar allows users to filter by pub name, city or country, and then
+to switch the filter off to display all entries again.
+- Admin features: admins can edit and delete any review or pub within a pub's page. Admins cannot access or edit a user's forename, 
+surname or password using the admin panel, but they can view a list of each user's complete review history from the Users page, as well
+as deleting the user's account here.
 
 ### Features to Implement
 
 - Share plans with friends - This is the key to any website at the moment. I signed up to ShareThis during my previous 
 project with a view to adding some pre-made share buttons to the site, but was getting quite a lot of console warnings 
 about non-loadable content, so this feature has been omitted.
-- User profile photos
-- Ìntegration of Google Image Search API
-- Change password feature
-- 
+- User profile photos - The registration page asks for very little information from the user. I wanted to expand this in the 
+Edit Profile section to allow users to upload a photo. Since I had used the URL option already on the Add Pub section, it 
+seemed like asking the user to leave the website a second time might tempt some users to leave altogether. Once I get to grip
+with allowing users to upload documents and files from devices, and the storage of these within a datbase, this feature will 
+be implemented.
+- Review aggregation - most pubs only have one or two reviews, but it would be great for users to see those scores aggregated
+if they want a quick idea of what a pub is like, rather than just seeing everybody's scores. I looked into how to do this but
+it was beyond my current Python skills!
+- As the database expands I would like to include more filters on the pubs page and allow users to custom sort reviews by what
+they find most important, whether it is price, atmosphere or overall rating.
+- Ìntegration of Google Image Search API - My initial project plan had this in as an optional extra. After recalling the
+amount of time I spent on my second milestone project wrestling with the Maps API, it seemed unwise to sacrifice potential
+testing and validation time to include this feature.
+- Integration of Google Maps API - As above, it seemed unwise to sacrifice time ensuring that my Python and Flask work was 
+up to standard for the sake of adding a small location map to each pub's entry.
+- Change password feature - In the Edit Profile section I have used the $set command to allow users to edit their information
+but not their password. I did quite a bit of background reading on Werkzeug and could not manage to securely retrieve, edit 
+and upload a new hashed password so I've left this out of version one.
+- Drink selection - The initial draft of this project had a drop-down field for each user to select the drink they
+purchased during the visit. I couldn't find an easy way allowing users to add a new drink into the database, and sticking
+with just the few that I had added in meant potentially constraining user reviews so I took the feature out for now. 
 
 
 ## Technologies Used
