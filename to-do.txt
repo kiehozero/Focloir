@@ -14,8 +14,8 @@ user review > amend review > delete review > delete user
 8. Moderate user page from Users page, functionality
 
 Cleaning
-- alt tags for all imgs
 - white space at bottom of pages that don't have enough content (i.e. login.html)
+- aria-labels on buttons with icons?
 
 Questions
 - does the parallax view on the view pub page work on desktops?

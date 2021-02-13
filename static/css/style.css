@@ -8,17 +8,6 @@ body {
     font-family: 'Fraunces', serif;
 }
 
-.background-image {
-    background: url("../images/against-grain.png") no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height: 100%;
-    padding-bottom: 0px;
-    padding-top: 56px;
-}
-
 /* Fonts */
 
 .spectral {
@@ -141,6 +130,28 @@ footer.row {
 
 .mob-social {
     letter-spacing: 20px;
+}
+
+
+/* Flash Bar */
+
+.message-div {
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#closeButton {
+    border-color: #e7e7e7;
+    border-radius: 5px;
+}
+
+#closeButton:focus,
+#closeButton:hover {
+    color: #cbbf85;
+    background-color: #3b382e;
+    border-color: #cfb53b;
 }
 
 

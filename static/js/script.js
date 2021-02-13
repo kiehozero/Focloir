@@ -99,6 +99,13 @@ $("#pintButton").mouseleave(function(){
 });
 
 
+/* Flash bar */
+
+$("#closeButton").click(function(){
+    $("#message-row").css("display", "none");
+})
+
+
 /* Tablet Only */
 
 if ($(window).width() < 1280) {

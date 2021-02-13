@@ -124,9 +124,16 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
-                        <h5 class="center-align cream-bg">
-                            {{ message }}
-                        </h5>
+                        <div class="row" id="message-row">
+                            <div class="col s12 m8 offset-m2">
+                                <div class="center-align message-div old-gold-bg d-brown">
+                                    {{ message }}
+                                    <button 
+                                        id="closeButton" class="old-gold-bg d-brown"
+                                        aria-label="Close" type="button">x</button>
+                                </div>
+                            </div>
+                        </div>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
