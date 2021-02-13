@@ -67,7 +67,7 @@ def add_review():
         }
 
         mongo.db.reviews.insert_one(new_review)
-        flash("Review of {} added").request.form.get("pub")
+        flash("Review of {} added".format(request.form.get("pub")))
         # redirect to specific pub page
         return redirect(url_for('pubs'))
 
