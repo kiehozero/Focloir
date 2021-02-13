@@ -107,10 +107,8 @@ def contact_us():
 
 
 @app.route("/delete_pub_admin/<pub_id>")
+# admin-only
 def delete_pub_admin(pub_id):
-    # admin only
-    # needs a confirm message here, if yes then
-    # below, if no redirect to my_reviews
     mongo.db.pubs.remove(
         {"_id": ObjectId(pub_id)}
     )
@@ -145,11 +143,10 @@ def delete_review_admin(review_id):
 
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
-    flash("Are you sure you want to remove {{ user.username }}'s account?")
+    # admin-only function to delete accounts
     mongo.db.users.remove(
         {"_id": ObjectId(user_id)}
     )
-    # need to display flash messages
     flash("User Deleted")
     return redirect(url_for('users'))
 
@@ -271,9 +268,9 @@ def logout():
 
 
 @app.route("/moderate_review/<review_id>", methods=["GET", "POST"])
+# admin-only function to moderate content, e.g. offensive or legally
+# questionable statements
 def moderate_review(review_id):
-    # admin only function to moderate content, e.g. offensive or legally
-    # questionable statements
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
@@ -298,24 +295,30 @@ def moderate_review(review_id):
         "moderate_review.html", review=review, pubs=pubs)
 
 
+@app.route("/moderate_user/<user_id>")
+# admin-only function to search for reviews by user and moderate them
+def moderate_user(user_id):
+    mod_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})["username"]
+    reviews = mongo.db.reviews.find(
+        {"author": mod_user}
+        )
+    return render_template("moderate_user.html", user_id=user_id)
+
+
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
 def my_reviews(username):
-    # only returns username from MongoDB users collection
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    # returns reviews by active user, ordered by most recent visit first
-    reviews = mongo.db.reviews.find(
-        {"author": session["user"]}).sort("visit", -1)
-
     # if statement ensures that you can't add any username to the
     # profile url string to access their profile page
     if session["user"]:
+        # only returns username from MongoDB users collection
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        # returns reviews by active user, ordered by most recent visit first
+        reviews = mongo.db.reviews.find(
+            {"author": session["user"]}).sort("visit", -1)
         return render_template(
             "my_reviews.html", username=username, reviews=reviews)
-    # need an else statement here to catch any requests where
-    # someone who isn't logged in can't type a profile address
-    # access it. At the moment this just loads of a Jinja error
-
+    # At the moment this just loads of a Jinja error
     return redirect(url_for('login'))
 
 
@@ -365,7 +368,7 @@ def search_pubs():
 
 
 @app.route("/users")
-# admin only
+# admin-only
 def users():
     users = list(mongo.db.users.find().sort("username"))
     return render_template("users.html", users=users)

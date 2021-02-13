@@ -30,7 +30,9 @@
                         <td>{{ user.email }}</td>
                         <td>
                             <!-- Displays all reviews on opening -->
-                            <a class="btn review-card-button">
+                            <a
+                                href="{{ url_for('moderate_user', user_id=user._id) }}"
+                                class="btn review-card-button">
                                 <i class="fas fa-book-open"></i>
                             </a>
                         </td>

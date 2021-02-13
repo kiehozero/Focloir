@@ -45,9 +45,9 @@ field and what is a mandatory submission
 
 ## Outstanding Issues
 
-1. The Materialize datepicker currently allows for a user to publish a review on a date in the future. While their 
-[documentation](https://materializecss.com/pickers.html) allows for the setting of a maximum date, I couldn't find a way to 
-successfully retrieve the current date and set that as the maximum.
+1. 
+2. 
+3. 
 
 ## User Stories
 
