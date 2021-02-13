@@ -1,4 +1,4 @@
-2. Contact modal - emailJS edits
+2. Contact form - emailJS edits
 3. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
 if session.user does not equal user_id being passed in route? Working for logged in users, not for logged out
 4. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
@@ -16,3 +16,4 @@ Questions
 - got the session user working if one logged in user tries to access another profile, but it still returns a Jinja error if a logged
 out user attempts the same thing
 - need confirmation messages on delete review/user/pub buttons
+- is contact form necessary?
