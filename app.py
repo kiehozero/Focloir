@@ -373,7 +373,7 @@ def my_reviews(username):
             {"author": session["user"]}).sort("visit", -1)
         return render_template(
             "my_reviews.html", username=username, reviews=reviews)
-    # At the moment this just loads of a Jinja error
+    # At the moment this just loads a Jinja error
     return redirect(url_for('login'))
 
 
@@ -396,7 +396,6 @@ def register():
             return redirect(url_for('register'))
 
         reg_user = {
-            # do these all need to be converted to lower case?
             "username": request.form.get("username").lower(),
             "first_name": request.form.get("first_name").lower(),
             "last_name": request.form.get("last_name").lower(),
@@ -423,7 +422,7 @@ def search_pubs():
 
 
 @app.route("/users")
-# admin-only
+# admin-only function to display all users
 def users():
     users = list(mongo.db.users.find().sort("username"))
     return render_template("users.html", users=users)
