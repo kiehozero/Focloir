@@ -46,7 +46,7 @@
                                     </a>
                                     <a
                                         class="btn delete-button user-delete"
-                                        href="{{ url_for('delete_review', review_id=review._id) }}">
+                                        href="{{ url_for('delete_review_admin_user', review_id=review._id) }}">
                                         Delete
                                     </a>
                                 </div>
@@ -107,7 +107,7 @@
                                     <!-- Style delete buttons in the pallette red colour -->
                                     <a
                                         class="btn review-card-button"
-                                        href="{{ url_for('delete_review', review_id=review._id) }}">
+                                        href="{{ url_for('delete_review_admin_user', review_id=review._id) }}">
                                         Delete
                                     </a>
                                 </div>

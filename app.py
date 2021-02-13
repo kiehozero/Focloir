@@ -47,12 +47,10 @@ def add_pub():
     # GET method
     return render_template("add_pub.html", countries=countries)
 
-    # needs a re-direct for people who aren't logged in, how about only 
-    # showing the add pub card if the user is logged in?
-
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    # this function only routes to the pub page, unlike add_review_of
     pubs = mongo.db.pubs.find().sort("pname")
     if request.method == "POST":
         new_review = {
@@ -65,11 +63,13 @@ def add_review():
             "review": request.form.get("review"),
             "author": session["user"]
         }
+        # uses form entry to get pub _id, then passes to redirect
+        pub_ref = mongo.db.pubs.find_one(
+            {"pname": format(request.form.get("pub"))})["_id"]
 
         mongo.db.reviews.insert_one(new_review)
         flash("Review of {} added".format(request.form.get("pub")))
-        # redirect to specific pub page
-        return redirect(url_for('pubs'))
+        return redirect(url_for('view_pub', pub_id=pub_ref))
 
     # GET method
     return render_template("add_review.html", pubs=pubs)
@@ -77,6 +77,7 @@ def add_review():
 
 @app.route("/add_review_of/<pub_id>", methods=["GET", "POST"])
 def add_review_of(pub_id):
+    # this function routes to and from a pub's page
     pub_id = mongo.db.pubs.find_one(
         {"_id": ObjectId(pub_id)})
     if request.method == "POST":
@@ -90,11 +91,13 @@ def add_review_of(pub_id):
             "review": request.form.get("review"),
             "author": session["user"]
         }
+        # uses form entry to get pub _id, then passes to redirect
+        pub_ref = mongo.db.pubs.find_one(
+            {"pname": format(request.form.get("pub"))})["_id"]
 
         mongo.db.reviews.insert_one(new_review)
-        flash("Review added")
-        return redirect(url_for('pubs'))
-        # needs a redirect back to specific pub page
+        flash("Review Added")
+        return redirect(url_for('view_pub', pub_id=pub_ref))
 
     # GET method
     return render_template(
@@ -112,7 +115,7 @@ def delete_pub_admin(pub_id):
     mongo.db.pubs.remove(
         {"_id": ObjectId(pub_id)}
     )
-    flash("Pub deleted")
+    flash("Pub Deleted")
     return redirect(url_for('pubs'))
 
 
@@ -123,22 +126,42 @@ def delete_review(review_id):
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
-    flash("Review deleted")
+    flash("Review Deleted")
     return redirect(url_for(
         'my_reviews', username=session["user"]))
 
 
 @app.route("/delete_review_admin/<review_id>")
+# admin-only function, deletes reviews
+# routing to and from pub page
 def delete_review_admin(review_id):
-    # needs a confirm message here, if yes then
-    # below, if no redirect to my_reviews
-    # same functionality as above, just re-directs to
-    # the pub index rather than the user profile
+    # uses review _id to find pub name, then passes pub _id to redirect
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})
+    pub_id = mongo.db.pubs.find_one(
+        {"pname": format(review["pub"])})["_id"]
+    # needs a confirm message here
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
-    flash("Review deleted")
-    return redirect(url_for('pubs'))
+    flash("Review Deleted")
+    return redirect(url_for('view_pub', pub_id=pub_id))
+
+
+@app.route("/delete_review_admin_user/<review_id>")
+# admin-only function, deletes reviews
+# routing to and from the admin user panel
+def delete_review_admin_user(review_id):
+    # uses review _id to find user name, then passes user _id to redirect
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})
+    user_id = mongo.db.users.find_one({"username": review["author"]})["_id"]
+    # needs a confirm message here
+    mongo.db.reviews.remove(
+        {"_id": ObjectId(review_id)}
+    )
+    flash("Review Deleted")
+    return redirect(url_for('moderate_user', user_id=user_id))
 
 
 @app.route("/delete_user/<user_id>")
@@ -167,7 +190,7 @@ def edit_profile(username):
         mongo.db.users.update(
             {"_id": user_id}, edited_profile)
 
-        flash("Profile updated")
+        flash("Profile Updated")
         return redirect(url_for(
             'my_reviews', username=session["user"]))
 
@@ -195,7 +218,7 @@ def edit_pub(pub_id):
         }
         mongo.db.pubs.update(
             {"_id": ObjectId(pub_id)}, edited_pub)
-        flash("Pub amended")
+        flash("Pub Amended")
         return redirect(url_for('view_pub', pub_id=pub_id))
 
     # GET method
@@ -220,8 +243,7 @@ def edit_review(review_id):
         }
         mongo.db.reviews.update(
             {"_id": ObjectId(review_id)}, edited_review)
-        # needs to be able to display flash
-        flash("Review amended")
+        flash("Review Amended")
         return redirect(url_for(
             'my_reviews', username=session["user"]))
 
@@ -268,7 +290,7 @@ def logout():
 
 @app.route("/moderate_review/<review_id>", methods=["GET", "POST"])
 # admin-only function to moderate content, e.g. offensive or legally
-# questionable statements
+# questionable statements. This route begins and ends at the pub's page
 def moderate_review(review_id):
     if request.method == "POST":
         edited_review = {
@@ -281,11 +303,12 @@ def moderate_review(review_id):
             "review": request.form.get("review"),
             "author": request.form.get("author")
         }
+        pub_id = mongo.db.pubs.find_one(
+            {"pname": format(request.form.get("pub"))})["_id"]
         mongo.db.reviews.update(
             {"_id": ObjectId(review_id)}, edited_review)
-        # needs to be able to display flash
-        flash("Review amended")
-        return redirect(url_for('pubs'))
+        flash("Review Amended")
+        return redirect(url_for('view_pub', pub_id=pub_id))
 
     # GET method
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
