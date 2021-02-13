@@ -195,8 +195,7 @@ def edit_pub(pub_id):
         }
         mongo.db.pubs.update(
             {"_id": ObjectId(pub_id)}, edited_pub)
-        # needs to be able to display flash
-        flash("Review amended")
+        flash("Pub amended")
         return redirect(url_for('view_pub', pub_id=pub_id))
 
     # GET method
@@ -293,6 +292,37 @@ def moderate_review(review_id):
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
         "moderate_review.html", review=review, pubs=pubs)
+
+
+@app.route("/moderate_review_user/<review_id>", methods=["GET", "POST"])
+# Same as moderate_review above but routes from user's profile and back to
+# user's profile on POST
+def moderate_review_user(review_id):
+    if request.method == "POST":
+        edited_review = {
+            "pub": request.form.get("pub"),
+            "visit": request.form.get("visit"),
+            "prating": request.form.get("prating"),
+            "drating": request.form.get("drating"),
+            "arating": request.form.get("arating"),
+            "price": request.form.get("price"),
+            "review": request.form.get("review"),
+            "author": request.form.get("author")
+        }
+        user_id = mongo.db.users.find_one(
+            {"username": format(request.form.get("author"))})["_id"]
+        mongo.db.reviews.update(
+            {"_id": ObjectId(review_id)}, edited_review)
+        # needs to be able to display flash
+        flash("Review amended")
+        # needs to re-direct to user page, match to author above?
+        return redirect(url_for('moderate_user', user_id=user_id))
+
+    # GET method
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    pubs = mongo.db.pubs.find().sort("pname")
+    return render_template(
+        "moderate_review_user.html", review=review, pubs=pubs)
 
 
 @app.route("/moderate_user/<user_id>")

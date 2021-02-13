@@ -9,9 +9,6 @@ the update function in pymongo to only update a particular field
 (see emailJS CI tutorial?)
 6. Add review: validation on form currently allows submission all of spaces in textarea, rice box doesn't 
 tell user the format that needs to be submitted if they do it incorrectly
-7. Video recordings of tests? One for register > login > add review > edit review > delete review, then an admin one for locate
-user review > amend review > delete review > delete user
-8. Moderate user page from Users page, functionality
 
 Cleaning
 - aria-labels on buttons with icons?
