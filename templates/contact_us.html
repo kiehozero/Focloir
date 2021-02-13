@@ -1,12 +1,87 @@
 {% extends "main.html" %}
 
+    <!-- Template for users to log in to the site -->
+
+    {% block title %}
+        Contact Us
+    {% endblock %}
+
+    {% block scripts %}
+        <!-- Contact form initialisation -->
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+        </script>
+        <script>
+            (function() {
+                emailjs.init("user_W4dj8lHY3F2fCc19kl6tw");
+            })();
+        </script>
+    {% endblock %}
+
     {% block content %}
             
-        <div>
-            <form>
-                Needs to be a modal a la the awayday project (see index.html file in that repo)
-            </form>
+        <div class="row center-align">
+            <h3 class="d-brown">Got feedback for Pintbaby?</h3>
+        </div>
 
+        <div class="center-align">
+            <img 
+                class="login-photo"
+                src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                alt="pintbaby placeholder">
+        </div>
+
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <form onsubmit="return sendMail(this);">
+
+                    <!-- Name -->
+                    <div class="row">
+                        <div class="input-field col s10 offset-s1">
+                            <i class="fas fa-id-badge prefix d-brown"></i>
+                            <input
+                                type="text" name="name" id="full_name" class="validate"
+                                minlength="5" maxlength="20" placeholder="Name" required>
+                            <label for="name">Name</label>
+                        </div>
+                    </div>
+
+                    <!-- E-mail Address -->
+                    <div class="row">
+                        <div class="input-field col s10 offset-s1">
+                            <i class="fas fa-at prefix d-brown"></i>
+                            <input
+                                type="email" name="email" id="email_address"
+                                placeholder="E-mail Address" class="validate" required>
+                            <label for="email">E-mail Address</label>
+                        </div>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div class="row">
+                        <div class="input-field col s10 offset-s1">
+                            <i class="fas fa-pen-nib prefix d-brown"></i>
+                            <textarea
+                                rows="5" name="feedback" id="feedback" class="materialize-textarea"
+                                minlength="5" placeholder="Feedback" required>
+                            </textarea>
+                            <label for="feedback">Write your feedback here</label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row">
+                        <div class="card-action center-align">
+                            <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
+                                Send
+                                <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
 
     {% endblock %}

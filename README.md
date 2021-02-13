@@ -156,8 +156,8 @@ with just the few that I had added in meant potentially constraining user review
     - A non-relational database in which all data submitted by users is stored, and also where the skeleton of the project's
     data structure was first mapped out.
 
-- [Flask](#)
-    - 
+- [Flask](https://flask.palletsprojects.com/)
+    - Flask is a Python framework that can be set up very quickly and is very flexible.
 
 
 ## Testing
@@ -248,9 +248,12 @@ function;
 me understand a pretty basic part of Flask, but nevertheless a very important one;
 - [Dakila Lozano](https://codepen.io/dakila/pen/GxbxGB) demonstrated how to manipulate the maxDate option in 
 Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick check of 
-[W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution.
+[W3Schools](https://www.w3schools.com/js/js_date_methods.asp) allowed for a quick resolution;
 - The good people over at [Useful Angle](https://usefulangle.com/post/36/javascript-validate-url-form-input-field-without-regex)
-provided a quick solution for adding URLs using HTML's form element.
+provided a quick solution for adding URLs using HTML's form element;
+- [Tutorial Deep](https://tutorialdeep.com/knowhow/open-bootstrap-modal-on-button-click-jquery/) provided a quick guide to using 
+jQuery in contact forms.
+
 
 ### Media
 
