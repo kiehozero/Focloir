@@ -15,13 +15,14 @@ I used the following hex colours, selected using [Pixlr](https://www.pixlr.com/)
 based on photographs contained with the [Snug Project](https://thesnugproject.com/) calendar, and then tweaked to best 
 suit a website:
 
- - #4A463A and #443E32 are medium browns >>>;
+ - #4A463A and #443E32 are medium browns used on icons;
  - #3B382E is a dark brown used as a replacement for any blacks used in stylised text against coloured backgrounds to 
  give a slightly warmer feel;
- - #CBBF85 is a cream >>>;
- - #885043 is a deep, faded red >>>;
+ - #CBBF85 is a cream used as the background for flash messaging;
+ - #C34040 is a red that I've used on buttons to delete and remove items;
  - #CFB53B is a officially called [old gold](https://en.wikipedia.org/wiki/Old_gold), and I have been wanting to use this
- for some time as it is that used in the home jerseys of [Wolverhampton Wanderers FC](https://www.wolves.co.uk/).
+ for some time as it is that used in the home jerseys of [Wolverhampton Wanderers FC](https://www.wolves.co.uk/). I've used
+ this in many parts of the site to highlight elements.
 
 - Fonts
     - [Spectral](https://fonts.google.com/specimen/Spectral) is a serif font with plenty of space and clarity. I wanted 
@@ -71,7 +72,7 @@ cannot find their pub, a link at the top of the page directs them to the Add a P
 - When adding a review, all fields are mandatory. All ratings and dates are restricted by Materialize drop-downs and pickers, 
 while the price field is restricted to numbers, whether whole or decimal. The review field itself is restricted to 400 characters,
 but must be greater than 400 characters.
-- When adding a pub, all fields except County and URL are mandatory. If no URL is submitted, a placeholder image is used. The country
+- When adding a pub, all fields except County and photo are mandatory. If no photograph is submitted, a placeholder image is used. The country
 field is controlled by a drop-down list, and the URL field must meet the criteria of the HTML input form URL type.
 - The pubs page by default shows all pubs in the database. A search bar allows users to filter by pub name, city or country, and then
 to switch the filter off to display all entries again.
@@ -81,9 +82,6 @@ as deleting the user's account here.
 
 ### Features to Implement
 
-- Share plans with friends - This is the key to any website at the moment. I signed up to ShareThis during my previous 
-project with a view to adding some pre-made share buttons to the site, but was getting quite a lot of console warnings 
-about non-loadable content, so this feature has been omitted.
 - User profile photos - The registration page asks for very little information from the user. I wanted to expand this in the 
 Edit Profile section to allow users to upload a photo. Since I had used the URL option already on the Add Pub section, it 
 seemed like asking the user to leave the website a second time might tempt some users to leave altogether. Once I get to grip
