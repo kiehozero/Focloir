@@ -41,7 +41,7 @@
                                     <!-- Bugfix #10: JS icon class/ids -->
                                     <a 
                                         class="btn review-card-button user-edit"
-                                        href="{{ url_for('edit_review', review_id=review._id) }}">
+                                        href="{{ url_for('moderate_review', review_id=review._id) }}">
                                         Edit
                                     </a>
                                     <a
@@ -101,7 +101,7 @@
                                 <div class="row center-align">
                                     <a 
                                         class="btn review-card-button"
-                                        href="{{ url_for('edit_review', review_id=review._id) }}">
+                                        href="{{ url_for('moderate_review', review_id=review._id) }}">
                                         Edit
                                     </a>
                                     <!-- Style delete buttons in the pallette red colour -->
