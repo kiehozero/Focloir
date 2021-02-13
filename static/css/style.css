@@ -392,6 +392,9 @@ span.character-counter {
     letter-spacing: 36px;
 }
 
+.foot-social a i:hover {
+    color: #e7e7e7;
+}
 
 /* Media Queries */
 

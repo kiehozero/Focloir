@@ -106,6 +106,8 @@ def add_review_of(pub_id):
 
 @app.route("/contact_us")
 def contact_us():
+    if request.method == "POST":
+        flash("E-mail sent!")
     return render_template("contact_us.html")
 
 
