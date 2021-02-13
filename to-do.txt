@@ -20,3 +20,4 @@ Cleaning
 Questions
 - does the parallax view on the view pub page work on desktops?
 - cloning in Heroku and Mongo, is this even possible?
+- can't work out if session.user, doesn't work on app.py? Does it have to be if session.user is True

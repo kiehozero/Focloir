@@ -236,6 +236,11 @@ footer.row {
     width: 100%;
 }
 
+.login-photo {
+    border-radius: 50%;
+    padding-bottom: 20px;
+}
+
 
 /* Registration form - maybe move each page's unique CSS onto a separate sheet? */
 

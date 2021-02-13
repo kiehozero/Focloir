@@ -28,40 +28,35 @@ def index():
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
     countries = mongo.db.countries.find().sort("name")
-    if session.user:
-        if request.method == "POST":
-            new_pub = {
-                "pname": request.form.get("pname"),
-                "loc": request.form.get("loc"),
-                "city": request.form.get("city"),
-                "state": request.form.get("state"),
-                "country": request.form.get("country"),
-                "photo": request.form.get("photo")
-            }
+    if request.method == "POST":
+        new_pub = {
+            "pname": request.form.get("pname"),
+            "loc": request.form.get("loc"),
+            "city": request.form.get("city"),
+            "state": request.form.get("state"),
+            "country": request.form.get("country"),
+            "photo": request.form.get("photo")
+        }
 
-            mongo.db.pubs.insert_one(new_pub)
-            flash("{} successfully added".format(request.form.get("pname")))
-            # need a modal to display above
-            # automatically sends user to review page
-            # needs to redirect to review page pre-filled with that pub
-            return redirect(url_for('add_review'))
+        mongo.db.pubs.insert_one(new_pub)
+        flash("{} successfully added".format(request.form.get("pname")))
+        # automatically sends user to review page
+        # needs to redirect to review page pre-filled with that pub
+        return redirect(url_for('add_review'))
 
-        # GET method
-        return render_template("add_pub.html", countries=countries)
+    # GET method
+    return render_template("add_pub.html", countries=countries)
 
-    # below not currently functioning
-    else:
-        return redirect(url_for('register'))
+    # needs a re-direct for people who aren't logged in, how about only 
+    # showing the add pub card if the user is logged in?
 
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     pubs = mongo.db.pubs.find().sort("pname")
-    pints = mongo.db.pints.find().sort("dname")
     if request.method == "POST":
         new_review = {
             "pub": request.form.get("pub"),
-            "pint": request.form.get("pint"),
             "visit": request.form.get("visit"),
             "prating": request.form.get("prating"),
             "drating": request.form.get("drating"),
@@ -72,11 +67,12 @@ def add_review():
         }
 
         mongo.db.reviews.insert_one(new_review)
-        flash("Review added")
+        flash("Review of {} added").request.form.get("pub")
         # redirect to specific pub page
+        return redirect(url_for('pubs'))
 
     # GET method
-    return render_template("add_review.html", pubs=pubs, pints=pints)
+    return render_template("add_review.html", pubs=pubs)
 
 
 @app.route("/add_review_of/<pub_id>", methods=["GET", "POST"])
@@ -218,7 +214,6 @@ def edit_review(review_id):
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
-            "pint": request.form.get("pint"),
             "visit": request.form.get("visit"),
             "prating": request.form.get("prating"),
             "drating": request.form.get("drating"),
@@ -236,16 +231,15 @@ def edit_review(review_id):
 
     # GET method
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    pints = mongo.db.pints.find().sort("dname")
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
-        "edit_review.html", review=review, pints=pints, pubs=pubs)
+        "edit_review.html", review=review, pubs=pubs)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        #username validation
+        # username validation
         is_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
         if is_user:
@@ -283,7 +277,6 @@ def moderate_review(review_id):
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
-            "pint": request.form.get("pint"),
             "visit": request.form.get("visit"),
             "prating": request.form.get("prating"),
             "drating": request.form.get("drating"),
@@ -300,10 +293,9 @@ def moderate_review(review_id):
 
     # GET method
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    pints = mongo.db.pints.find().sort("dname")
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
-        "moderate_review.html", review=review, pints=pints, pubs=pubs)
+        "moderate_review.html", review=review, pubs=pubs)
 
 
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])

@@ -12,7 +12,14 @@
 
             <!-- This is the standard horizontal card template from the Materialize website-->
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('login') }}">
-                <h4 class="center-align d-brown">Log in</h4>
+                <h3 class="center-align d-brown">Log in to your Pintbaby account</h3>
+
+                <div class="center-align">
+                    <img 
+                        class="login-photo"
+                        src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                        alt="pintbaby placeholder">
+                </div>
 
                 <div class="center-align">
                     <a class="d-brown" href="{{ url_for('register') }}">New to Pintbaby? Register here!</a>
