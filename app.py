@@ -397,12 +397,12 @@ def moderate_user(user_id):
     if not session["user"] == "pbadmin":
         return redirect(url_for('error_handler'))
     mod_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    username = mod_user["username"]
+    user = mod_user["username"]
     reviews = list(mongo.db.reviews.find(
         {"author": mod_user["username"]}
         ))
     return render_template(
-        "moderate_user.html", user_id=user_id, reviews=reviews, username=username)
+        "moderate_user.html", user_id=user_id, reviews=reviews, user=user)
 
 
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
@@ -504,7 +504,7 @@ def view_review(review_id):
     return render_template("view_review.html", review=review, pub=pub)
 
 
-# below are all error handlers, courtesy
+# Below are all error handlers, courtesy
 # of the Pythonise tutorials in the README
 
 
@@ -521,9 +521,6 @@ def not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template("error_handler.html"), 500
-
-
-
 
 
 # Make sure to change the debug true statement below

@@ -1,5 +1,7 @@
 <img src="/static/images/testing.PNG">
 
+## Issues Arising During Testing Cycles
+
 1. Edit review form - this was not initially posting any data to mongo upon submit, but I worked out, somehow, that the reason 
 was because the select elements were marked as disabled but contained no value (unlike the input elements), so if you didn't 
 make an edit to both of these ratings then the form would not submit as they were blanks. I worked this out through some lengthly 
@@ -18,13 +20,18 @@ by writing the $set parameter into the original app route, but leaving out the p
 that will have to be rectified in future releases.
 
 4. The admin-only User page was displaying to all users, then disappeared once a non-admin user logged-in. This was
-fixed quickly with a Jinja loop specifying this links to display only if the user was an admin.
+fixed quickly with a Jinja loop specifying this links to display only if the user was an admin. I have also added an additional
+check to all admin pages within the app routes.
 
-5. Admin deleting reviews - wanted this to redirect to the pub's own page rather than to an index, needed to pass in the pub's 
-ID, not resolved this yet, tried deleting the return redirect but got a Jinja error back, the fix I've put in for now is that the
-route redirects to the generic pub index page rather than that pub's particular page
+5. Admin deleting reviews - After my first mentor review meeting it became clear that quite a lot of my app routes were
+redirecting to generic pages rather than back to where a user would expect. For instead upon deleting a review of a particular
+pub, the admin would be sent back to the pub index. I put in a lot of time to clearing up these routes, mainly by calling a second
+or third collection from MongoDB in order to pass ObjectIds to a redirect request. The result of this is a far better user
+experience, and on a personal level this has allowed me to become much more comfortable using Flask and Jinja.
 
-6. Mention removal of pints drop-down
+6. The initial draft of this project had a drop-down field for each user to select the drink they purchased during the visit.
+I couldn't find an easy way allowing users to add a new drink into the database, and sticking with just the few that I had added 
+in meant potentially constraining user reviews. After discussions with my mentor I removed the feature for now.
 
 7. Icons on my various edit and submission forms were not centre-aligning on select items specifically. This was I had erroneously
 enclosing my entire form within the div.row element and tag combination, which contained Materialize's 'center' tag. I made various 
@@ -54,39 +61,80 @@ the app route href inside that, quite an easy fix compared to some of the others
 13. My mentor challenged me with handling errors properly, and with the help of a 
 [Pythonise tutorial](https://pythonise.com/series/learning-flask/flask-error-handling) I was able to sort this in a matter of minutes.
 
+
 ## Outstanding Issues
 
-1. Edit password issue
-2. 
-3. 
+1. As mentioned in point #3 above, users cannot currently edit their profile and this is my number one priority to fix as
+soon as I understand Werkzeug more.
+
+2. I attempted to come up with a regular expression to control the input of review submissions. I switched the textarea 
+element to an input and had a good few hours testing but could come up with nothing that would sufficiently achieve my goal.
+
 
 ## User Stories
 
 As a user I want to...
 
   1. ... read about a pub I have not visited before.
-   - 
-  2. ... rate a pub that I have just visited.
-   - 
-  3. ... find pubs in a city I am visiting.
-   - 
-  4. ... review a pub that is not yet on the site.
-   - 
-  5. ... see my review history.
-   - 
-  6. ... edit or amend a review I previously wrote.
-   - 
+   - All users, with or without an account, can read all reviews by navigating to the Pubs link in the navigation menu and 
+   scrolling or searching for their desired location.
 
-As an admin, I want to
+  2. ... rate a pub that I have just visited.
+   - Account holders can review a pub by searching for it in the Pubs page. If the pub is returned, they can click into it 
+   using the book icon and from there selecting the Add review underneath the pub's information. 
+   form that is pre-filled with the pub's name.
+
+  3. ... add a pub that is not yet on the site.
+   - If the pub is not present, the user can click the pen icon in the Add a New Pub card. Upon completion of this form, 
+   users will be directed to a review form that is pre-filled with the pub's name.
+
+  4. ... find pubs in a city I am visiting.
+   - All users, with or without an account, can use the Search box on the Pubs page to filter pubs by name, city or
+   country. Clicking on the book icon will take users to a list of reviews of that pub.
+
+  5. ... see my review history.
+   - Account holders can view their review history by navigating to the My Profile link on the navigation menu. Reviews are 
+   displayed in descending date order.
+
+  5. ... edit a review I previously wrote.
+   - Account holders can amend their reviews by navigating to the My Profile link on the navigation menu. Click on the Edit
+   button (the pencil icon on mobile devices) to view a pre-filled form which can be edited and submitted.
+
+  6. ... edit my profile information.
+   - Account holders can amend their reviews by navigating to the My Profile link on the navigation menu. Underneath the 
+   heading is an Edit Profile link in which the user can edit their e-mail address and name. A feature to edit passwords is
+   currently in development.
+
+As an administrator, I want to...
+
   1. ... delete or moderate an offensive review.
-   - 
+   - Administrators can quickly remove or amend any inappropriate or offensive reviews by navigating to the Pub link on the 
+   navigation menu. Select or search the relevant pub and the admin will see an additional panel beneath each review. The 
+   first button allows the administrator to edit any part of the review except the username of the original author, while the
+   delete button can be used where deemed necessary.
+
   2. ... view a user's review history.
-   - 
-  3. ... delete a pub.
-   - 
+   - As well as viewing all reviews by pub, administrators can also see all reviews by author. Simply navigate to the Users 
+   link on the navigation menu to return a list of all active site users. Click on the Moderate button (book icon on mobile 
+   devices) to access each user's entire history, and each review will contain an admin panel with choice to edit or delete
+   that review as above. Any deletion will need to be confirmed via a prompt message.
+
+  3. ... edit or delete a pub.
+   - Deleting false locations can be completed using the regular Pubs link in the navigation menu. On opening, each pub will
+   have an additional administrator's panel at the bottom of it's card. The Edit (pencil icon on mobile devices) icon allows
+   for the addition or editing of all information, while the delete button (trash can on mobile devices) allows an entry to 
+   be removed altogether. Any deletion will need to be confirmed via a prompt message.
+
   4. ... delete a malicious user.
-   - 
+   - Deleting a persistent offender is as simple as navigating to the User link on the navigation menu. This returns a list
+   of all active accounts, and the red Delete (trash can icon on mobile devices) button allows a user to have their access 
+   revoke. Any deletion will need to be confirmed via a prompt message.
+
 
 ## Validation
 
 CSS Validator, HTML Validator, JSHint, Flake 8 for Python
+
+### (PEP8 Compliance](http://pep8online.com/)
+
+<img src="/planning/certs/pep8-compliance.PNG">
