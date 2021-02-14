@@ -1,4 +1,4 @@
-<img src="../static/images/text-logo.PNG">
+<img src="static/images/text-logo.PNG">
 
 Welcome to my data-centric development milestone project. For this project I chose to create 
 [pintbaby](https://www.pintbaby.herokuapp.com/), a website that allows users to add and review pubs around the world.
@@ -9,7 +9,7 @@ Welcome to my data-centric development milestone project. For this project I cho
 ### Styling
 
 - A [Balsamiq](https://www.balsamiq.com/) wireframe for this project is included in the repository, with 
-[desktop/tablet](planning/wireframes/#.pdf) and [mobile](planning/wireframes/#.pdf) versions.
+[desktop/tablet](planning/wireframes/desktop.pdf) and [mobile](planning/wireframes/mobile.pdf) versions.
 
 I used the following hex colours, selected using [Pixlr](https://www.pixlr.com/). Most of the colours were originally 
 based on photographs contained with the [Snug Project](https://thesnugproject.com/) calendar, and then tweaked to best 
@@ -18,11 +18,11 @@ suit a website:
  - #4A463A and #443E32 are medium browns used on icons;
  - #3B382E is a dark brown used as a replacement for any blacks used in stylised text against coloured backgrounds to 
  give a slightly warmer feel;
- - #CBBF85 is a cream used as the background for flash messaging;
+ - #CBBF85 is a cream used as the background on some smaller elements;
  - #C34040 is a red that I've used on buttons to delete and remove items;
- - #CFB53B is a officially called [old gold](https://en.wikipedia.org/wiki/Old_gold), and I have been wanting to use this
- for some time as it is that used in the home jerseys of [Wolverhampton Wanderers FC](https://www.wolves.co.uk/). I've used
- this in many parts of the site to highlight elements.
+ - #CFB53B is a officially called [old gold](https://en.wikipedia.org/wiki/Old_gold) and is the main colour for focussed and
+ active elements. I have been wanting to use this for some time as it is the traditional colour used in the home jerseys of 
+ [Wolverhampton Wanderers](https://www.wolves.co.uk/).
 
 - Fonts
     - [Spectral](https://fonts.google.com/specimen/Spectral) is a serif font with plenty of space and clarity. I wanted 
@@ -50,7 +50,7 @@ As a user I want to...
   2. ... rate a pub that I have just visited;
   3. ... find pubs in a city I am visiting;
   4. ... review a pub that is not yet on the site;
-  5. ... see my review history
+  5. ... see my review history;
   6. ... edit or amend a review I previously wrote;
 
 As an admin, I want to
