@@ -418,7 +418,7 @@ span.character-counter {
 
 /* Media Queries */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     /* Tablet screen rules */
     .foot-social a {
         font-size: 24px;
@@ -427,6 +427,10 @@ span.character-counter {
 
     .parallax-container.parallax-pub {
         height: 400px;
+    }
+
+    .card .card-title {
+        font-size: 16px;
     }
 }
 

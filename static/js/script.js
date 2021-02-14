@@ -106,4 +106,5 @@ if ($(window).width() < 1280) {
     $("#searchReset").html("<i class='fas fa-power-off' aria-label='Reset Search Criteria'></i>");
     $(".user-delete").html("<i class='far fa-trash-alt' aria-label='Delete Review'></i>");
     $(".user-edit").html("<i class='far fa-edit' aria-label='Edit Review'></i>");
+    $(".read-more").html("Read").css("font-size", "16px");
 }

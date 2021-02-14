@@ -349,9 +349,9 @@ def moderate_review_user(review_id):
 def moderate_user(user_id):
     mod_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     username = mod_user["username"]
-    reviews = mongo.db.reviews.find(
+    reviews = list(mongo.db.reviews.find(
         {"author": mod_user["username"]}
-        )
+        ))
     return render_template(
         "moderate_user.html", user_id=user_id, reviews=reviews, username=username)
 
