@@ -63,7 +63,7 @@ $("#myrButton").mouseenter(function(){
 });
 
 $("#myrButton").mouseleave(function(){
-    $(this).html("My Reviews");
+    $(this).html("My Profile");
 });
 
 $("#logButton").mouseenter(function(){
@@ -94,7 +94,7 @@ $("#admButton").mouseleave(function(){
 
 $("#closeButton").click(function(){
     $("#message-row").css("display", "none");
-})
+});
 
 
 /* Tablet Only */

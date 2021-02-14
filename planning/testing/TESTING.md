@@ -133,8 +133,27 @@ As an administrator, I want to...
 
 ## Validation
 
-CSS Validator, HTML Validator, JSHint, Flake 8 for Python
+### HTML
 
-### (PEP8 Compliance](http://pep8online.com/)
+
+
+### CSS
+
+There is only one CSS script in this project, and it was validated using the 
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+<img src="/planning/certs/css3-compliance.PNG">
+
+### JavaScript/jQuery
+
+There are two JavaScript files in this project, both utilising jQuery. These were validated at [JSHint](https://jshint.com/).
+
+<img src="/planning/certs/script-jshint.PNG">
+
+<img src="/planning/certs/contact-jshint.PNG">
+
+### Python PEP8
+
+There is only one Python script in this project, and it was validated using the service at [PEP8 Online](http://pep8online.com/).
 
 <img src="/planning/certs/pep8-compliance.PNG">
