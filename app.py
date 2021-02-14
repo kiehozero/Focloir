@@ -25,13 +25,10 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/error_handler")
-def error_handler():
-    return render_template("error_handler.html")
-
-
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     countries = mongo.db.countries.find().sort("name")
     if request.method == "POST":
         new_pub = {
@@ -56,6 +53,8 @@ def add_pub():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     # this function only routes to the pub page, unlike add_review_of
     pubs = mongo.db.pubs.find().sort("pname")
     if request.method == "POST":
@@ -83,6 +82,8 @@ def add_review():
 
 @app.route("/add_review_of/<pub_id>", methods=["GET", "POST"])
 def add_review_of(pub_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     # this function routes to and from a pub's page
     pub_id = mongo.db.pubs.find_one(
         {"_id": ObjectId(pub_id)})
@@ -120,6 +121,10 @@ def contact_us():
 @app.route("/delete_pub_admin/<pub_id>")
 # admin-only function to delete a pub
 def delete_pub_admin(pub_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     mongo.db.pubs.remove(
         {"_id": ObjectId(pub_id)}
     )
@@ -129,6 +134,8 @@ def delete_pub_admin(pub_id):
 
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
@@ -141,6 +148,10 @@ def delete_review(review_id):
 # admin-only function, deletes reviews
 # routing to and from pub page
 def delete_review_admin(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     # uses review _id to find pub name, then passes pub _id to redirect
     review = mongo.db.reviews.find_one(
         {"_id": ObjectId(review_id)})
@@ -157,6 +168,10 @@ def delete_review_admin(review_id):
 # admin-only function, deletes reviews
 # routing to and from the admin user panel
 def delete_review_admin_user(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     # uses review _id to find user name, then passes user _id to redirect
     review = mongo.db.reviews.find_one(
         {"_id": ObjectId(review_id)})
@@ -170,6 +185,10 @@ def delete_review_admin_user(review_id):
 
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     # admin-only function to delete accounts
     mongo.db.users.remove(
         {"_id": ObjectId(user_id)}
@@ -180,6 +199,8 @@ def delete_user(user_id):
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         edited_profile = {
@@ -210,6 +231,10 @@ def edit_profile(username):
 
 @app.route("/edit_pub/<pub_id>", methods=["GET", "POST"])
 def edit_pub(pub_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     if request.method == "POST":
         edited_pub = {
             "pname": request.form.get("pname"),
@@ -233,6 +258,8 @@ def edit_pub(pub_id):
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
@@ -255,6 +282,11 @@ def edit_review(review_id):
     pubs = mongo.db.pubs.find().sort("pname")
     return render_template(
         "edit_review.html", review=review, pubs=pubs)
+
+
+@app.route("/error_handler")
+def error_handler():
+    return render_template("error_handler.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -295,6 +327,10 @@ def logout():
 # admin-only function to moderate content, e.g. offensive or legally
 # questionable statements. This route begins and ends at the pub's page
 def moderate_review(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
@@ -324,6 +360,10 @@ def moderate_review(review_id):
 # Same as moderate_review above but routes from
 # user profile and back to same profile on POST
 def moderate_review_user(review_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     if request.method == "POST":
         edited_review = {
             "pub": request.form.get("pub"),
@@ -352,6 +392,10 @@ def moderate_review_user(review_id):
 @app.route("/moderate_user/<user_id>")
 # admin-only function to search for reviews by user and moderate them
 def moderate_user(user_id):
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     mod_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     username = mod_user["username"]
     reviews = list(mongo.db.reviews.find(
@@ -428,6 +472,10 @@ def search_pubs():
 @app.route("/users")
 # admin-only function to display all users
 def users():
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+    if not session["user"] == "pbadmin":
+        return redirect(url_for('error_handler'))
     users = list(mongo.db.users.find().sort("username"))
     return render_template("users.html", users=users)
 
