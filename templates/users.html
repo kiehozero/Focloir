@@ -39,8 +39,8 @@
                         </td>
                         <td>
                             <a
-                                href="#modalDelete{{ user._id }}"
-                                class="btn delete-button">
+                                href="#modalAdminDelete{{ user._id }}"
+                                class="btn delete-button modal-trigger">
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </td>
@@ -50,20 +50,20 @@
                     <!-- Modal for delete button -->
 
                     <!-- Materialize Modal Template -->
-                    <div id="#modalAdminDelete{{ user._id }}" class="modal">
+                    <div id="modalAdminDelete{{ user._id }}" class="modal">
                         <div class="modal-content">
                             <h4>Confirm</h4>
                             <p>Please confirm that you want to delete {{ user.username }}</p>
                         </div>
                         <div class="modal-footer">
                             <a
-                                href="#modalAdminDelete{{ user._id }}" 
-                                class="btn modal-close waves-effect waves-red modal-trigger">
+                                href="{{ url_for('delete_user', user_id=user_id) }}" 
+                                class="btn modal-close waves-effect waves-red delete-button">
                                 Delete
                             </a>
                             <a
                                 href="#" 
-                                class="btn modal-close waves-effect waves-yellow">
+                                class="btn modal-close waves-effect waves-yellow review-card-button">
                                 Cancel
                             </a>
                         </div>
