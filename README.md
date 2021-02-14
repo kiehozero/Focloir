@@ -254,7 +254,7 @@ Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick
 provided a quick solution for adding URLs using HTML's form element;
 - [Tutorial Deep](https://tutorialdeep.com/knowhow/open-bootstrap-modal-on-button-click-jquery/) provided a quick guide to using 
 jQuery in contact forms;
-- [RegExOne](https://regexone.com/lesson/repeating_characters) helped me sort out some validation issues that were highlight in my
+- [RegExOne](https://regexone.com/lesson/repeating_characters) helped me sort out some validation issues that were highlighted in my
 first mentor review.
 
 ### Media

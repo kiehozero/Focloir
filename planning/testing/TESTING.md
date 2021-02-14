@@ -46,7 +46,7 @@ inside the Jinja loop to use a class property instead and all returned items cha
 
 11. My mentor identified some form submission issues, namely validation of what can be submitted, the minimum values for the price
 field and what is a mandatory submission. Most of these can be found just by selected extra parameters on HTML elements, but where I
-needed to use regular expressions I went to [RegExOne](https://regexone.com/lesson/repeating_characters).
+needed to use regular expressions I used [RegExOne](https://regexone.com/lesson/repeating_characters).
 
 12. Confirmation notices for all delete buttons - I added these by using Materialize's modal to show a confirmation message, and moving
 the app route href inside that, quite an easy fix compared to some of the others!
