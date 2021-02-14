@@ -1,6 +1,3 @@
-1. Need a page to redirect to if a user, whether logged in or out tries to manually type the URL for another user's profile, 
-if session.user does not equal user_id being passed in route? Working for logged in users, not for logged out, also needs to
-cover all URLs that a user can't access or that are invalid
 2. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
 the update function in pymongo to only update a particular field
 3. Add pub form: Validation, see point below as well needs to be strong enough to eliminate addresses that are just all spaces 

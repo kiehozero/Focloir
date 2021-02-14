@@ -434,7 +434,7 @@ span.character-counter {
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 741px) {
     /* Mobile screen rules */
     footer {
         /* removes footer as the social links are in the side nav bar */
