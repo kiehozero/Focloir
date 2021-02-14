@@ -10,7 +10,7 @@
     {% block content %}
 
         <div class="row center-align">
-            <h4>{{ username }}'s Review History</h4>
+            <h4 class="d-brown">{{ username }}'s Review History</h4>
         </div>
 
         <div class="row center-align">
@@ -45,8 +45,8 @@
                                         Edit
                                     </a>
                                     <a
-                                        class="btn delete-button user-delete"
-                                        href="{{ url_for('delete_review_admin_user', review_id=review._id) }}">
+                                        class="btn delete-button user-delete modal-trigger"
+                                        href="#modalAdminDelete{{ review._id }}">
                                         Delete
                                     </a>
                                 </div>
@@ -97,21 +97,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row center-align">
-                                    <a 
-                                        class="btn review-card-button"
-                                        href="{{ url_for('moderate_review_user', review_id=review._id) }}">
-                                        Edit
-                                    </a>
-                                    <a
-                                        class="btn review-card-button modal-trigger"
-                                        href="#modalAdminDelete{{ review._id }}">
-                                        Delete
-                                    </a>
-                                </div>
-
-                                <!-- Modal for delete button -->
+                            <!-- Modal for delete button -->
 
                                 <!-- Materialize Modal Template -->
                                 <div id="modalAdminDelete{{ review._id }}" class="modal">
@@ -132,7 +120,6 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
 
                         </div>
                     </div>

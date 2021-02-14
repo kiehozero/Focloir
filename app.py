@@ -39,10 +39,12 @@ def add_pub():
         }
 
         mongo.db.pubs.insert_one(new_pub)
+        pub_id = mongo.db.pubs.find_one(
+            {"pname": format(request.form.get("pname"))})["_id"]
         flash("{} successfully added".format(request.form.get("pname")))
         # automatically sends user to review page
         # needs to redirect to review page pre-filled with that pub
-        return redirect(url_for('add_review'))
+        return redirect(url_for('add_review_of', pub_id=pub_id))
 
     # GET method
     return render_template("add_pub.html", countries=countries)
@@ -123,8 +125,6 @@ def delete_pub_admin(pub_id):
 
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
-    # needs a confirm message here, if yes then
-    # below, if no redirect to my_reviews
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
@@ -142,7 +142,6 @@ def delete_review_admin(review_id):
         {"_id": ObjectId(review_id)})
     pub_id = mongo.db.pubs.find_one(
         {"pname": format(review["pub"])})["_id"]
-    # needs a confirm message here
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
@@ -158,7 +157,6 @@ def delete_review_admin_user(review_id):
     review = mongo.db.reviews.find_one(
         {"_id": ObjectId(review_id)})
     user_id = mongo.db.users.find_one({"username": review["author"]})["_id"]
-    # needs a confirm message here
     mongo.db.reviews.remove(
         {"_id": ObjectId(review_id)}
     )
@@ -179,7 +177,6 @@ def delete_user(user_id):
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     if request.method == "POST":
-        # need to work out how to change password"
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         edited_profile = {
             "username": request.form.get("username"),
@@ -338,9 +335,7 @@ def moderate_review_user(review_id):
             {"username": format(request.form.get("author"))})["_id"]
         mongo.db.reviews.update(
             {"_id": ObjectId(review_id)}, edited_review)
-        # needs to be able to display flash
         flash("Review amended")
-        # needs to re-direct to user page, match to author above?
         return redirect(url_for('moderate_user', user_id=user_id))
 
     # GET method

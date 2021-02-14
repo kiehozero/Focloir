@@ -10,24 +10,25 @@
     {% block content %}
 
         <div class="row center-align">
-            <h4>Users</h4>
+            <h4 class="d-brown">Users</h4>
         </div>
         
         <div class="container">
             <table class="highlight">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>E-mail Address</th>
-                        <th></th>
+                        <th class="d-brown">Username</th>
+                        <th class="d-brown">E-mail Address</th>
+                        <th class="d-brown">History</th>
+                        <th class="d-brown">Delete</th>
                     </tr>
                 </thead>
             
                 <tbody>
                     {% for user in users %}
                     <tr>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
+                        <td class="d-brown">{{ user.username }}</td>
+                        <td class="d-brown">{{ user.email }}</td>
                         <td>
                             <!-- Displays all reviews on opening -->
                             <a
