@@ -47,9 +47,9 @@
                 <div class="card">
                     <div class="card-image">
                         <img
-                            src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
-                            alt="Pinbaby placeholder image">
-                        <span class="card-title">Add a new pub</span>
+                            src="{{ url_for('static', filename='images/against-grain-brown.png') }}"
+                            alt="Generic pub placeholder image">
+                        <span class="card-title pub-title light-grey">Add a new pub</span>
                         <a 
                             class="btn-floating halfway-fab waves-effect waves-light right"
                             href="{{ url_for('add_pub') }}">
@@ -79,7 +79,7 @@
                                 alt="{{ pub.pname }} in {{ pub.city }}, {{ pub.country }}">
                         {% else %}
                             <img
-                                src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
+                                src="{{ url_for('static', filename='images/against-grain-brown.png') }}"
                                 alt="Pintbaby placeholder image">
                         {% endif %}
                         <span class="card-title pub-title light-grey">{{ pub.pname }}</span>

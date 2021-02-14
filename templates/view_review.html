@@ -1,0 +1,71 @@
+{% extends "main.html" %}
+
+<!-- Template for users to edit one or more fields of a selected review. -->
+
+{% block title %}
+{{ review.pub }}, by {{ review.author }}
+{% endblock %}
+
+{% block content %}
+
+{% if pub.photo %}
+<div class="parallax-container parallax-pub">
+    <div class="parallax">
+        <img src="{{ pub.photo }}" alt="{{ pub.pname }} in {{ pub.city }}, {{ pub.country }}">
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <h2 class="left-align d-brown rev-header">{{ review.pub }}</h2>
+        <h5 class="left-align d-brown rev-header">{{ pub.loc}}, {{ pub.city }}, {{ pub.country }}</h5>
+        <h5 class="left-align d-brown fs-italic rev-header">Author: {{ review.author }}</h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <p>
+            {{ review.review }}
+        </p>
+    </div>
+</div>
+
+<div class="row container">
+    <div class="row revrow center-align">
+        <div class="col s12 m6 revbox old-gold-bg revbox-mob-ogb">
+            <div class="rev-metrics">
+                <p>
+                    Price:
+                    {{ review.price }}
+                </p>
+            </div>
+        </div>
+        <div class="col s12 m6 revbox m-brown-bg old-gold revbox-mob-bog">
+            <div class="rev-metrics">
+                <p>
+                    Pour:
+                    {{ review.drating }}/10
+                </p>
+            </div>
+        </div>
+        <div class="col s12 m6 revbox old-gold m-brown-bg revbox-mob-ogb">
+            <div class="rev-metrics">
+                <p>
+                    Atmosphere:
+                    {{ review.arating }}/10
+                </p>
+            </div>
+        </div>
+        <div class="col s12 m6 revbox old-gold-bg m-brown revbox-mob-bog">
+            <div class="rev-metrics">
+                <p>
+                    Overall:
+                    {{ review.prating }}/10
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

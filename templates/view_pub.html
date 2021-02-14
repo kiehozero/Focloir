@@ -14,19 +14,25 @@
         <div class="parallax-container parallax-pub">
             <div class="parallax">
                 <img
-                    class="materialboxed"
                     src="{{ pub_id.photo }}"
                     alt="{{ pub_id.pname }} in {{ pub_id.city }}, {{ pub_id.country }}">
+            </div>
+        </div>
+    {% else %}
+        <div class="parallax-container parallax-pub">
+            <div class="parallax">
+                <img
+                    src="{{ url_for('static', filename='images/against-grain-brown.png') }}"
+                    alt="Generic Pub Placeholder Image">
             </div>
         </div>
     {% endif %}
 
     <div class="row">   
-    <div class="col s12 m8 offset-m2">
+        <div class="col s12 m8 offset-m2">
             <h2 class="left-align d-brown">{{ pub_id.pname }}</h2>
-
             <h5 class="left-align d-brown">{{ pub_id.loc}}, {{ pub_id.city }}, {{ pub_id.country }}</h5>
-    </div> 
+        </div> 
     </div>
 
         <div class="row center-align">
@@ -34,113 +40,42 @@
 
             <!-- First card for logged-in users is always the option to add a new review -->
 
-            {% if session.user %}
-                <div class="col s12 m4">
-                    <div class="card">
-                        <div class="card-image">
-                        <img 
-                            src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
-                            alt="pintbaby placeholder">
-                        <span class="card-title">Add review</span>
-                        <a 
-                            class="btn-floating halfway-fab waves-effect waves-light"
-                            href="{{ url_for('add_review_of', pub_id=pub_id._id) }}">
-                            <i class="fas fa-pen-nib"></i>
-                        </a>
-                        </div>
-                        <div class="card-content spectral">
-                            <div class="center-align">
-                                <a 
-                                    class="btn review-card-button"
-                                    href="{{ url_for('add_review_of', pub_id=pub_id._id) }}">
-                                    Add
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-
             {% for review in reviews %}
                 {% if pub_id.pname == review.pub %}
                     <div class="col s12 m4">
                         <div class="card revcard">
 
-                            <div class="card-image">
-                                <img
-                                    class="activator"
-                                    src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
-                                    alt="Pintbaby placeholder image">
-                                <span class="card-title">{{ review.author }}</span>
-                                <div class="btn-floating activator halfway-fab waves-effect waves-yellow review-dot">
-                                    {{ review.prating }}
-                                </div>
-                            </div>
-
                             <div class="card-content">
-                                <span class="card-title activator">
-                                    <i class="left">{{ review.visit }}</i>
-                                    <br>
-                                </span>
+                                <span class="card-title">{{ review.author }}</span>
+                                <span class="card-title">{{ review.visit }}</span>
+                                <span class="card-title">Rating: {{ review.prating }}/10</span>
                             </div>
 
-                            <div class="card-reveal">
-                                <div class="row">
-                                    <span class="card-title activator">
-                                        <i class="right fas fa-angle-up d-brown"></i>
-                                    </span>
-                                </div>
-
-                                <!-- Displays review text on open -->
-                                <div class="row">
-                                    <div class="col s12">
-                                        <em>{{review.author}} says</em>: {{ review.review }}
-                                    </div>
-                                </div>
-
-                                <!-- Displays review scores on open -->
-                                <div class="row revrow">
-                                    <div class="col s6 revbox old-gold-bg m-brown">
-                                        Price:
-                                        <br>
-                                        {{ review.price }}
-                                    </div>
-                                    <div class="col s6 revbox old-gold m-brown-bg">
-                                        Pint:
-                                        <br>
-                                        {{ review.drating }}/10
-                                    </div>
-                                    <div class="col s6 revbox old-gold m-brown-bg">
-                                        Atmosphere:
-                                        <br>
-                                        {{ review.arating }}/10
-                                    </div>
-                                    <div class="col s6 revbox old-gold-bg m-brown">
-                                        Overall:
-                                        <br>
-                                        {{ review.prating }}/10
-                                    </div>
-                                </div>
+                            <div class="card-action">
+                                <a
+                                    class="review-card-button"
+                                    href="{{ url_for('view_review', review_id=review._id) }}">
+                                    Read More
+                                </a>
                             </div>
 
                             <!-- Additional panel to display only for admins -->
                             {% if session.user == "pbadmin" %}
-                                <div class="row">
-                                    <br>
-                                    <div class="center-align admin-panel">
-                                        <!-- Bugfix #10: JS icon class/ids -->
-                                        <a 
-                                            class="btn review-card-button admin-moderate"
-                                            href="{{ url_for('moderate_review', review_id=review._id) }}">
-                                            Moderate
-                                        </a>
-                                        <a
-                                            class="btn delete-button modal-trigger admin-delete"
-                                            href="#modalAdminDelete{{review._id}}">
-                                            Delete
-                                        </a>
-                                    </div>
+                            <div class="row">
+                                <div class="center-align admin-panel">
+                                    <!-- Bugfix #10: JS icon class/ids -->
+                                    <a 
+                                        class="btn review-card-button admin-moderate"
+                                        href="{{ url_for('moderate_review', review_id=review._id) }}">
+                                        Moderate
+                                    </a>
+                                    <a
+                                        class="btn delete-button modal-trigger admin-delete"
+                                        href="#modalAdminDelete{{review._id}}">
+                                        Delete
+                                    </a>
                                 </div>
+                            </div>
 
                                 <!-- Modal for delete button -->
 
@@ -163,9 +98,11 @@
                                         </a>
                                     </div>
                                 </div>
+                            </div>
                             {% endif %}
+                            
 
-                        </div>
+
                     </div>
                 {% endif %}
             {% endfor %}

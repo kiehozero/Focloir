@@ -209,14 +209,6 @@ footer.row {
     background-color: #cfb53b;
 }
 
-.review-dot {
-    /* Only applies to btn-floating if it is displaying a review */
-    font-family: 'Fraunces';
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-}
-
 /* Cards */
 
 .card {
@@ -230,6 +222,21 @@ footer.row {
     height: 20vw;
 }
 
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    /* overwrites default Materialize styling */
+    background-color: #3b382e;
+    color: #cfb53b;
+    font-size: 20px;
+    margin: 0px;
+    padding: 12px 12px 12px 12px;
+    text-align: center;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    background-color: #cfb53b;
+    color: #3b382e;
+}
+
 .pub-title {
     background-color: rgba(0,0,0,0.3);
     padding: 4px 4px 4px 24px;
@@ -238,6 +245,18 @@ footer.row {
 
 .login-photo {
     border-radius: 50%;
+}
+
+.review-dot {
+    /* Only applies to btn-floating if it is displaying a review */
+    font-family: 'Fraunces';
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.rev-metrics {
+    font-size: 24px;
 }
 
 
@@ -381,6 +400,7 @@ span.character-counter {
 /* Admin Panel */
 
 .admin-panel {
+    padding-top: 12px;
     padding-bottom: 12px;
 }
 
@@ -420,5 +440,23 @@ span.character-counter {
     .card .card-image img {
         /* stops images taking up lots of space in pub index view */
         height: 80vw;
+    }
+
+    .rev-metrics {
+        font-size: 16px;
+    }
+
+    .revbox-mob-ogb {
+        background-color: #cfb53b;
+        color: #3b382e;
+    }
+
+    .revbox-mob-bog {
+        background-color: #3b382e;
+        color: #cfb53b;
+    }
+
+    .rev-header {
+        text-align: center;
     }
 }

@@ -437,6 +437,18 @@ def view_pub(pub_id):
         "view_pub.html", pub_id=pub_id, reviews=reviews)
 
 
+@app.route("/view_review/<review_id>")
+def view_review(review_id):
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)}
+    )
+    pub = mongo.db.pubs.find_one(
+        {"pname": format(review["pub"])}
+    )
+
+    return render_template("view_review.html", review=review, pub=pub)
+
+
 # Make sure to change the debug true statement below
 # to debug false before project is submitted
 if __name__ == "__main__":
