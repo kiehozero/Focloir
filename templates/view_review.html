@@ -11,7 +11,17 @@
 {% if pub.photo %}
 <div class="parallax-container parallax-pub">
     <div class="parallax">
-        <img src="{{ pub.photo }}" alt="{{ pub.pname }} in {{ pub.city }}, {{ pub.country }}">
+        <img
+            src="{{ pub.photo }}"
+            alt="{{ pub.pname }} in {{ pub.city }}, {{ pub.country }}">
+    </div>
+</div>
+{% else %}
+<div class="parallax-container parallax-pub" style="height: 300px;">
+    <div class="parallax">
+        <img
+            src="{{ url_for('static', filename='images/against-grain-brown.png') }}"
+            alt="Generic Pub Placeholder Image">
     </div>
 </div>
 {% endif %}

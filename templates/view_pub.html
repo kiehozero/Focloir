@@ -77,32 +77,30 @@
                                 </div>
                             </div>
 
-                                <!-- Modal for delete button -->
+                            <!-- Modal for delete button -->
 
-                                <!-- Materialize Modal Template -->
-                                <div id="modalAdminDelete{{review._id}}" class="modal">
-                                    <div class="modal-content">
-                                        <h4>Confirm</h4>
-                                        <p>Please confirm that you want to delete {{ review.author }}'s review of {{ review.pub }}</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a
-                                            href="{{ url_for('delete_review_admin', review_id=review._id) }}" 
-                                            class="btn modal-close waves-effect waves-red delete-button">
-                                            Delete
-                                        </a>
-                                        <a
-                                            href="#" 
-                                            class="btn modal-close waves-effect waves-yellow review-card-button">
-                                            Cancel
-                                        </a>
-                                    </div>
+                            <!-- Materialize Modal Template -->
+                            <div id="modalAdminDelete{{review._id}}" class="modal">
+                                <div class="modal-content">
+                                    <h4>Confirm</h4>
+                                    <p>Please confirm that you want to delete {{ review.author }}'s review of {{ review.pub }}.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a
+                                        href="{{ url_for('delete_review_admin', review_id=review._id) }}" 
+                                        class="btn modal-close waves-effect waves-red delete-button">
+                                        Delete
+                                    </a>
+                                    <a
+                                        href="#" 
+                                        class="btn modal-close waves-effect waves-yellow review-card-button">
+                                        Cancel
+                                    </a>
                                 </div>
                             </div>
                             {% endif %}
-                            
-
-
+                        </div>
+                        
                     </div>
                 {% endif %}
             {% endfor %}
