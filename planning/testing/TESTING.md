@@ -131,6 +131,9 @@ As an administrator, I want to...
    revoke. Any deletion will need to be confirmed via a prompt message.
 
 
+## Responsiveness Testing
+
+
 ## Validation
 
 ### HTML
@@ -148,9 +151,9 @@ There is only one CSS script in this project, and it was validated using the
 
 There are two JavaScript files in this project, both utilising jQuery. These were validated at [JSHint](https://jshint.com/).
 
-<img src="/planning/certs/script-jshint.PNG">
+<img src="/planning/certs/script-jshint.png">
 
-<img src="/planning/certs/contact-jshint.PNG">
+<img src="/planning/certs/contact-jshint.png">
 
 ### Python PEP8
 
