@@ -26,7 +26,7 @@
                 <thead>
                     <tr>
                         <th class="d-brown">Username</th>
-                        <th class="d-brown">E-mail Address</th>
+                        <th class="d-brown mob-display">E-mail Address</th>
                         <th class="d-brown">History</th>
                         <th class="d-brown">Delete</th>
                     </tr>
@@ -36,7 +36,7 @@
                     {% for user in users %}
                     <tr>
                         <td class="d-brown">{{ user.username }}</td>
-                        <td class="d-brown">{{ user.email }}</td>
+                        <td class="d-brown mob-display">{{ user.email }}</td>
                         <td>
                             <!-- Displays all reviews on opening -->
                             <a

@@ -463,4 +463,8 @@ span.character-counter {
     .rev-header {
         text-align: center;
     }
+
+    .mob-display {
+        display: none;
+    }
 }
