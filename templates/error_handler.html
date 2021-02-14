@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+
+    <!-- Landing page for all users, establishes the theme of the site and summarises features -->
+
+    {% block title %}
+        Page Not Found
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="parallax-container" style="height: 50vh">
+            <div class="parallax">
+                <img
+                    src="{{ url_for('static', filename='images/against-grain-unsat.png') }}"
+                    alt="The Black Horse in Preston, England">
+            </div>
+        </div>
+
+        <div class="section light-grey-bg center">
+            <div class="row container">
+                <h3 class="header m-brown">
+                    Page Not Found!
+                </h3>
+                <p class="m-brown">
+                    When health is bad and your heart feels strange,
+                    And your face is pale and wan,
+                    When doctors say you need a change,
+                A pint of plain is your only man.
+                </p>
+                <p class="m-brown">
+                    - Brian O'Nolan
+                </p>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img
+                    src="{{ url_for('static', filename='images/against-grain-unsat.png') }}"
+                    alt="Against the Grain in Dublin, Ireland">
+            </div>
+        </div>
+    {% endblock %}

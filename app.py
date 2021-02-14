@@ -25,6 +25,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/error_handler")
+def error_handler():
+    return render_template("error_handler.html")
+
+
 @app.route("/add_pub", methods=["GET", "POST"])
 def add_pub():
     countries = mongo.db.countries.find().sort("name")
@@ -358,8 +363,9 @@ def moderate_user(user_id):
 
 @app.route("/my_reviews/<username>", methods=["GET", "POST"])
 def my_reviews(username):
-    # if statement ensures that you can't add any username to the
-    # profile url string to access their profile page
+    if not session.get("user"):
+        return redirect(url_for('error_handler'))
+
     if session["user"]:
         # only returns username from MongoDB users collection
         # probably needs an if statement here where if the username is false
@@ -432,7 +438,7 @@ def view_pub(pub_id):
         {"_id": ObjectId(pub_id)}
     )
     # sorts reviews by most recent first
-    reviews = mongo.db.reviews.find().sort("visit", -1)
+    reviews = list(mongo.db.reviews.find().sort("visit", -1))
     return render_template(
         "view_pub.html", pub_id=pub_id, reviews=reviews)
 
@@ -447,6 +453,28 @@ def view_review(review_id):
     )
 
     return render_template("view_review.html", review=review, pub=pub)
+
+
+# below are all error handlers, courtesy
+# of the Pythonise tutorials in the README
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("error_handler.html"), 403
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("error_handler.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("error_handler.html"), 500
+
+
+
 
 
 # Make sure to change the debug true statement below

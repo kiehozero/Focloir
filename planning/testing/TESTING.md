@@ -46,6 +46,9 @@ field and what is a mandatory submission
 12. Confirmation notices for all delete buttons, added these by using Materialize's modal to show a confirmation message, and moving
 the app route href inside that
 
+13. My mentor challenged me with handling errors properly, and with the help of a 
+[Pythonise tutorial](https://pythonise.com/series/learning-flask/flask-error-handling) I was able to sort this in a matter of minutes.
+
 ## Outstanding Issues
 
 1. Edit password issue

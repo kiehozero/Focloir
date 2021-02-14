@@ -230,8 +230,9 @@ guide for Pymongo;
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
 - [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
 issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md);
-- [Pythonise](https://pythonise.com/series/learning-flask/flask-message-flashing) has a great tutorial series on using
-Flask, particularly the link on how to best utilise flash messaging.
+- [Pythonise] has a great tutorial series on using Flask, particularly the link on how to best utilise 
+[flash messaging](https://pythonise.com/series/learning-flask/flask-message-flashing), and also the 
+[error handling](https://pythonise.com/series/learning-flask/flask-error-handling) lesson.
 
 ### Tutorials
 
