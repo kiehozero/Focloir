@@ -35,7 +35,7 @@ $(document).ready(function(){
 /* Navigation Bar */
 
 $("#pubButton").mouseenter(function(){
-   $(this).html("<i class='fas fa-store-alt'></i>");
+   $(this).html("<i class='fas fa-store-alt' aria-label='Pubs'></i>");
 });
 
 $("#pubButton").mouseleave(function(){
@@ -43,7 +43,7 @@ $("#pubButton").mouseleave(function(){
 });
 
 $("#addButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-pen-nib'></i>");
+    $(this).html("<i class='fas fa-pen-nib' aria-label='Add a review'></i>");
 });
 
 $("#addButton").mouseleave(function(){
@@ -51,7 +51,7 @@ $("#addButton").mouseleave(function(){
 });
 
 $("#regButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-id-badge'></i>");
+    $(this).html("<i class='fas fa-id-badge' aria-label='Register'></i>");
 });
 
 $("#regButton").mouseleave(function(){
@@ -59,7 +59,7 @@ $("#regButton").mouseleave(function(){
 });
 
 $("#myrButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-newspaper'></i>");
+    $(this).html("<i class='fas fa-newspaper' aria-label='My Reviews'></i>");
 });
 
 $("#myrButton").mouseleave(function(){
@@ -67,7 +67,7 @@ $("#myrButton").mouseleave(function(){
 });
 
 $("#logButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-sign-in-alt'></i>");
+    $(this).html("<i class='fas fa-sign-in-alt' aria-label='Log In'></i>");
 });
 
 $("#logButton").mouseleave(function(){
@@ -75,7 +75,7 @@ $("#logButton").mouseleave(function(){
 });
 
 $("#outButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-sign-out-alt'></i>");
+    $(this).html("<i class='fas fa-sign-out-alt' aria-label='Log Out'></i>");
 });
 
 $("#outButton").mouseleave(function(){
@@ -83,21 +83,12 @@ $("#outButton").mouseleave(function(){
 });
 
 $("#admButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-users-cog'></i>");
+    $(this).html("<i class='fas fa-users-cog' aria-label='Users'></i>");
 });
 
 $("#admButton").mouseleave(function(){
     $(this).html("Users");
 });
-
-$("#pintButton").mouseenter(function(){
-    $(this).html("<i class='fas fa-beer'></i>");
-});
-
-$("#pintButton").mouseleave(function(){
-    $(this).html("Pints");
-});
-
 
 /* Flash bar */
 
@@ -109,10 +100,10 @@ $("#closeButton").click(function(){
 /* Tablet Only */
 
 if ($(window).width() < 1280) {
-    $(".admin-delete").html("<i class='far fa-trash-alt'></i>");
-    $(".admin-moderate").html("<i class='far fa-edit'></i>");
-    $("#searchButton").html("<i class='fas fa-search'></i>");
-    $("#searchReset").html("<i class='fas fa-power-off'></i>");
-    $(".user-delete").html("<i class='far fa-trash-alt'></i>");
-    $(".user-edit").html("<i class='far fa-edit'></i>");
+    $(".admin-delete").html("<i class='far fa-trash-alt' aria-label='Admin Delete Entry'></i>");
+    $(".admin-moderate").html("<i class='far fa-edit' aria-label='Admin Moderate Entry'></i>");
+    $("#searchButton").html("<i class='fas fa-search' aria-label='Search Pubs'></i>");
+    $("#searchReset").html("<i class='fas fa-power-off' aria-label='Reset Search Criteria'></i>");
+    $(".user-delete").html("<i class='far fa-trash-alt' aria-label='Delete Review'></i>");
+    $(".user-edit").html("<i class='far fa-edit' aria-label='Edit Review'></i>");
 }

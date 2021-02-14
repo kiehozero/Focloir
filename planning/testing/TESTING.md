@@ -1,4 +1,4 @@
-<img src="../static/images/testing.PNG">
+<img src="/static/images/testing.PNG">
 
 1. Edit review form - this was not initially posting any data to mongo upon submit, but I worked out, somehow, that the reason 
 was because the select elements were marked as disabled but contained no value (unlike the input elements), so if you didn't 
@@ -48,13 +48,36 @@ the app route href inside that
 
 ## Outstanding Issues
 
-1. 
+1. Edit password issue
 2. 
 3. 
 
 ## User Stories
 
+As a user I want to...
 
+  1. ... read about a pub I have not visited before.
+   - 
+  2. ... rate a pub that I have just visited.
+   - 
+  3. ... find pubs in a city I am visiting.
+   - 
+  4. ... review a pub that is not yet on the site.
+   - 
+  5. ... see my review history.
+   - 
+  6. ... edit or amend a review I previously wrote.
+   - 
+
+As an admin, I want to
+  1. ... delete or moderate an offensive review.
+   - 
+  2. ... view a user's review history.
+   - 
+  3. ... delete a pub.
+   - 
+  4. ... delete a malicious user.
+   - 
 
 ## Validation
 
