@@ -75,8 +75,6 @@
         <!-- Mobile side navigation bar -->
 
         <ul class="sidenav center-align m-brown old-gold-bg" id="mobile-snav">
-            <br>
-            <br>
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
 
             <!-- Displays Add Review and My Profile links once user is logged in -->
@@ -98,18 +96,9 @@
                 <li><a href="{{ url_for('login') }}" class="mob-heading">Log In</a></li>
                 <li><a href="{{ url_for('register') }}" class="mob-heading">Register</a></li>
             {% endif %}
-            <br>
             <li><a href="{{ url_for('index') }}" class="mob-heading">Home</a></li>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <li>
-                <div>
+                <div class="sidenav-footer">
                     <!-- using a div allows these items to be displayed horizontally -->
                     <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook mob-social mbr"></i></a>
                     <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter mob-social"></i></a>

@@ -4,7 +4,7 @@
         reviews and allows them to edit their profile -->
 
     {% block title %}
-        {{ username }}'s Review History
+        {{ user }}'s Review History
     {% endblock %}
 
     {% block content %}
@@ -18,7 +18,7 @@
         </div>
 
         <div class="row center-align">
-            <h4 class="d-brown">{{ username }}'s Review History</h4>
+            <h4 class="d-brown">{{ user }}'s Review History</h4>
         </div>
 
         <div class="row center-align">
@@ -28,7 +28,7 @@
                 <div class="col s12 m4">
                     <div class="card revcard">
                         <div class="card-content">
-                            <span class="card-title">User {{ username }} has yet to submit any reviews</span>
+                            <span class="card-title">User {{ user }} has yet to submit any reviews</span>
                         </div>
 
                         <div class="card-action">

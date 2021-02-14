@@ -48,10 +48,11 @@ As a user I want to...
 
   1. ... read about a pub I have not visited before;
   2. ... rate a pub that I have just visited;
-  3. ... find pubs in a city I am visiting;
-  4. ... review a pub that is not yet on the site;
+  3. ... add a pub that is not yet on the site.
+  4. ... find pubs in a city I am visiting;
   5. ... see my review history;
-  6. ... edit or amend a review I previously wrote;
+  6. ... edit a review I previously wrote;
+  7. ... edit my profile information.
 
 As an admin, I want to
   1. ... delete or moderate an offensive review;

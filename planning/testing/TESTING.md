@@ -134,11 +134,16 @@ As an administrator, I want to...
 ## Responsiveness Testing
 
 
+
 ## Validation
 
 ### HTML
 
-
+Each page was directly inputted into the [W3C HTML Validator](https://validator.w3.org/) to check that the markup used 
+passed W3C standards. A number of validation issues arose as expected given the use of Flask and Jinja in injecting one 
+HTML document into another, especially since the validator recognises the curly bracket as an illegal URL character. 
+Nevertheless running the validator is always a worthwhile task in catching any typos that may allow silent failures
+during development or are literally inconsequential but semantically confusing.
 
 ### CSS
 

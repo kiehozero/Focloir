@@ -132,6 +132,15 @@ footer.row {
     letter-spacing: 20px;
 }
 
+.mob-heading {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.sidenav-footer {
+    padding-top: 40vh;
+}
+
 
 /* Flash Bar */
 
