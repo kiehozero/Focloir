@@ -43,6 +43,9 @@ inside the Jinja loop to use a class property instead and all returned items cha
 11. My mentor identified some form submission issues, namely validation of what can be submitted, the minimum values for the price
 field and what is a mandatory submission
 
+12. Confirmation notices for all delete buttons, added these by using Materialize's modal to show a confirmation message, and moving
+the app route href inside that
+
 ## Outstanding Issues
 
 1. 

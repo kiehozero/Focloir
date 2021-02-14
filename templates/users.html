@@ -38,12 +38,57 @@
                         </td>
                         <td>
                             <a
-                                href="{{ url_for('delete_user', user_id=user._id) }}"
+                                href="#modalDelete{{ user._id }}"
                                 class="btn delete-button">
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </td>
                     </tr>
+
+
+                    <!-- Modal for delete button -->
+
+                    <!-- Materialize Modal Template -->
+                    <div id="#modalAdminDelete{{ user._id }}" class="modal">
+                        <div class="modal-content">
+                            <h4>Confirm</h4>
+                            <p>Please confirm that you want to delete {{ user.username }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a
+                                href="#modalAdminDelete{{ user._id }}" 
+                                class="btn modal-close waves-effect waves-red modal-trigger">
+                                Delete
+                            </a>
+                            <a
+                                href="#" 
+                                class="btn modal-close waves-effect waves-yellow">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Modal for delete button -->
+
+                    <!-- Materialize Modal Template -->
+                    <div id="modalDelete{{ user._id }}" class="modal">
+                        <div class="modal-content">
+                            <h4>Confirm</h4>
+                            <p>Please confirm that you want to delete {{ user.username }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a
+                                href="{{ url_for('delete_user', user_id=user._id) }}" 
+                                class="modal-close waves-effect waves-red delete-button">
+                                Delete
+                            </a>
+                            <a
+                                href="#" 
+                                class="modal-close waves-effect waves-yellow review-card-button">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
                     {% endfor %}
                 </tbody>
             </table>

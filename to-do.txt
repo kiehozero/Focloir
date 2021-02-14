@@ -12,4 +12,3 @@ Cleaning
 
 Questions
 - cloning in Heroku and Mongo, is this even possible?
-- need confirmation messages on delete review/user/pub buttons

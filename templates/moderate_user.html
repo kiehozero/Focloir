@@ -104,12 +104,33 @@
                                         href="{{ url_for('moderate_review_user', review_id=review._id) }}">
                                         Edit
                                     </a>
-                                    <!-- Style delete buttons in the pallette red colour -->
                                     <a
-                                        class="btn review-card-button"
-                                        href="{{ url_for('delete_review_admin_user', review_id=review._id) }}">
+                                        class="btn review-card-button modal-trigger"
+                                        href="#modalAdminDelete{{ review._id }}">
                                         Delete
                                     </a>
+                                </div>
+
+                                <!-- Modal for delete button -->
+
+                                <!-- Materialize Modal Template -->
+                                <div id="modalAdminDelete{{ review._id }}" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Confirm</h4>
+                                        <p>Please confirm that you want to delete {{ review.author }}'s review of {{review.pub }}.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a
+                                            href="{{ url_for('delete_review_admin_user', review_id=review._id) }}" 
+                                            class="btn modal-close waves-effect waves-red delete-button">
+                                            Delete
+                                        </a>
+                                        <a
+                                            href="#" 
+                                            class="btn modal-close waves-effect waves-yellow review-card-button">
+                                            Cancel
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 

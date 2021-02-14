@@ -80,12 +80,14 @@
                                         Edit
                                     </a>
                                     <a
-                                        class="btn delete-button user-delete"
-                                        href="{{ url_for('delete_review', review_id=review._id) }}">
+                                        class="btn delete-button user-delete modal-trigger"
+                                        href="#modalDelete{{ review._id }}">
                                         Delete
                                     </a>
                                 </div>
                             </div>
+
+                            <!-- Reveals more information -->
 
                             <div class="card-reveal">
                                 <div class="row">
@@ -132,21 +134,29 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row center-align">
-                                    <a 
-                                        class="btn review-card-button"
-                                        href="{{ url_for('edit_review', review_id=review._id) }}">
-                                        Edit
-                                    </a>
-                                    <!-- Style delete buttons in the pallette red colour -->
-                                    <a
-                                        class="btn review-card-button"
-                                        href="{{ url_for('delete_review', review_id=review._id) }}">
-                                        Delete
-                                    </a>
-                                </div>
                             </div>
+
+                            <!-- Modal for delete button -->
+
+                                    <!-- Materialize Modal Template -->
+                                    <div id="modalDelete{{ review._id }}" class="modal">
+                                        <div class="modal-content">
+                                            <h4>Confirm</h4>
+                                            <p>Please confirm that you want to delete your review of {{ review.pub }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a
+                                                href="{{ url_for('delete_review', review_id=review._id) }}" 
+                                                class="btn modal-close waves-effect waves-red delete-button">
+                                                Delete
+                                            </a>
+                                            <a
+                                                href="#" 
+                                                class="btn modal-close waves-effect waves-yellow review-card-button">
+                                                Cancel
+                                            </a>
+                                        </div>
+                                    </div>
 
                         </div>
                     </div>

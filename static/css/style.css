@@ -197,6 +197,11 @@ footer.row {
     color: #c34040;
 }
 
+.modal-footer {
+    /* overwrites default Materialize styling on modal buttons */
+    text-align: center;
+}
+
 .btn-floating {
     /* overwrites default Materialize styling */
     background-color: #885043;

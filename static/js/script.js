@@ -28,8 +28,8 @@ $(document).ready(function(){
         maxDate: new Date(currYear,currMonth, currDate),
         yearRange: [2016, currYear],
     });
-    /* initialises photo expansion feature in pub page */
-    $('.materialboxed').materialbox();
+    /* initialised modals for confirmation buttons */
+    $('.modal').modal();
 });
 
 /* Navigation Bar */
