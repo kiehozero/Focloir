@@ -43,7 +43,11 @@
                     <div class="card revcard">
                         <div class="card-content">
                             <span class="card-title">
-                                Click the button below to add a review of {{ pub_id.pname }}
+                                {% if reviews|length == 0 %}
+                                    No pintbabies have visited {{ pub_id.pname }}, click below to start!
+                                {% else %}
+                                    Click below to add a review of {{ pub_id.pname }}!
+                                {% endif %}
                             </span>
                         </div>
 
@@ -51,7 +55,7 @@
                             <a
                                 class="review-card-button"
                                 href="{{ url_for('add_review_of', pub_id=pub_id._id) }}">
-                                RAdd
+                                Add
                             </a>
                         </div>
                     </div>

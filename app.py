@@ -486,7 +486,8 @@ def view_pub(pub_id):
         {"_id": ObjectId(pub_id)}
     )
     # sorts reviews by most recent first
-    reviews = list(mongo.db.reviews.find().sort("visit", -1))
+    reviews = list(mongo.db.reviews.find(
+        {"pub": format(pub_id["pname"])}).sort("visit", -1))
     return render_template(
         "view_pub.html", pub_id=pub_id, reviews=reviews)
 
