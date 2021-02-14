@@ -124,9 +124,9 @@
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-pen-nib prefix d-brown"></i>
-                                <textarea
-                                    id="review" name="review" class="materialize-textarea" 
-                                    minlength="15" maxlength="400" data-length="400" required></textarea>
+                                <input
+                                    id="review" name="review" class="materialize-textarea validate" pattern="^([^\s+\s])$"
+                                    minlength="15" maxlength="400" data-length="400" required>
                                 <label for="review">Write your review here</label>
                             </div>
                         </div>

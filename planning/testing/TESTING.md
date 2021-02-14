@@ -17,7 +17,7 @@ functions to try retrieving an unhashing a password, editing it, then re-hashing
 by writing the $set parameter into the original app route, but leaving out the password altogether. This is obviously something
 that will have to be rectified in future releases.
 
-4. The admin-only User and Pint pages were displaying to all users, then disappeared once a non-admin user logged-in. This was
+4. The admin-only User page was displaying to all users, then disappeared once a non-admin user logged-in. This was
 fixed quickly with a Jinja loop specifying this links to display only if the user was an admin.
 
 5. Admin deleting reviews - wanted this to redirect to the pub's own page rather than to an index, needed to pass in the pub's 
@@ -45,10 +45,11 @@ initially used an id property identify them, jQuery was only changing the first 
 inside the Jinja loop to use a class property instead and all returned items changed.
 
 11. My mentor identified some form submission issues, namely validation of what can be submitted, the minimum values for the price
-field and what is a mandatory submission
+field and what is a mandatory submission. Most of these can be found just by selected extra parameters on HTML elements, but where I
+needed to use regular expressions I went to [RegExOne](https://regexone.com/lesson/repeating_characters).
 
-12. Confirmation notices for all delete buttons, added these by using Materialize's modal to show a confirmation message, and moving
-the app route href inside that
+12. Confirmation notices for all delete buttons - I added these by using Materialize's modal to show a confirmation message, and moving
+the app route href inside that, quite an easy fix compared to some of the others!
 
 13. My mentor challenged me with handling errors properly, and with the help of a 
 [Pythonise tutorial](https://pythonise.com/series/learning-flask/flask-error-handling) I was able to sort this in a matter of minutes.

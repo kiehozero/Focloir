@@ -253,8 +253,9 @@ Materialize's [datepicker](https://materializecss.com/pickers.html), and a quick
 - The good people over at [Useful Angle](https://usefulangle.com/post/36/javascript-validate-url-form-input-field-without-regex)
 provided a quick solution for adding URLs using HTML's form element;
 - [Tutorial Deep](https://tutorialdeep.com/knowhow/open-bootstrap-modal-on-button-click-jquery/) provided a quick guide to using 
-jQuery in contact forms.
-
+jQuery in contact forms;
+- [RegExOne](https://regexone.com/lesson/repeating_characters) helped me sort out some validation issues that were highlight in my
+first mentor review.
 
 ### Media
 
@@ -267,5 +268,5 @@ was originally taken by the writers of the [My Name is Ola](http://www.mynameiso
 
 ### Acknowledgements
 
-- My brother Adam for doing some testing, my partner for letting me eternally bounce ideas of myself and my mentor Precious
-for helping me structure and prioritise my project work.
+- My brother Adam for doing some testing, along with work colleagues Andy, Brendan, the two Davids and Odhran, my partner for 
+letting me eternally bounce ideas of myself and my mentor Precious for helping me structure and prioritise my project work.
