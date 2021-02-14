@@ -24,10 +24,9 @@ function sendMail(contactForm) {
         "feedback": contactForm.feedback.value
     })
     .then(
-        /* Bugfix #9: Tests responses, displays alert and hides modals if successful */
         function(response) {
             console.log("SUCCESS", response);
-            alert("Goal! Message sent!");
+            alert("Message sent!");
             $("#full_name").val("");
             $("#email_address").val("");
             $("#feedback").val("");
@@ -35,7 +34,7 @@ function sendMail(contactForm) {
         },
 
         function(error) {
-            alert("Yellow card! Please complete all fields.");
+            alert("Please complete all fields.");
         }
     );
     return false;
