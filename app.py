@@ -39,11 +39,10 @@ def add_pub():
         }
 
         mongo.db.pubs.insert_one(new_pub)
+        # uses form entry to get pub _id, then passes to redirect
         pub_id = mongo.db.pubs.find_one(
             {"pname": format(request.form.get("pname"))})["_id"]
         flash("{} successfully added".format(request.form.get("pname")))
-        # automatically sends user to review page
-        # needs to redirect to review page pre-filled with that pub
         return redirect(url_for('add_review_of', pub_id=pub_id))
 
     # GET method
@@ -114,7 +113,7 @@ def contact_us():
 
 
 @app.route("/delete_pub_admin/<pub_id>")
-# admin-only
+# admin-only function to delete a pub
 def delete_pub_admin(pub_id):
     mongo.db.pubs.remove(
         {"_id": ObjectId(pub_id)}
@@ -317,8 +316,8 @@ def moderate_review(review_id):
 
 
 @app.route("/moderate_review_user/<review_id>", methods=["GET", "POST"])
-# Same as moderate_review above but routes from user's profile and back to
-# user's profile on POST
+# Same as moderate_review above but routes from
+# user profile and back to same profile on POST
 def moderate_review_user(review_id):
     if request.method == "POST":
         edited_review = {
