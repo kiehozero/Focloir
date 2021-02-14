@@ -417,8 +417,8 @@ def my_reviews(username):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         # returns reviews by active user, ordered by most recent visit first
-        reviews = mongo.db.reviews.find(
-            {"author": session["user"]}).sort("visit", -1)
+        reviews = list(mongo.db.reviews.find(
+            {"author": session["user"]}).sort("visit", -1))
         return render_template(
             "my_reviews.html", username=username, reviews=reviews)
     # At the moment this just loads a Jinja error
