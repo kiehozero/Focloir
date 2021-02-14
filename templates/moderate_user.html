@@ -9,6 +9,14 @@
 
     {% block content %}
 
+        <div class="parallax-container parallax-pub" style="height: 300px;">
+            <div class="parallax">
+                <img
+                    src="{{ url_for('static', filename='images/against-grain-brown.png') }}"
+                    alt="Generic Pub Placeholder Image">
+            </div>
+        </div>
+
         <div class="row center-align">
             <h4 class="d-brown">{{ username }}'s Review History</h4>
         </div>
@@ -18,25 +26,7 @@
 
                 {% for review in reviews %}
                     <div class="col s12 m4">
-                        <div class="card">
-                            <div class="card-image activator">
-                                <img
-                                    src="{{ url_for('static', filename='images/pintbaby-bg.png') }}"
-                                    alt="pintbaby placeholder">
-                                <span class="card-title left-align">{{ review.pub }}</span>
-                                <div class="btn-floating halfway-fab waves-effect waves-light left review-dot">
-                                    {{ review.prating }}
-                                </div>
-                                <div class="btn-floating halfway-fab waves-effect waves-light right">
-                                    <i class="fas fa-book-open"></i>
-                                </div>
-                            </div>
-
-                            <!-- Returns reviews submitted by this user -->
-                            <div class="card-content spectral">
-                                <h5 class="center-align">
-                                    {{ review.visit }}
-                                </h5>
+                        
                                 <div class="center-align">
                                     <!-- Bugfix #10: JS icon class/ids -->
                                     <a 
@@ -52,52 +42,7 @@
                                 </div>
                             </div>
 
-                            <div class="card-reveal">
-                                <div class="row">
-                                    <span class="card-title activator">
-                                        <i class="right fas fa-angle-down d-brown"></i>
-                                    </span>
-                                </div>
-
-                                <div class="row">
-                                    {{ review.review }}
-                                </div>
-
-                                <div class="row revrow center-align">
-                                    <div class="col s6 revbox old-gold-bg">
-                                        <div class="rev-metrics">
-                                            <p>
-                                                Price:
-                                                {{ review.price }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col s6 revbox m-brown-bg old-gold">
-                                        <div class="rev-metrics">
-                                            <p>
-                                                Pint:
-                                                {{ review.drating }}/10
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col s6 revbox old-gold m-brown-bg">
-                                        <div class="rev-metrics">
-                                            <p>
-                                                Atmosphere:
-                                                {{ review.arating }}/10
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col s6 revbox old-gold-bg m-brown">
-                                        <div class="rev-metrics">
-                                            <p>
-                                                Overall:
-                                                {{ review.prating }}/10
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             <!-- Modal for delete button -->
 
