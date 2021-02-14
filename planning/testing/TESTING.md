@@ -11,7 +11,11 @@ the review successfully displays the session.user as a author. Amazingly the sol
 file! The mouseleave function for the log out button was still labelled as 'Log In' from when I'd copied it, so it would always
 display correctly initially, but once hovered over, would display incorrectly.
 
-3. Password editing submissions
+3. One of the first features I added was an Edit Profile feature, however I forgot that simply using PyMongo's updating command 
+will result in overwriting the entire document, so I lost access to a few early test accounts. I tried using some of Werkzeug's
+functions to try retrieving an unhashing a password, editing it, then re-hashing and submitting, but to no avail. I compromised 
+by writing the $set parameter into the original app route, but leaving out the password altogether. This is obviously something
+that will have to be rectified in future releases.
 
 4. The admin-only User and Pint pages were displaying to all users, then disappeared once a non-admin user logged-in. This was
 fixed quickly with a Jinja loop specifying this links to display only if the user was an admin.

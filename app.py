@@ -203,16 +203,16 @@ def edit_profile(username):
         return redirect(url_for('error_handler'))
     if request.method == "POST":
         user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
-        edited_profile = {
-            "username": request.form.get("username"),
-            "first_name": request.form.get("first_name"),
-            "last_name": request.form.get("last_name"),
-            "email": request.form.get("email")
-            # requires a way of working out how
-            # to change password or ignore field
-        }
         mongo.db.users.update(
-            {"_id": user_id}, edited_profile)
+            # Bugfix #3: set parameter in update function
+            {"_id": user_id}, {"$set": {
+                "username": request.form.get("username"),
+                "first_name": request.form.get("first_name"),
+                "last_name": request.form.get("last_name"),
+                "email": request.form.get("email")
+                }
+            }
+        )
 
         flash("Profile Updated")
         return redirect(url_for(
