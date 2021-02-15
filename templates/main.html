@@ -14,10 +14,10 @@
         type="text/css">
 
     <!-- Favicon information, items are in a file rather than root due to Jinja exception -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicons/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{url_for('static', filename='favicons/site.webmanifest') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{ {url_for('static', filename='favicons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
 
     <script
         src="https://kit.fontawesome.com/faa153a592.js"
@@ -33,9 +33,9 @@
 
     <header>
 
-        <!-- This is the standard Materialize collapsible header, template taken from the Materialize website-->
+        <!-- This is the standard Materialize collapsible header, template taken from the Materialize website -->
 
-        <!-- Desktop header-->
+        <!-- Desktop header -->
 
         <div class="navbar-fixed">
             <nav>
@@ -44,7 +44,6 @@
                 <a href="#" data-target="mobile-snav" class="sidenav-trigger"><i class="fas fa-angle-down"></i></a>
                 <ul class="left hide-on-med-and-down fs-italic">
                     <li><a href="{{ url_for('pubs') }}" id="pubButton">Pubs</a></li>
-                    <!-- Make a drop down here that returns every country in the pubs collection-->
 
                     <!-- Displays Add Review and My Profile links once user is logged in -->
                     {% if session.user %}
@@ -54,7 +53,6 @@
 
                     <!-- Displays the Pint and User panels if the user is an admin -->
                     {% if session.user == "pbadmin" %}
-                        <!-- needs user display function here -->
                         <li><a href="{{ url_for('users') }}" id="admButton">Users</a></li>
                     {% endif %}
 
@@ -72,7 +70,7 @@
             </nav>
         </div>
 
-        <!-- Mobile side navigation bar -->
+        <!-- Materialize mobile side navigation bar -->
 
         <ul class="sidenav center-align m-brown old-gold-bg" id="mobile-snav">
             <li><a href="{{ url_for('pubs') }}" class="mob-heading">Pubs</a></li>
@@ -99,7 +97,6 @@
             <li><a href="{{ url_for('index') }}" class="mob-heading">Home</a></li>
             <li>
                 <div class="sidenav-footer">
-                    <!-- using a div allows these items to be displayed horizontally -->
                     <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook mob-social mbr"></i></a>
                     <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter mob-social"></i></a>
                     <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram mob-social"></i></a>

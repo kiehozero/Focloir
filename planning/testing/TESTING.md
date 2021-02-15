@@ -70,6 +70,9 @@ soon as I understand Werkzeug more.
 2. I attempted to come up with a regular expression to control the input of review submissions. I switched the textarea 
 element to an input and had a good few hours testing but could come up with nothing that would sufficiently achieve my goal.
 
+3. At present when a user is editing their profile or a review and they click cancel, they'll route back to the previous
+page as planned but they will see the same flash message as if they had submitted the edit.
+
 
 ## User Stories
 
@@ -131,7 +134,7 @@ As an administrator, I want to...
    revoke. Any deletion will need to be confirmed via a prompt message.
 
 
-## Responsiveness Testing
+## Responsiveness
 
 
 

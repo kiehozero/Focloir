@@ -61,7 +61,7 @@
                         <div class="input-field col s10 m5 offset-s1 offset-m1">
                             <i class="far fa-calendar-alt prefix d-brown"></i>
                             <input type="text" id="visit" name="visit" class="datepicker" 
-                            format="yyyy/mm/dd" value="{{ review.visit }}" required>
+                            value="{{ review.visit }}" required>
                             <label for="visit">Visit Date</label>
                         </div>
 
@@ -70,8 +70,8 @@
                             <i class="fas fa-money-bill-wave prefix d-brown"></i>
                             <input 
                                 id="price" name="price" type="number" class="validate d-brown"
-                                minlength="1" maxlength="8" min="0.01" step="0.01"
-                                pattern="\d+(\.\d{2})?" value="{{ review.price }}" required>
+                                min="0.01" step="0.01" pattern="\d+(\.\d{2})?"
+                                value="{{ review.price }}" required>
                             <label for="price">Price</label>
                         </div>
 

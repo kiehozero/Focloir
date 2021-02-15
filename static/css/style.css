@@ -79,10 +79,6 @@ body {
     background-color: #cfb53b;
 }
 
-
-/* need a green in here */
-
-
 /* Navigation */
 
 .nav-wrapper,
@@ -269,7 +265,7 @@ footer.row {
 }
 
 
-/* Registration form - maybe move each page's unique CSS onto a separate sheet? */
+/* Registration form */
 
 .input-field .prefix.active {
     color: #cfb53b;
@@ -303,8 +299,6 @@ button.month-prev:focus {
 }
 
 .datepicker-day-button:focus {
-    /* overwrites default Materialize styling, colour is #cfb53b 
-    converted to rgb, then shaded to match Materialize effect */
     background-color: rgba(207, 180, 59, 0.25)
 }
 

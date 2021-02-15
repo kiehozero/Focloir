@@ -412,8 +412,6 @@ def my_reviews(username):
 
     if session["user"]:
         # only returns username from MongoDB users collection
-        # probably needs an if statement here where if the username is false
-        # or can't be found
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         # returns reviews by active user, ordered by most recent visit first

@@ -10,7 +10,7 @@
             
         <div class="row container">
 
-            <!-- This is the standard horizontal card template from the Materialize website-->
+            <!-- This is the standard horizontal form template from the Materialize website -->
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('login') }}">
                 <h3 class="center-align d-brown" style="padding: 20px">Log in to your pintbaby account</h3>
 
@@ -43,7 +43,6 @@
 
                         <div class="row">
                             <div class="input-field col s10 m8 offset-s1 offset-m2">
-                                <!-- Label still Materialize default colour on focus -->
                                 <i class="fas fa-lock prefix reg-icon"></i>
                                 <input id="password" name="password" type="password" minlength="8" 
                                     maxlength="16" class="validate" required>
@@ -54,9 +53,7 @@
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
-                                    <!-- Change font-->
                                     Enter
-                                    <!-- Change icon -->
                                     <i class="far fa-check-square"></i>
                                 </button>
                             </div>

@@ -137,7 +137,7 @@ with just the few that I had added in meant potentially constraining user review
     - The world's leading code-hosting platform, and the location of the core code that the project is built upon.
 
 - [Heroku](https://www.heroku.com/)
-    - >>>
+    - A cloud platform for hosting scaleable apps in a variety of programming languages.
 
 - [EmailJS](https://www.emailjs.com/)
     - Client-side Javascript software that I used to create the this project's contact form.
@@ -167,7 +167,8 @@ I have included a [testing log](planning/testing/TESTING.md) within the reposito
 
 >>> In terms of look and feel, the site is similar across all browsers. The tablet and desktop views are almost identical, 
 while mobile devices always drop into col-12 formatting. For mobile devices, I have included Materialize's default sidenav 
-bar, which was much easier to set up than Bootstrap's mobile menu options.
+bar, which was much easier to set up than Bootstrap's mobile menu options. I have also tending to use jQuery to change 
+descriptive buttons it icon-based buttons for smaller devices.
 
 I tested this project primarily on Firefox but also Chrome and Edge, taking advantage of the screen size options to test 
 using iPad, Samsung Galaxy and Kindle Fire. I also tested the site on my own Huawei device, as well as passing the initial 
@@ -223,7 +224,9 @@ As mentioned above, the database is built in MongoDB, and a sketch of the databa
 - In previous projects I have spent a lot of time trying to untangle my own CSS from Bootstrap; in this project I 
 committed myself to using as much content from a pre-built CSS library as I could. The 
 [Materialize](https://materializecss.com/) is a really lightweight and powerful library that provided great results 
-out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection;
+out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection. I 
+also used plenty of their pre-built templates to get up and running quickly, especially the form, button, card and modal
+templates.
 - The [HTML5 Pattern](https://www.html5pattern.com/Miscs) website is a great resource for understanding the use and
 format of regular expressions in validating user-inputted text;
 - [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 

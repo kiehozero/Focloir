@@ -18,6 +18,7 @@
         </div>
 
         <div class="row">
+            <!-- Materialize form template -->
             <form class="col s12 m10 offset-m1" method="POST"
                 action="url_for('edit_profile', username=username) }}">
 
@@ -77,12 +78,16 @@
                         <!-- Submission button -->
                         <div class="row">
                             <div class="card-action center-align">
-                                <button class="btn-large waves-effect waves-yellow" type="submit" name="action">
-                                    <!-- Change font-->
+                                <button class="btn-large waves-effect waves-yellow submit-button" type="submit" name="action">
                                     Amend Your Details
-                                    <!-- Icon below needs to hover as dark brown -->
                                     <i class="far fa-edit"></i>
                                 </button>
+                                <a
+                                    class="btn-large waves-effect waves-red pb-button cancel-button"
+                                    href="{{ url_for('my_reviews', username=user.username ) }}">
+                                    Cancel This Edit
+                                    <i class="far fa-window-close"></i>
+                                </a>
                             </div>
                         </div>
 

@@ -10,11 +10,11 @@
         
         {% if session.user %}
 
-            <!-- form is composed of various different elements from Materialize, 
-                namely the Date Picker, Radion Button, Selects and Text Inputs-->
+            <!-- Form is composed of various different elements from Materialize, 
+                namely the Date Picker, Selects and Text Inputs -->
 
             <div class="row center-align">
-                <!-- Bug fix #7: icon centring-->
+                <!-- Bug fix #7: icon centring -->
                 <h4 class="d-brown">Moderate {{review.author}}'s review of {{ review.pub }}</h4>
             </div>
                  
@@ -23,12 +23,9 @@
                 <form class="col s12 m10 offset-m1" method="POST" 
                 action="{{ url_for('moderate_review_user', review_id=review._id) }}">
 
-                    <!-- Choose Pub Dropdown -->
-                    <br>
-                    <br>
                     <div class="row">
 
-                        <!-- Unable to amend this dropdown, all others are fable-->
+                        <!-- Unable to amend this dropdown, all others are editable -->
                         <div class="input-field col s10 m4 offset-s1 offset-m1">
                             <i class="far fa-id-badge prefix d-brown"></i>
                             <select id="author" name="author" required>
@@ -38,7 +35,6 @@
                         </div>
 
                         <div class="input-field col s10 m6 offset-s1 left">
-                            <!-- Not displaying correctly -->
                             <i class="fas fa-sign prefix d-brown"></i>
                             <select id="pub" name="pub" required>
                                 {% for pub in pubs %}
@@ -53,15 +49,14 @@
                         </div>
                     </div>
 
-                    <!-- Datepicker and Drink Selection share row on larger screens -->
+                    <!-- Datepicker and Drink Price share row on larger screens -->
                     <div class="row">
 
                         <!-- Datepicker -->
-                        <!-- mobile view for this is horrific -->
                         <div class="input-field col s10 m5 offset-s1 offset-m1">
                             <i class="far fa-calendar-alt prefix d-brown"></i>
                             <input type="text" id="visit" name="visit" class="datepicker" 
-                            format="yyyy/mm/dd" value="{{ review.visit }}" required>
+                                value="{{ review.visit }}" required>
                             <label for="visit">Visit Date</label>
                         </div>
 
@@ -70,15 +65,14 @@
                             <i class="fas fa-money-bill-wave prefix d-brown"></i>
                             <input 
                                 id="price" name="price" type="number" class="validate d-brown"
-                                minlength="1" maxlength="8" min="0.01" step="0.01"
-                                pattern="\d+(\.\d{2})?" value="{{ review.price }}" required>
+                                min="0.01" step="0.01" pattern="\d+(\.\d{2})?"
+                                value="{{ review.price }}" required>
                             <label for="price">Price</label>
                         </div>
 
-
                     </div>
 
-                    <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
+                    <!-- Ratings share row on larger screens -->
                     <div class="row">
 
                         <!-- Pub Rating Dropdown -->
@@ -155,13 +149,16 @@
                     <div class="row">
                         <div class="card-action center-align">
                             <!-- Submit -->
-                            <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
-                                <!-- Change font-->
+                            <button
+                                class="btn-large waves-effect waves-yellow submit button pb-button"
+                                type="submit" name="action">
                                 Amend This Visit
                                 <i class="far fa-check-square"></i>
                             </button>
                             <!-- Cancel -->
-                            <button class="btn-large waves-effect waves-red pb-button cancel-button" href="#">
+                            <button
+                                class="btn-large waves-effect waves-red pb-button cancel-button"
+                                href="{{ url_for('moderate_user', user_id=user_id ) }}">
                                 Cancel This Edit
                                 <i class="far fa-window-close"></i>
                             </button>

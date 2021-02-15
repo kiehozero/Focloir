@@ -11,7 +11,7 @@
         {% if session.user %}
 
             <!-- form is composed of various different elements from Materialize, 
-                namely the Date Picker, Radion Button, Selects and Text Inputs-->
+                namely the Datepicker, Selects and Text Inputs-->
 
             <div class="row center-align">
                 <!-- Bug fix #7: icon centring-->
@@ -28,8 +28,6 @@
                         <!-- Choose Pub Dropdown -->
                         <br>
                         <br>
-                        <!-- Really need two extra rows that allow users to narrow down by country and city 
-                        first, then use criteria within a find function to filter drop-down below -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-sign prefix d-brown"></i>
@@ -43,14 +41,13 @@
                             </div>
                         </div>
 
-                        <!-- Datepicker and Drink Selection share row on larger screens -->
+                        <!-- Datepicker and Drink Price share row on larger screens -->
                         <div class="row">
 
-                            <!-- Datepicker, submitted formatt is yyyy-mm-dd -->
-                            <!-- mobile view for this is horrific -->
+                            <!-- Datepicker, submitted format is yyyy-mm-dd -->
                             <div class="input-field col s10 m5 offset-s1 offset-m1">
                                 <i class="far fa-calendar-alt prefix d-brown"></i>
-                                <input type="text" id="visit" name="visit" class="datepicker" format="yyyy/mm/dd" required>
+                                <input type="text" id="visit" name="visit" class="datepicker" required>
                                 <label for="visit">Date visited</label>
                             </div>
 
@@ -58,13 +55,13 @@
                             <div class="input-field col s10 m5 offset-s1">
                                 <i class="fas fa-money-bill-wave prefix d-brown"></i>
                                 <input id="price" name="price" type="number" class="validate d-brown"
-                                    minlength="1" maxlength="8" min="0.01" step="0.01"
-                                    pattern="\d+(\.\d{2})?" required>
+                                    min="0.01" step="0.01" pattern="\d+(\.\d{2})?"
+                                    required>
                                 <label for="price">Price</label>
                             </div>
                         </div>
 
-                        <!-- Pub Rating, Drink Rating and Drink Price share row on larger screens -->
+                        <!-- Ratings share row on larger screens -->
                         <div class="row">
 
                             <!-- Pub Rating Dropdown -->
@@ -141,7 +138,6 @@
                         <div class="row">
                             <div class="card-action center-align">
                                 <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
-                                    <!-- Change font-->
                                     Submit review
                                     <i class="far fa-check-square"></i>
                                 </button>
@@ -150,12 +146,6 @@
 
                     </form>
                 </div>
-
-        {% else %}
-
-            <div class="center-align">
-                <a class="d-brown" href="{{ url_for('register') }}">New to Pintbaby? Register here!</a>
-            </div>
 
         {% endif %}
 

@@ -44,6 +44,7 @@
 
             {% if session.user %}
             <div class="col s12 m4">
+                <!-- Materialize card -->
                 <div class="card">
                     <div class="card-image">
                         <img
@@ -67,6 +68,7 @@
 
             {% for pub in pubs %}
                 <div class="col s12 m4">
+                    <!-- Materialize card -->
                     <div class="card">
                         <div class="card-image pub-image">
                         {% if pub.photo %}
@@ -82,8 +84,6 @@
                         <a
                             class="btn-floating halfway-fab waves-effect waves-lightleft"
                             href="{{ url_for('add_review_of', pub_id=pub._id) }}">
-                            <!--paramter above needs to be pub id-->
-                            <!-- generate link here from pub id, a new template of the add_review that is pre-filled? -->
                             <div 
                                 style="font-family: 'Fraunces'; font-weight: 600; font-size: 20px; text-align: center;">
                                 <i class="fas fa-pen-nib"></i>
@@ -141,7 +141,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- styling in some margin bottom padding -->
                         {% endif %}
 
                     </div>

@@ -97,7 +97,7 @@ $("#closeButton").click(function(){
 });
 
 
-/* Tablet Only */
+/* Tablet and Mobile Only */
 
 if ($(window).width() < 1280) {
     $(".admin-delete").html("<i class='far fa-trash-alt' aria-label='Admin Delete Entry'></i>");
@@ -107,4 +107,6 @@ if ($(window).width() < 1280) {
     $(".user-delete").html("<i class='far fa-trash-alt' aria-label='Delete Review'></i>");
     $(".user-edit").html("<i class='far fa-edit' aria-label='Edit Review'></i>");
     $(".read-more").html("Read").css("font-size", "16px");
+    $(".submit-button").html("<i class='far fa-edit' aria-label='Submit Edit'></i>");
+    $(".cancel-button").html("<i class='far fa-window-close' aria-label='Cancel Edit'></i>");
 }

@@ -6,14 +6,11 @@
         Sign Up
     {% endblock %}
 
-    <!-- Combine log in and register pages to one, use Materialize switch? -->
-    <!-- Use the character counter from the MAterialize website on each form entry-->
-
     {% block content %}       
         
         <div class="row container">
 
-            <!-- This is the standard horizontal card template from the Materialize website-->
+            <!-- This is the standard form template from the Materialize website-->
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('register') }}">
                 <h4 class="center-align d-brown">Registration</h4>
 
@@ -33,7 +30,6 @@
                         <!-- Username input -->
                         <div class="row">
                             <div class="input-field col s10 offset-s1">
-                                <!-- Icon still Materialize default colour on focus -->
                                 <i class="fas fa-key prefix d-brown"></i>
                                 <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,16}$" 
                                     title="Must be between 5 and 16 characters" class="validate" required>
@@ -41,7 +37,7 @@
                             </div>
                         </div>
 
-                        <!-- Name inputs share a row on larger screens, separate for mobile -->
+                        <!-- Name inputs share a row on larger screens -->
                         <div class="row">
                             <!-- Forename input -->
                             <div class="input-field col s10 m5 offset-s1 offset-m1">
@@ -82,8 +78,7 @@
                         <!-- Submission button -->
                         <div class="row">
                             <div class="card-action center-align">
-                                <button class="btn-large waves-effect waves-yellow pb-button" type="submit" name="action">
-                                    <!-- Change font-->
+                                <button class="btn-large waves-effect waves-yellow submit-button pb-button" type="submit" name="action">
                                     Become a pintbaby!
                                     <i class="far fa-check-square"></i>
                                 </button>

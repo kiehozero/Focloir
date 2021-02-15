@@ -8,7 +8,7 @@
     {% endblock %}
 
     {% block content %}
-
+        <!-- Materialize parallax -->
         <div class="parallax-container parallax-pub" style="height: 300px;">
             <div class="parallax">
                 <img
@@ -31,6 +31,7 @@
             <div class="col s12 m10 offset-m1">
                 {% if reviews|length == 0 %}
                 <div class="col s12 m4 center-align">
+                    <!-- Materialize card -->
                     <div class="card revcard">
                         <div class="card-content">
                             <span class="card-title">Submit your first review by clicking below!</span>
@@ -49,6 +50,7 @@
 
                 {% for review in reviews %}
                     <div class="col s12 m4 center-align">
+                        <!-- Materialize card -->
                         <div class="card revcard">
                             <div class="card-content">
                                 <span class="card-title">{{ review.pub }}</span>
