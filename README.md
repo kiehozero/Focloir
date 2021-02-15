@@ -78,16 +78,21 @@ As an admin, I want to
 
 - All users can access all pubs and reviews upon arrival at the site without registering by visiting the Pubs page. Users 
 without an account cannot edit or add any reviews.
+
 - Upon registering, account holders can, in addition to the above, add a pub by visiting the Pub page, as well as adding a review
 either by visiting the Add a Review page or visiting the page of a pub they wish to review. If they visit the former page and 
 cannot find their pub, a link at the top of the page directs them to the Add a Pub page.
+
 - When adding a review, all fields are mandatory. All ratings and dates are restricted by Materialize drop-downs and pickers, 
 while the price field is restricted to numbers, whether whole or decimal. The review field itself is restricted to 400 characters,
 but must be greater than 400 characters.
+
 - When adding a pub, all fields except County and photo are mandatory. If no photograph is submitted, a placeholder image is used. 
 The country field is controlled by a drop-down list, and the URL field must meet the criteria of the HTML input form URL type.
+
 - The pubs page by default shows all pubs in the database. A search bar allows users to filter by pub name, city or country, and 
 then to switch the filter off to display all entries again.
+
 - Admin features: admins can edit and delete any review or pub within a pub's page. Admins cannot access or edit a user's forename, 
 surname or password using the admin panel, but they can view a list of each user's complete review history from the Users page, 
 as well as deleting the user's account here.
@@ -99,19 +104,25 @@ Edit Profile section to allow users to upload a photo. Since I had used the URL 
 seemed like asking the user to leave the website a second time might tempt some users to leave altogether. Once I get to grip
 with allowing users to upload documents and files from devices, and the storage of these within a datbase, this feature will 
 be implemented.
+
 - Review aggregation - most pubs only have one or two reviews, but it would be great for users to see those scores aggregated
 if they want a quick idea of what a pub is like, rather than just seeing everybody's scores. I looked into how to do this but
 it was beyond my current Python skills!
+
 - As the database expands I would like to include more filters on the pubs page and allow users to custom sort reviews by what
 they find most important, whether it is price, atmosphere or overall rating.
+
 - Ìntegration of Google Image Search API - My initial project plan had this in as an optional extra. After recalling the
 amount of time I spent on my second milestone project wrestling with the Maps API, it seemed unwise to sacrifice potential
 testing and validation time to include this feature.
+
 - Integration of Google Maps API - As above, it seemed unwise to sacrifice time ensuring that my Python and Flask work was 
 up to standard for the sake of adding a small location map to each pub's entry.
+
 - Change password feature - In the Edit Profile section I have used the $set command to allow users to edit their information
 but not their password. I did quite a bit of background reading on Werkzeug and could not manage to securely retrieve, edit 
 and upload a new hashed password so I've left this out of version one.
+
 - Drink selection - The initial draft of this project had a drop-down field for each user to select the drink they
 purchased during the visit. I couldn't find an easy way allowing users to add a new drink into the database, and sticking
 with just the few that I had added in meant potentially constraining user reviews so I took the feature out for now. 
@@ -192,12 +203,12 @@ a [MongoDB](https://www.mongodb.com/) cluster, and four sub-collections (see the
 Assuming you already have Git [installed](https://git-scm.com/download/), anybody can clone this repository by following 
 these steps:
 
-- Open the command prompt/terminal on your machine;
-- Type the command 'cd' followed by the directory you wish to store the repository in;
-- Go to the top of the [GitHub repository](https://github.com/kiehozero/pintbaby/) and click the green 'Code' drop-down 
+1. Open the command prompt/terminal on your machine;
+2. Type the command 'cd' followed by the directory you wish to store the repository in;
+3. Go to the top of the [GitHub repository](https://github.com/kiehozero/pintbaby/) and click the green 'Code' drop-down 
 button;
-- Copy the [link provided](https://github.com/kiehozero/pintbaby.git);
-- Return to the Command Prompt and type 'git clone' followed by the copied address.
+4. Copy the [link provided](https://github.com/kiehozero/pintbaby.git);
+5. Return to the Command Prompt and type 'git clone' followed by the copied address.
 
 For an in-depth guide to cloning repositories, click 
 [here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from which the steps above were taken.
@@ -276,14 +287,10 @@ pub names and MongoDB document ids and returning the relevant data.
 - In previous projects I have spent a lot of time trying to untangle my own CSS from Bootstrap; in this project I 
 committed myself to using as much content from a pre-built CSS library as I could. The 
 [Materialize](https://materializecss.com/) is a really lightweight and powerful library that provided great results 
-out of the box. The result of this is that nearly all of my CSS styling was around colouring and font selection. I 
-also used plenty of their pre-built templates to get up and running quickly, especially the form, button, card and modal
-templates.
-- The [HTML5 Pattern](https://www.html5pattern.com/Miscs) website is a great resource for understanding the use and
-format of regular expressions in validating user-inputted text;
-- [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
-guide for Pymongo;
-- [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
+out of the box. I used plenty of their pre-built templates to get up and running quickly, especially the form, 
+button, card and modal templates, and was often left just adding some colour styling to get the desired results.
+- [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/) was a great reference in learning to
+understand what Flask can do;
 - [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
 issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md);
 
@@ -297,6 +304,8 @@ insertMany function, then used data I found from a HTML element was created by G
 [DanRovito](https://gist.github.com/DanRovito/977bcb97c9c2dfd3398a). There is also official 
 [pyMongo documentation](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#insert_many) on this
 function;
+- [W3 Schools](https://www.w3schools.com/python/python_mongodb_getstarted.asp) helpfully contains a quick start 
+guide for Pymongo;
 - [Pythonise](https://pythonise.com/series/learning-flask/flask-message-flashing) and 
 [AskPython](https://www.askpython.com/python-modules/flask/flask-flash-method)'s lessons on flash messaging helped 
 me understand a pretty basic part of Flask, but nevertheless a very important one;

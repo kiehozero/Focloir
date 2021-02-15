@@ -80,7 +80,7 @@
                 <li><a href="{{ url_for('add_review') }}" class="mob-heading">Add a Review</a></li>
                 <li><a href="{{ url_for('my_reviews', username=session['user']) }}" class="mob-heading">My Profile</a></li>
             {% endif %}
-            
+
             <!-- Displays the User panel if the user is an admin -->
             {% if session.user == "pbadmin" %}
                 <li><a href="{{ url_for('users') }}" class="mob-heading">Users</a></li>
@@ -104,7 +104,7 @@
                 </div>
             </li>
         </ul>
-        
+
     </header>
 
     <main>

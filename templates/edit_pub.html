@@ -7,7 +7,7 @@
     {% endblock %}
 
     {% block content %}
-        
+
         {% if session.user == "pbadmin" %}
 
             <div class="row center-align">
@@ -16,7 +16,7 @@
             </div>
 
                 <!-- form template taken from Materialize website-->
-                 
+
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_pub', pub_id=pub._id) }}">
 
@@ -42,7 +42,6 @@
 
                         <!-- City (Mandatory) -->
                         <div class="row">
-                            
                             <div class="input-field col s10 offset-s1">
                                 <i class="fas fa-city prefix d-brown"></i>
                                 <input id="city" name="city" type="text"

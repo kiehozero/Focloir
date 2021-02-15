@@ -7,7 +7,7 @@
     {% endblock %}
 
     {% block content %}
-        
+
         {% if session.user %}
 
             <!-- Form is composed of various different elements from Materialize, 
@@ -17,7 +17,7 @@
                 <!-- Bug fix #7: icon centring -->
                 <h4 class="d-brown">Moderate {{review.author}}'s review of {{ review.pub }}</h4>
             </div>
-                 
+
             <div class="row container">
 
                 <form class="col s12 m10 offset-m1" method="POST" 

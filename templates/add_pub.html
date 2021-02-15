@@ -7,7 +7,7 @@
     {% endblock %}
 
     {% block content %}
-        
+
         {% if session.user %}
 
             <div class="row center-align">
@@ -16,7 +16,7 @@
             </div>
 
                 <!-- form template taken from Materialize website -->
-                 
+
                 <div class="row container">
                     <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('add_pub') }}">
 
