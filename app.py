@@ -553,9 +553,7 @@ def server_error(e):
     return render_template("error_handler.html"), 500
 
 
-# Make sure to change the debug true statement below
-# to debug false before project is submitted
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
