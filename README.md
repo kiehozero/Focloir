@@ -214,7 +214,7 @@ I set up the data structure for this project in MongoDB using the following meth
 ## Database Architecture
 
 As mentioned above, the database is built in MongoDB, and a sketch of the database's archtecture can be found
-[here](planning/structure/data-structure.png). The database is built on four collections:
+below. The database is built on four collections:
 
 - The first database a user will contribute to is the User collection. This collects a username, first name, last
 name and password from the user upon registration.
@@ -228,6 +228,8 @@ format via drop-down menus), a drink price (validated insde the HTML element to 
 maximum of two places that is greater than 0), and finally a text-based review.
 - The various admin pages and search function are created by matching and finding various combinations of usernames, 
 pub names and MongoDB document ids and returning the relevant data.
+
+<img src="/planning/certs/data-structure.png">
 
 
 ## Credits

@@ -136,7 +136,7 @@ As an administrator, I want to...
 
 ## Responsiveness
 
-
+<img src="planning/testing/renders.png">
 
 ## Validation
 
