@@ -138,6 +138,8 @@ As an administrator, I want to...
 
 <img src="planning/testing/renders.png">
 
+<img src="planning/testing/render-fixes.png">
+
 ## Validation
 
 ### HTML

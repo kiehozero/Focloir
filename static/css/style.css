@@ -485,3 +485,14 @@ span.character-counter {
         display: none;
     }
 }
+
+@media (max-width: 800px) and (max-height: 1280px) {
+    footer {
+        /* moves footer to bottom to eliminate whitespace on long screens */
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+}
