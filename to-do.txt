@@ -1,8 +1,0 @@
-2. Edit profile page, allow user to change account details or delete altogether - password not working. Just need to modify
-the update function in pymongo to only update a particular field
-3. Add pub form: Validation, see point below as well needs to be strong enough to eliminate addresses that are just all spaces 
-(see emailJS CI tutorial?)
-4. Add review: validation on form currently allows submission all of spaces in textarea
-
-Questions
-- cloning in Heroku and Mongo, is this even possible?
