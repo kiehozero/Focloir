@@ -179,21 +179,9 @@ site on to some friends for UI feedback and some rudimentary data entry testing.
 
 I used [GitHub](https://www.github.com/) as the code host for this project, and [GitPod](https://www.gitpod.io/) to write 
 it, using just a single branch. stuff about [Heroku](https://www.heroku.com/). The actual data is stored within 
-a [MongoDB](https://www.mongodb.com/) cluster >>>.
+a [MongoDB](https://www.mongodb.com/) cluster, and four sub-collections (see the Data Architecture section below).
 
-I deployed this project to Heroku using the following method:
-
-1. >>>;
-2. >>>;
-3. >>>.
-
-I set up the data structure for this project in MongoDB using the following method:
-
-1. >>>;
-2. >>>;
-3. >>>.
-
-### Cloning
+### Cloning the GitHub repository
 
 Assuming you already have Git [installed](https://git-scm.com/download/), anybody can clone this repository by following 
 these steps:
@@ -208,13 +196,38 @@ button;
 For an in-depth guide to cloning repositories, click 
 [here](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/), from which the steps above were taken.
 
-<<<Heroku and Mongo cloning information? Look for other MS3 READMEs>>>
+### Heroku
+
+I deployed this project to Heroku using the following method:
+
+1. >>>;
+2. >>>;
+3. >>>.
+
+I set up the data structure for this project in MongoDB using the following method:
+
+1. >>>;
+2. >>>;
+3. >>>.
 
 
 ## Database Architecture
 
 As mentioned above, the database is built in MongoDB, and a sketch of the database's archtecture can be found
-[here](planning/structure/data-structure.png)
+[here](planning/structure/data-structure.png). The database is built on four collections:
+
+- The first database a user will contribute to is the User collection. This collects a username, first name, last
+name and password from the user upon registration.
+- The second database is the Pubs collection. This takes a name, street, city, county, country and photo URL from
+the user when they add a new pub, although the county and URL fields are optional.
+- A third database that exists solely to feed the Pubs collection is Countries. I've documented how this was built
+in the credits selection, but it serves as a drop-down menu in the Pub creation userform.
+- The Pubs and Users collection both help the user populate the review form, which posts to the Reviews collection
+a review author (passed from the user's username), a visit date (in yyyy-mm-dd format), three ratings (integer 
+format via drop-down menus), a drink price (validated insde the HTML element to provide a decimal number to a 
+maximum of two places that is greater than 0), and finally a text-based review.
+- The various admin pages and search function are created by matching and finding various combinations of usernames, 
+pub names and MongoDB document ids and returning the relevant data.
 
 
 ## Credits
@@ -234,9 +247,6 @@ guide for Pymongo;
 - [PyPi Flask PyMongo documentation](https://pypi.org/project/Flask-PyMongo/);
 - [W3Schools](https://www.w3schools.com/tags/att_input_min.asp) input entries helped me resolve some basic validation 
 issues that my mentor identified. See bugfix #11 in the [testing log](planning/testing/TESTING.md);
-- [Pythonise] has a great tutorial series on using Flask, particularly the link on how to best utilise 
-[flash messaging](https://pythonise.com/series/learning-flask/flask-message-flashing), and also the 
-[error handling](https://pythonise.com/series/learning-flask/flask-error-handling) lesson.
 
 ### Tutorials
 
@@ -259,15 +269,19 @@ provided a quick solution for adding URLs using HTML's form element;
 - [Tutorial Deep](https://tutorialdeep.com/knowhow/open-bootstrap-modal-on-button-click-jquery/) provided a quick guide to using 
 jQuery in contact forms;
 - [RegExOne](https://regexone.com/lesson/repeating_characters) helped me sort out some validation issues that were highlighted in my
-first mentor review.
+first mentor review;
+- [Pythonise] has a great tutorial series on using Flask, particularly the link on how to best utilise 
+[flash messaging](https://pythonise.com/series/learning-flask/flask-message-flashing), and also the 
+[error handling](https://pythonise.com/series/learning-flask/flask-error-handling) lesson.
 
 ### Media
 
-- I found the background image for the landing page on the 
+- I found the background image of Against the Grain for the landing page on the 
 [Rebel Dublin](http://rebeldublin.ie/life-in-dublin/nightlife/dublin-pub-crawl-camden-mile/) website, but the photograph 
 was originally taken by the writers of the [My Name is Ola](http://www.mynameisola.com/en) blog.
-- Black Horse [photo](https://www.robinsonsbrewery.com/pubs/black-horse-preston/) courtesy of RobinsonsBrewery
-- Long Hall [photo](https://suitcasemag.com/articles/best-pubs-dublin)
+- The Black Horse [photo](https://www.robinsonsbrewery.com/pubs/black-horse-preston/) on the landing page is courtesy of 
+Robinson's Brewery.
+- The Long Hall [photo](https://suitcasemag.com/articles/best-pubs-dublin) on the landing page is courtesy of Suitcase.
 - The photos I uploaded when creating new pubs were all sourced from [Google Maps](https://maps.google.com/).
 
 ### Acknowledgements
