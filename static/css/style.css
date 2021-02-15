@@ -379,6 +379,7 @@ span.character-counter {
 /* User Account Page */
 
 .search-button,
+.back-button,
 .review-card-button {
     background-color: #3b382e;
     border-radius: 5px;
@@ -389,6 +390,8 @@ span.character-counter {
 
 .search-button:hover,
 .search-button:focus,
+.back-button:hover,
+.back-button:focus,
 .review-card-button:hover,
 .review-card-button:focus {
     background-color: #cfb53b;
