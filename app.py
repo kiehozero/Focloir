@@ -495,11 +495,43 @@ def view_review(review_id):
     review = mongo.db.reviews.find_one(
         {"_id": ObjectId(review_id)}
     )
+    # pub is called to display photo
     pub = mongo.db.pubs.find_one(
         {"pname": format(review["pub"])}
     )
 
     return render_template("view_review.html", review=review, pub=pub)
+
+
+@app.route("/view_review_admin/<review_id>")
+def view_review_admin(review_id):
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)}
+    )
+    user_id = mongo.db.users.find_one(
+        {"username": format(review["author"])})["_id"]
+    # pub is called to display photo
+    pub = mongo.db.pubs.find_one(
+        {"pname": format(review["pub"])}
+    )
+
+    return render_template(
+        "view_review_admin.html", review=review, user_id=user_id, pub=pub)
+
+
+@app.route("/view_review_user/<review_id>")
+def view_review_user(review_id):
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)}
+    )
+    username = mongo.db.users.find_one(
+        {"username": format(review["author"])})["username"]
+    pub = mongo.db.pubs.find_one(
+        {"pname": format(review["pub"])}
+    )
+
+    return render_template(
+        "view_review_user.html", review=review, username=username, pub=pub)
 
 
 # Below are all error handlers, courtesy
