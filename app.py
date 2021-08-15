@@ -41,7 +41,7 @@ def add_pub():
         }
 
         mongo.db.pubs.insert_one(new_pub)
-        # uses form entry to get pub _id, then passes to redirect
+        # uses form entry to get pub_id, then passes to redirect
         pub_id = mongo.db.pubs.find_one(
             {"pname": format(request.form.get("pname"))})["_id"]
         flash("{} successfully added".format(request.form.get("pname")))
